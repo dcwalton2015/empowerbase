@@ -1,0 +1,58 @@
+== Changelog ==
+
+= 2.1 =
+* Added: French translation fr_FR.po and fr_FR.mo
+* Updated: Reset all settings compatibility with WordPress v4.6
+* Updated: Used the_archive_title() and the_archive_description() in archive.php
+
+= 2.0 =
+* Added: German translation de_DE.po and de_DE.mo
+* Added: Japanese translation ja.po and ja.mo
+* Updated: Danish translation da_DK.po and da_DK.mo
+* Bug Fixed: white space issue
+* Bug Fixed: Featured Slider: Slider Parameters escaping issues
+* Bug Fixed: All instance of get_permalink() escaped properly
+* Bug Fixed: `sprintf() too few arguments` issue on other languages
+* Removed: pngfix class on some images
+* Updated: All instances of http://catchthemes.com changed to https://catchthemes.com
+
+= 1.2 =
+* Updated: Content Width Implementation
+* Updated: Theme Layout retrieval via function
+* Updated: Favicon and Web Clip Migration to Site Icon( Core Support )
+* Updated: Logo to Custom Logo( Core Support ) for WP version 4.5
+
+= 1.1 =
+* Fixed: Page menu class issue in mobile view
+* Updated: Danish translation da_DK.po and da_DK.mo
+* Updated: Sidr menu script to version 2.1.1.1
+* Updated: Meta viewport for better responsive support
+
+= 1.0 =
+* Added: Disable scrollup option
+* Added: Danish translation da_DK.po and da_DK.mo
+* Bug Fixed: Genericions issue with To Top plugin
+* Bug Fixed: Featured content layout issue in 4 columns layout (Reported by: Marius)
+
+= 0.5 =
+* Bug Fixed: Primary menu not showing on mobile (Reported by: dallaseventaudio)
+
+= 0.4 =
+* Added: Social Icons for Phone, Handset, Cart, Cloud, Link( Custom Link )
+* Bug Fixed: Unnecessary codes in clean-box-metabox.php
+* Bug Fixed: Output Sanitization on clean-box-custom-header.php
+* Enhancement: Used antispambot() function on emails output on social icons
+* Updated Genericons to 3.4.1
+* Updated Jetpack Scroll Pagination Option to enable infinite scroll in Reading Settings
+
+= 0.3 =
+* Bug Fixed: Body Classes Layouts Issue
+* Bug Fixed: Navigation css
+* Bug Fixed: Page Header css
+* Bug Fixed: Not Found and Error 404 page template
+
+= 0.2 =
+* Initial Release in CatchThemes.com
+
+= 0.1 =
+* Submitted to WordPress.org

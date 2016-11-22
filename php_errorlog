@@ -1,0 +1,10 @@
+[30-Oct-2016 19:35:40 UTC] PHP Notice:  Trying to get property of non-object in /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php on line 173
+[30-Oct-2016 19:35:40 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php:173) in /home/empowerbase/public_html/wp-includes/pluggable.php on line 1174
+[06-Nov-2016 23:50:37 UTC] PHP Notice:  Trying to get property of non-object in /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php on line 173
+[06-Nov-2016 23:50:37 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php:173) in /home/empowerbase/public_html/wp-includes/pluggable.php on line 1174
+[07-Nov-2016 02:56:19 UTC] PHP Notice:  Trying to get property of non-object in /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php on line 173
+[07-Nov-2016 02:56:19 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php:173) in /home/empowerbase/public_html/wp-includes/class-IXR.php on line 554
+[16-Nov-2016 19:13:14 UTC] PHP Notice:  Undefined index: formtype in /home/empowerbase/public_html/wp-content/plugins/group-activity-db/group-activity-db.php on line 28
+[17-Nov-2016 16:30:40 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[18-Nov-2016 06:08:23 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[18-Nov-2016 06:09:07 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
