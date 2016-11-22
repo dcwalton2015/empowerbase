@@ -6,7 +6,7 @@ date: December 5, 2015
 description: presents the search input form
 -->
 <!--Intro material-->
-<p class="text-info">Enter some fields below and click button to search. Criteria cumulative. You must enter at least one criterion to search, but keep in mind too many may produce no results.</p>
+<p class="text-info">THIS TOOL IS IN TEST MODE. So be patient</P><p>To try it, enter some fields below and click button to search. Criteria cumulative. You must enter at least one criterion to search, but keep in mind too many may produce no results.</p>
 
 <!--Start Form-->
 <?php echo "<form action='' name = 'searchform' method='post'>";?>
