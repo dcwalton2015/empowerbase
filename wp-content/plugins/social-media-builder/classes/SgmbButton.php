@@ -11,7 +11,36 @@ class SGMBButton
 		add_action('admin_post_save_button',array($this,'widgetSave'));
 		add_action('wp_ajax_delete_button', array($this,'widgetDelete'));
 		add_action('wp_ajax_clone_button', array($this,'widgetClone'));
+		add_action('admin_post_export_button', array($this,'exportButtons'));
 		add_action('wp_ajax_close_review_panel', array($this,'closeReviewPanel'));
+		add_action('wp_ajax_import_buttons', array($this,'importButtons'));
+	}
+
+	public function exportButtons()
+	{
+		$allButtons = self::findAll();
+		header("Pragma: public");
+		header("Expires: 0");
+		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+		header("Cache-Control: private", false);
+		header("Content-Type: application/octet-stream");
+		header("Content-Disposition: attachment; filename=\"sgmb-export-data.txt\";" );
+		header("Content-Transfer-Encoding: binary");
+		echo serialize($allButtons);
+	}
+
+	public function importButtons()
+	{
+		global $wpdb;
+		$url = $_POST['attachmentUrl'];
+		$contents = unserialize(file_get_contents($url));
+		foreach ($contents as $content) {
+			$title = $content->title;
+			$options = $content->options;
+			$sql = $wpdb->prepare("INSERT INTO ".$wpdb->prefix.'sgmb_widget'."(title, options) VALUES (%s, %s)", $title, $options);
+			$res = $wpdb->query($sql);
+			echo 'MainRes: '.$res;
+		}
 	}
 
 	public function closeReviewPanel()
@@ -26,7 +55,7 @@ class SGMBButton
 		if (!$id) {
 			return;
 		}
-		$this->delete($id);
+		self::delete($id);
 	}
 
 	public function widgetClone()
@@ -64,8 +93,17 @@ class SGMBButton
 		$options = array();
 		$buttons = array();
 		$selectedPosts = array();
+		$sgmbSelectedCustomPosts = array();
+
+		if(isset($_POST['sgmbSelectedCustomPosts'])) {
+			foreach ($_POST['sgmbSelectedCustomPosts'] as  $post) {
+				$sgmbSelectedCustomPosts[] = sanitize_text_field($post);
+			}
+		}
 
 		$sgmbSelectedPosts = explode(",", $this->sanitize('sgmb-all-selected-post'));
+		$sgmbSelectedPages = explode(",", $this->sanitize('sgmb-all-selected-page'));
+		$sgmbExcludedPosts = explode(",", $this->sanitize('sgmb-all-excluded-post'));
 
 		$button = explode(',',sanitize_text_field($_POST['button']));
 		foreach ($button as $value) {
@@ -80,7 +118,8 @@ class SGMBButton
 				if($value == 'fbLike') {
 					$buttons[$value] = array(
 						'fbLikeLayout'=>$this->sanitize('fbLikeLayout'),
-						'fbLikeActionType'=>$this->sanitize('fbLikeActionType')
+						'fbLikeActionType'=>$this->sanitize('fbLikeActionType'),
+						'fbLikeUrl'=>$this->sanitize('fbLikeUrl')
 					);
 				}
 				else {
@@ -111,7 +150,7 @@ class SGMBButton
 			'fontSize' => $this->sanitize('sgmbSocialButtonSize'),
 			'betweenButtons' => $this->sanitize('betweenButtons'),
 			'theme' => $this->sanitize('theme'),
-			'buttonsPosition' => $this->sanitize('buttonsPosition'),
+			'sgmbButtonsPosition' => $this->sanitize('sgmb-buttons-position'),
 			'socialTheme' => $this->sanitize('socialTheme'),
 			'icon' => $this->sanitize('logo'),
 			'buttonsPanelEffect' => $this->sanitize('buttonsPanelEffect'),
@@ -123,17 +162,30 @@ class SGMBButton
 			'showCounts' => $this->sanitize('showCounts'),
 			'showCenter' => $this->sanitize('showCenter'),
 			'showButtonsAsList' => $this->sanitize('showButtonsAsList'),
-			'setButtonsPosition' => $this->sanitize('setButtonsPosition'),
 			'sgmbDropdownColor' => $this->sanitize('sgmbDropdownColor'),
 			'sgmbDropdownLabelFontSize' => $this->sanitize('sgmbDropdownLabelFontSize'),
 			'sgmbDropdownLabelColor' => $this->sanitize('sgmbDropdownLabelColor'),
 			'theme' => $this->sanitize('theme'),
 			'showButtonsOnEveryPost' => $this->sanitize('showButtonsOnEveryPost'),
-			'showOnAllPost' => $this->sanitize('showOnAllPost'),
-			'sgmbPostionOnEveryPost' => $this->sanitize('sgmbPostionOnEveryPost'),
+			'selectedOrExcluded' => $this->sanitize('selected-or-excluded-posts'),
+			'showButtonsOnEveryPage' => $this->sanitize('showButtonsOnEveryPage'),
 			'textOnEveryPost' => $this->sanitize('textOnEveryPost'),
+			'showButtonsOnCustomPost' => $this->sanitize('showButtonsOnCustomPost'),
+			'textOnCustomPost' => $this->sanitize('textOnCustomPost'),
 			'showButtonsOnMobileDirect' => $this->sanitize('showButtonsOnMobileDirect'),
-			'sgmbSelectedPosts' => $sgmbSelectedPosts
+			'showButtonsOnDesktopDirect' => $this->sanitize('showButtonsOnDesktopDirect'),
+			'sgmbSelectedPosts' => $sgmbSelectedPosts,
+			'sgmbSelectedPages' => $sgmbSelectedPages,
+			'sgmbExcludedPosts' => $sgmbExcludedPosts,
+			'sgmbSelectedCustomPosts' => $sgmbSelectedCustomPosts,
+			'showButtonsInPopup' => $this->sanitize('showButtonsInPopup'),
+			'titleOfPopup' => $this->sanitize('titleOfPopup'),
+			'descriptionOfPopup' => $this->sanitize('descriptionOfPopup'),
+			'showPopupOnLoad' => $this->sanitize('showPopupOnLoad'),
+			'showPopupOnScroll' => $this->sanitize('showPopupOnScroll'),
+			'showPopupOnExit' => $this->sanitize('showPopupOnExit'),
+			'openSecondsOfPopup' => $this->sanitize('openSecondsOfPopup'),
+			'googleAnaliticsAccount' => $this->sanitize('googleAnaliticsAccount')
 		);
 
 		$id = $this->sanitize('hidden_button_id');
@@ -142,14 +194,51 @@ class SGMBButton
 		$this->setTitle($title);
 		$this->setId($id);
 		$this->setOptions($jsonDataArray);
+		$this->backwardCompatibilityConvertation($id);
 		$this->save();
 		$id = $this->getId();
 		$optionsAsArray = json_decode($this->getOptions(), true);
+
 		if(@$optionsAsArray['showButtonsOnEveryPost'] == 'on') {
 			update_option('SGMB_SHARE_BUTTON_ID', $id);
 		}
+		if(@$optionsAsArray['showButtonsOnCustomPost'] == 'on') {
+			update_option('SGMB_BUTTON_ID_FOR_CUSTOM_POST', $id);
+		}
+		if(@$optionsAsArray['showButtonsOnEveryPage'] == 'on') {
+			update_option('SGMB_BUTTON_ID_FOR_EVERY_PAGE', $id);
+		}
 		wp_redirect(SGMB_ADMIN_URL."admin.php?page=create-button&id=$id&saved=1");
 		exit();
+	}
+
+	public function backwardCompatibilityConvertation($id)
+	{
+		$result = false;
+		if ($id) {
+			$result = SGMBButton::findById($id);
+		}
+
+		if ($result) {
+			$data = json_decode($result->getOptions(), true);
+		}
+
+		if (isset($data['sgmbPostionOnEveryPost']) && $data['sgmbPostionOnEveryPost'] != null) {
+			$optionsAsArray = json_decode($this->getOptions(), true);
+			switch (@$data['sgmbPostionOnEveryPost']) {
+				case 'Left':
+					$optionsAsArray['sgmbButtonsPosition'] = 'bottomLeft';
+					break;
+				case 'Center':
+					$optionsAsArray['sgmbButtonsPosition'] = 'bottomCenter';
+					break;
+				case 'Right':
+					$optionsAsArray['sgmbButtonsPosition'] = 'bottomRight';
+					break;
+			}
+			$jsonDataArray = json_encode($optionsAsArray);
+			$this->setOptions($jsonDataArray);
+		}
 	}
 
 	public function setTitle($title)

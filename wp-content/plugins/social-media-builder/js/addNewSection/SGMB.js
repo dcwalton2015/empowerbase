@@ -1,10 +1,14 @@
-var jQuery = jQuery;
+var $ = jQuery;
 
 function SGMB() {
-	this.buttons = ['facebook', 'googleplus', 'twitter', 'email', 'linkedin', 'pinterest', 'mewe', 'twitterFollow', 'fbLike', 'whatsapp', 'tumblr', 'reddit', 'line', 'vk', 'stumbleupon'];
+	this.buttons = ['facebook', 'googleplus', 'twitter', 'email', 'linkedin', 'pinterest', 'twitterFollow', 'fbLike', 'whatsapp', 'tumblr', 'reddit', 'line', 'vk', 'stumbleupon', 'mewe'];
 	this.theme = {
 		"classic" : {
 			"socialTheme":"classic",
+			"icons":"default"
+		},
+		"flat" : {
+			"socialTheme":"flat",
 			"icons":"default"
 		},
 		"cloud" : {
@@ -26,6 +30,42 @@ function SGMB() {
 		"round" : {
 			"socialTheme":"minima",
 			"icons":"round"
+		},
+		"silverround" : {
+			"socialTheme":"plain",
+			"icons":"silverround"
+		},
+		"goodstaff" : {
+			"socialTheme":"minima",
+			"icons":"goodstaff"
+		},
+		"heart" : {
+			"socialTheme":"minima",
+			"icons":"heart"
+		},
+		"round-dot" : {
+			"socialTheme":"minima",
+			"icons":"round-dot"
+		},
+		"hex" : {
+			"socialTheme":"minima",
+			"icons":"hex"
+		},
+		"cork" : {
+			"socialTheme":"minima",
+			"icons":"cork"
+		},
+		"pen" : {
+			"socialTheme":"minima",
+			"icons":"pen"
+		},
+		"black" : {
+			"socialTheme":"minima",
+			"icons":"black"
+		},
+		"multi" : {
+			"socialTheme":"minima",
+			"icons":"multi"
 		}
 	};
 	this.livePreview = new SGMBLivePreview();
@@ -34,12 +74,13 @@ function SGMB() {
 
 SGMB.prototype.init = function(data, sgmbIsPro)
 {
-	this.initTabs();
-	this.initDragAndDrop(sgmbIsPro);
-	this.initAccordion();
+	this.initWizardTabs(data);
 	this.livePreview.init();
-	this.setButtonInArray(data);
-	this.initButtonOptions();
+	this.setButtonAsSelected(data);
+	this.setButton(data);
+	this.sortable();
+	this.tooltip();
+	this.setValueInModal();
 }
 
 SGMB.prototype.getLivePreview = function()
@@ -47,7 +88,7 @@ SGMB.prototype.getLivePreview = function()
 	return this.livePreview;
 }
 
-SGMB.prototype.setButtonInArray = function(data)
+SGMB.prototype.setButtonAsSelected = function(data)
 {
 	for (var buttonName in data.button) {
 		var button = data.button[buttonName];
@@ -55,59 +96,58 @@ SGMB.prototype.setButtonInArray = function(data)
 	}
 }
 
-SGMB.prototype.initAccordion = function()
+SGMB.prototype.setButton = function(data)
 {
-	var that = this;
-	jQuery( "#accordion" ).accordion({
-		heightStyle: "content"
-	});
-	jQuery.each( that.buttons, function( key, value ) {
-		jQuery('.'+ value).hide();
-	});
+	this.buttonPanel.setButton(data);
 }
 
-SGMB.prototype.initButtonOptions = function()
+SGMB.prototype.initWizardTabs = function(data)
 {
-	var that = this;
-	jQuery('.ui-widget-content').on('optionsFadeIn', function(e){
-		var id = jQuery(this).attr('id');
-		that.showAdvancedOption(id);
-	});
+	if (data.id) {
+		$('#sgmb-create-button-wizard').smartWizard({transitionEffect:'slide', enableAllSteps:true, labelFinish:'Save Changed'});
+	}
+	else {
+		$('#sgmb-create-button-wizard').smartWizard({transitionEffect:'slide', labelFinish:'Save Changed'});
+	}
+}
 
-	jQuery('.ui-widget-content').on('optionsFadeOut', function(e, param){
-		var id = jQuery(this).attr('id');
-		that.hideAdvancedOption(id);
-		var selButtons = that.buttonPanel.getSelButtons();
-		if(selButtons.length != 0) {
-			if(selButtons[0] == id) {
-				that.showAdvancedOption(selButtons[1]);
-			}
-			else {
-				that.showAdvancedOption(selButtons[0]);
+SGMB.prototype.sortable = function()
+{
+	this.buttonPanel.sortable();
+}
+
+SGMB.prototype.tooltip = function()
+{
+	jQuery('.share-url-info').tooltip({
+		position: {
+			my: "center bottom-20",
+			at: "center top",
+			using: function( position, feedback ) {
+				$( this ).css( position );
+				$("<div>")
+				.addClass("arrow")
+				.addClass(feedback.vertical)
+				.addClass(feedback.horizontal)
+				.appendTo(this);
 			}
 		}
 	});
 }
 
-SGMB.prototype.initTabs = function()
+SGMB.prototype.setValueInModal = function()
 {
-	jQuery( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
-	jQuery( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
-}
+	jQuery(".sgmb-save-twitter-more-options").bind('click', function() {
+		jQuery(".sgmb-twitter-hashtags-val").val(jQuery("#twitter-hashtags").val());
+		jQuery(".sgmb-twitter-via-val").val(jQuery("#twitter-via").val());
+	});
 
-SGMB.prototype.initDragAndDrop = function(sgmbIsPro)
-{
-	this.buttonPanel.dragAndDrop(sgmbIsPro);
-}
+	jQuery(".sgmb-save-fbLike-more-options").bind('click', function() {
+		jQuery(".sgmb-fbLikeLayout-val").val(jQuery("select[name='fbLikeLayout']").val());
+		jQuery(".sgmb-fbLikeActionType-val").val(jQuery("select[name='fbLikeActionType']").val());
+	});
 
-SGMB.prototype.showAdvancedOption = function(id)
-{
-	jQuery('.'+id).show();
-	jQuery( "#accordion" ).accordion("refresh");
-	jQuery('.'+id).click();
-}
-
-SGMB.prototype.hideAdvancedOption = function(id)
-{
-	jQuery('.'+id).hide();
+	jQuery(".sgmb-save-twitterFollow-more-options").bind('click', function() {
+		jQuery("[name='twitterFollowShowCounts']").attr('checked', jQuery("#twitterFollowShowCounts").is(":checked"));
+		jQuery("[name='setLargeSizeForTwitterFollow']").attr('checked', jQuery("#setLargeSizeForTwitterFollow").is(":checked"));
+	});
 }

@@ -1,3 +1,5 @@
+.jssocials-share-link:hover { box-shadow: none !important; }
+
 .jssocials-theme-classic .jssocials-share-line .jssocials-share-link {
 	background: #25af00;
 	border: 1px solid #209600;

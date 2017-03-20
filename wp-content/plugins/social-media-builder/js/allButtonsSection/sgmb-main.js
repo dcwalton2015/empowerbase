@@ -30,7 +30,7 @@ jQuery(document).ready(function($){
 			button_id: button_id
 		}
 		$.post(ajaxurl, data, function(response,d) {
-			location.reload();
+			location.reload(); 
 		});
 	});
 });

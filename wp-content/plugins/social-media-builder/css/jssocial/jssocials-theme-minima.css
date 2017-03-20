@@ -1,5 +1,9 @@
+.jssocials-share-link:hover { box-shadow: none !important; }
+
+.jssocials-theme-minima .jssocials-share-reddit .jssocials-share-link .jssocials-share-label { color: #FF4500; }
+
 .jssocials-theme-minima .jssocials-share-whatsapp .jssocials-share-link { color: #29a628; }
-  
+
 .jssocials-theme-minima .jssocials-share-whatsapp .jssocials-share-link .jssocials-share-label { color: #29a628; }
 
 .jssocials-theme-minima .jssocials-share-whatsapp .jssocials-share-link:hover, .jssocials-share-whatsapp .jssocials-share-link:focus, .jssocials-share-whatsapp .jssocials-share-link:active { color: #1f7d1e; }
@@ -17,7 +21,7 @@
 .jssocials-theme-minima .jssocials-share-facebook .jssocials-share-link { color: #3b5998; }
 
 .jssocials-theme-minima .jssocials-share-facebook .jssocials-share-link .jssocials-share-label { color: #3b5998; }
-  
+
 .jssocials-theme-minima .jssocials-share-facebook .jssocials-share-link:hover, .jssocials-share-facebook .jssocials-share-link:focus, .jssocials-share-facebook .jssocials-share-link:active { color: #2d4373; }
 
 .jssocials-theme-minima .jssocials-share-facebook .jssocials-share-link:hover .jssocials-share-label, .jssocials-share-facebook .jssocials-share-link:focus .jssocials-share-label, .jssocials-share-facebook .jssocials-share-link:active .jssocials-share-label { color: #2d4373; }
@@ -56,25 +60,25 @@
 
 .jssocials-theme-minima .jssocials-share-link {
 	-webkit-transition: color 200ms ease-in-out;
-			transition: color 200ms ease-in-out; 
+			transition: color 200ms ease-in-out;
 }
-  
+
 .jssocials-theme-minima .jssocials-share-link.jssocials-share-link-count .jssocials-share-count { font-size: .5em; }
 
 .jssocials-theme-minima .jssocials-share-label {
 	font-size: 0.8em;
 	color: #444;
 	-webkit-transition: color 200ms ease-in-out;
-			transition: color 200ms ease-in-out; 
+			transition: color 200ms ease-in-out;
 }
 
 .jssocials-theme-minima .jssocials-share-count-box {
 	margin-left: 0.3em;
 	border: 1px solid #efefef;
-	border-radius: 0.3em; 
+	border-radius: 0.3em;
 }
-  
+
 .jssocials-theme-minima .jssocials-share-count-box .jssocials-share-count {
 	font-size: 0.8em;
-	color: #444; 
+	color: #444;
 }

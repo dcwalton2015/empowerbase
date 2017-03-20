@@ -51,7 +51,7 @@
 		mewe: {
 			label: "mewe",
 			logo: "fa fa-mewe",
-			shareUrl: "https://mewe.com/share?link={url}",
+			shareUrl: "http://mewe.com/share?link={url}",
 			countUrl: ""
 		},
 
@@ -95,7 +95,7 @@
 		line: {
 			label: "LINE",
 			logo: "fa fa-comment",
-			shareUrl: "https://line.me/R/msg/text/?{text} {url}",
+			shareUrl: "http://line.me/R/msg/text/?{text} {url}",
 			countUrl: ""
 		},
 

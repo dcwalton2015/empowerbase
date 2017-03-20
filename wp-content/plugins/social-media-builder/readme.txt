@@ -4,7 +4,7 @@ Contributors: Social Media By Sygnoos, Support by Sygnoos
 Donate link: https://sygnoos.com/
 Tags: social, social follow, social following, social links, social media, social media buttons, social media icons, social media widget, social share, social sharing, social widget, social media, floating buttons, facebook, twitter, social bar, anlytics, linkedin, pinterest, AddThis
 Requires at least: 3.8
-Tested up to: 4.6.1
+Tested up to: 4.7.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -76,7 +76,7 @@ Its user-friendly interface will allow even those 'non-techie' individuals to us
 * 15 Social Button Icons
 * 16 Themes
 * Insert Social Buttons on custom posts
-* Insert Socail Buttons on every page
+* Insert Social Buttons on every page
 * Show Social buttons inside a popup
 * Exit-Intent popup
 * Show popup after amount of time
@@ -116,6 +116,29 @@ Social MediaF.A.Q.= What is Social Media for? =* You can make your pages mor
 4.  Social Buttons visual screen
 
 == Changelog ==
+
+= 2.0.3 =
+* Bug fixes.
+* Code improvements.
+
+= 2.0.2 =
+* PHP warnings fixed.
+
+= 2.0.1 =
+* Bug fixes.
+* Code optimization.
+
+= 2.0 =
+* Redesign.
+* Code optimization.
+* Bug fixes.
+
+
+= 1.4.9.1 =
+* CSS bug fixed connected to button style.
+
+= 1.4.9 =
+* Typo fixed.
 
 = 1.4.8 =
 * Bug fixed connected to mail button.
@@ -171,7 +194,7 @@ Social MediaF.A.Q.= What is Social Media for? =* You can make your pages mor
 * Bug fixed connected to post selection, where social buttons should be shown.
 
 = 1.3.0 =
-* Added clone functionlity.
+* Added clone functionality.
 * UI changes.
 
 = 1.2.9 =
@@ -202,7 +225,7 @@ Social MediaF.A.Q.= What is Social Media for? =* You can make your pages mor
 * CSS bug fixed.
 
 = 1.2.0 =
-* Added new feature which will allow you to control spaceing between social buttons.
+* Added new feature which will allow you to control spacing between social buttons.
 
 = 1.1.9 =
 * Frontend bug fixed.
@@ -220,7 +243,7 @@ Social MediaF.A.Q.= What is Social Media for? =* You can make your pages mor
 * Javascript bug fixed.
 
 = 1.1.4 =
-* Code cleenup.
+* Code cleanup.
 * Minor bug fixes.
 
 = 1.1.3 =
@@ -233,7 +256,7 @@ Social MediaF.A.Q.= What is Social Media for? =* You can make your pages mor
 * UI optimization.
 
 = 1.1.0 =
-* Code cleenup.
+* Code cleanup.
 
 = 1.0.9 =
 * Minor bug fixes.
@@ -253,13 +276,13 @@ Social MediaF.A.Q.= What is Social Media for? =* You can make your pages mor
 
 = 1.0.4 =
 * Bug fixed.
-* Code cleenup.
+* Code cleanup.
 
 = 1.0.3 =
 * Bug fixed.
 
 = 1.0.2 =
-* Avalability to add social buttons to post.
+* Availability to add social buttons to post.
 * Button Hover effects added.
 * Bug fixed.
 
@@ -271,4 +294,4 @@ Social MediaF.A.Q.= What is Social Media for? =* You can make your pages mor
 
 == Upgrade Notice ==
 
-Current version of Social Media is 1.4.8
+Current version of Social Media is 2.0.3

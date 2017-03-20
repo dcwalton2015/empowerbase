@@ -21,7 +21,7 @@
   font-size: 1.5em; }
 
 img.jssocials-share-logo {
-  width: auto;
+  width: auto !important;
   height: 1em; }
 
 .jssocials-share-link {

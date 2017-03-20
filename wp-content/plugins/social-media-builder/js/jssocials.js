@@ -264,7 +264,7 @@
         _formatShareUrl: function(url, share) {
             url = url.replace(URL_PARAMS_REGEX, function(match, key, field) {
                 var value = share[field] || "";
-                return value ? (key + window.encodeURIComponent(value)) : "";
+                return value ? (key + escape(value)) : "";
             });
 
             return url.replace(FIELD_SUBSTITUTION_REGEX, function(match, field) {
