@@ -1,10 +1,67 @@
-[30-Oct-2016 19:35:40 UTC] PHP Notice:  Trying to get property of non-object in /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php on line 173
-[30-Oct-2016 19:35:40 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php:173) in /home/empowerbase/public_html/wp-includes/pluggable.php on line 1174
-[06-Nov-2016 23:50:37 UTC] PHP Notice:  Trying to get property of non-object in /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php on line 173
-[06-Nov-2016 23:50:37 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php:173) in /home/empowerbase/public_html/wp-includes/pluggable.php on line 1174
-[07-Nov-2016 02:56:19 UTC] PHP Notice:  Trying to get property of non-object in /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php on line 173
-[07-Nov-2016 02:56:19 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php:173) in /home/empowerbase/public_html/wp-includes/class-IXR.php on line 554
-[16-Nov-2016 19:13:14 UTC] PHP Notice:  Undefined index: formtype in /home/empowerbase/public_html/wp-content/plugins/group-activity-db/group-activity-db.php on line 28
-[17-Nov-2016 16:30:40 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
-[18-Nov-2016 06:08:23 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
-[18-Nov-2016 06:09:07 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[07-Dec-2016 05:25:48 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[07-Dec-2016 05:25:54 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[08-Dec-2016 06:39:32 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[10-Dec-2016 09:46:05 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[10-Dec-2016 09:46:42 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[15-Dec-2016 07:39:40 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[15-Dec-2016 07:39:53 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[19-Dec-2016 17:31:04 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[22-Dec-2016 03:02:28 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[22-Dec-2016 03:02:36 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[22-Dec-2016 12:18:33 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[29-Dec-2016 12:17:36 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[05-Jan-2017 23:12:04 UTC] PHP Notice:  Trying to get property of non-object in /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php on line 173
+[05-Jan-2017 23:12:04 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php:173) in /home/empowerbase/public_html/wp-includes/IXR/class-IXR-server.php on line 149
+[07-Jan-2017 19:51:54 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[07-Jan-2017 19:52:10 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[08-Jan-2017 15:37:33 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[12-Jan-2017 03:58:09 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[12-Jan-2017 03:58:17 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[16-Jan-2017 05:28:06 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[16-Jan-2017 05:28:11 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[19-Jan-2017 08:28:42 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[20-Jan-2017 00:46:28 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[21-Jan-2017 10:09:22 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[21-Jan-2017 10:09:36 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[21-Jan-2017 19:28:42 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[23-Jan-2017 23:08:58 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[23-Jan-2017 23:09:08 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[26-Jan-2017 15:08:36 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[26-Jan-2017 15:08:59 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[28-Jan-2017 10:49:20 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[28-Jan-2017 10:49:26 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[28-Jan-2017 13:47:07 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[29-Jan-2017 21:28:35 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[29-Jan-2017 22:49:54 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[29-Jan-2017 22:49:58 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[01-Feb-2017 02:55:32 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[01-Feb-2017 02:55:39 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[02-Feb-2017 15:46:52 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[02-Feb-2017 15:47:09 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[05-Feb-2017 06:35:48 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[05-Feb-2017 06:36:24 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[05-Feb-2017 23:43:42 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[07-Feb-2017 22:41:53 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[07-Feb-2017 22:42:36 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[08-Feb-2017 02:42:03 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[09-Feb-2017 19:43:56 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[09-Feb-2017 19:44:07 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[10-Feb-2017 17:22:19 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[12-Feb-2017 02:59:58 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[12-Feb-2017 03:00:10 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[15-Feb-2017 02:46:34 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[15-Feb-2017 02:46:48 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[16-Feb-2017 12:26:04 UTC] PHP Notice:  Trying to get property of non-object in /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php on line 173
+[16-Feb-2017 12:26:04 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php:173) in /home/empowerbase/public_html/wp-includes/IXR/class-IXR-server.php on line 149
+[16-Feb-2017 15:42:19 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[20-Feb-2017 11:03:33 UTC] PHP Notice:  Trying to get property of non-object in /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php on line 173
+[20-Feb-2017 11:03:33 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/empowerbase/public_html/wp-content/plugins/akismet/class.akismet.php:173) in /home/empowerbase/public_html/wp-includes/IXR/class-IXR-server.php on line 149
+[25-Feb-2017 08:52:59 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[25-Feb-2017 08:53:09 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[27-Feb-2017 12:16:53 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[07-Mar-2017 05:37:52 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[07-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[09-Mar-2017 05:20:22 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[16-Mar-2017 01:02:37 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[16-Mar-2017 01:02:47 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
+[18-Mar-2017 15:12:56 UTC] PHP Notice:  Undefined index: Education_Hub_Social_Widget in /home/empowerbase/public_html/wp-includes/widgets.php on line 1039
