@@ -7,7 +7,7 @@ define('SGMB_FILES', SGMB_PATH.'files/');
 define('SGMB_CLASSES', SGMB_PATH.'classes/');
 define('SGMB_LIBRARY', SGMB_PATH.'library/');
 define('SGMB_TABLE_LIMIT', 15);
-define('SGMB_SHARE_BUTTON_VERSION', '2.03');
+define('SGMB_SHARE_BUTTON_VERSION', '2.07');
 define('SGMB_DEFAULT_SHARE_URL', "http://google.com");
 define('SGMB_DEFAULT_THEME', "classic");
 define('SGMB_PRO', 0); //  0 -> free, 1 -> pro

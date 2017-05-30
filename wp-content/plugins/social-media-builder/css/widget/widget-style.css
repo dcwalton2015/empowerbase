@@ -218,6 +218,7 @@
 	display: inline-block !important;
 	height: 1em !important;
 	box-shadow: none !important;
+	padding: 0px !important;
 }
 
 .sgmbUpgrateProButton
@@ -227,9 +228,14 @@
 	color: white;
 	cursor: pointer;
 	float: right;
+	padding: 10px;
 }
 
-.h1-for-headers-wrapper { padding: 9px 0px 4px 0px !important; }
+.h1-for-headers-wrapper
+{
+	padding: 9px 0px 4px 0px !important;
+	margin-bottom: 13px !important;
+}
 
 .sgmb-pro-label
 {
