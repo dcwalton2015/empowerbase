@@ -8,6 +8,21 @@ $wp_customize->add_section( 'supermag-header-social', array(
     'panel'          => 'supermag-header-panel'
 ) );
 
+
+/*enable social*/
+$wp_customize->add_setting( 'supermag_theme_options[supermag-enable-social]', array(
+	'capability'		=> 'edit_theme_options',
+	'default'			=> $defaults['supermag-enable-social'],
+	'sanitize_callback' => 'supermag_sanitize_checkbox',
+) );
+$wp_customize->add_control( 'supermag_theme_options[supermag-enable-social]', array(
+	'label'		=> __( 'Enable social', 'supermag' ),
+	'section'   => 'supermag-header-social',
+	'settings'  => 'supermag_theme_options[supermag-enable-social]',
+	'type'	  	=> 'checkbox',
+	'priority'  => 10
+) );
+
 /*facebook url*/
 $wp_customize->add_setting( 'supermag_theme_options[supermag-facebook-url]', array(
     'capability'		=> 'edit_theme_options',
@@ -92,18 +107,4 @@ $wp_customize->add_control( 'supermag_theme_options[supermag-pinterest-url]', ar
     'settings'  => 'supermag_theme_options[supermag-pinterest-url]',
     'type'	  	=> 'url',
     'priority'  => 35
-) );
-
-/*enable social*/
-$wp_customize->add_setting( 'supermag_theme_options[supermag-enable-social]', array(
-    'capability'		=> 'edit_theme_options',
-    'default'			=> $defaults['supermag-enable-social'],
-    'sanitize_callback' => 'supermag_sanitize_checkbox',
-) );
-$wp_customize->add_control( 'supermag_theme_options[supermag-enable-social]', array(
-    'label'		=> __( 'Enable social', 'supermag' ),
-    'section'   => 'supermag-header-social',
-    'settings'  => 'supermag_theme_options[supermag-enable-social]',
-    'type'	  	=> 'checkbox',
-    'priority'  => 90
 ) );

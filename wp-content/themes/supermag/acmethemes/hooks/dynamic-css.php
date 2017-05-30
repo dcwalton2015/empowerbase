@@ -2,7 +2,7 @@
 /**
  * Dynamic css
  *
- * @since supermag 1.1.0
+ * @since SuperMag 1.1.0
  *
  * @param null
  * @return null
@@ -12,9 +12,9 @@ if ( ! function_exists( 'supermag_dynamic_css' ) ) :
 
     function supermag_dynamic_css() {
 
-        global $supermag_customizer_all_values;
+	    $supermag_customizer_all_values = supermag_get_theme_options();
         /*Color options */
-        $supermag_primary_color = $supermag_customizer_all_values['supermag-primary-color'];
+        $supermag_primary_color = esc_attr( $supermag_customizer_all_values['supermag-primary-color'] );
 
         $custom_css = '';
 
@@ -35,6 +35,7 @@ if ( ! function_exists( 'supermag_dynamic_css' ) ) :
             .header-wrapper .menu > li.current_page_parent > a:before,
             .header-wrapper .menu > li.current_page_ancestor > a:before,
             .header-wrapper .main-navigation ul ul.sub-menu li:hover > a,
+            .header-wrapper .main-navigation ul ul.children li:hover > a,
             .slider-section .cat-links a,
             .featured-desc .below-entry-meta .cat-links a,
             #calendar_wrap #wp-calendar #today,
@@ -70,7 +71,10 @@ if ( ! function_exists( 'supermag_dynamic_css' ) ) :
             .byline a:hover,
             .nav-links a:hover,
             #supermag-breadcrumbs a:hover,
-            .wpcf7-form input.wpcf7-submit {
+            .wpcf7-form input.wpcf7-submit,
+             .woocommerce nav.woocommerce-pagination ul li a:focus, 
+.woocommerce nav.woocommerce-pagination ul li a:hover, 
+.woocommerce nav.woocommerce-pagination ul li span.current{
                 color: {$supermag_primary_color};
             }";
 
@@ -97,14 +101,16 @@ if ( ! function_exists( 'supermag_dynamic_css' ) ) :
             .widget-title,
             .footer-wrapper,
             .page-header .page-title,
-            .single .entry-header .entry-title{
+            .single .entry-header .entry-title,
+            .page .entry-header .entry-title{
                 border-bottom: 1px solid {$supermag_primary_color};
             }";
 
         $custom_css .= "
             .widget-title:before,
             .page-header .page-title:before,
-            .single .entry-header .entry-title:before{
+            .single .entry-header .entry-title:before,
+            .page .entry-header .entry-title:before {
                 border-bottom: 7px solid {$supermag_primary_color};
             }";
 
@@ -130,7 +136,9 @@ if ( ! function_exists( 'supermag_dynamic_css' ) ) :
                 .slicknav_btn.slicknav_open{
                     border: 1px solid {$supermag_primary_color};
                 }
-                 .header-wrapper .main-navigation ul ul.sub-menu li:hover > a{
+                 .header-wrapper .main-navigation ul ul.sub-menu li:hover > a,
+                 .header-wrapper .main-navigation ul ul.children li:hover > a
+                 {
                          background: #2d2d2d;
                  }
                 .slicknav_btn.slicknav_open:before{
@@ -147,6 +155,77 @@ if ( ! function_exists( 'supermag_dynamic_css' ) ) :
                 }
             }";
 
+        /*category color*/
+	    /*category color options*/
+	    $args = array(
+		    'orderby' => 'id',
+		    'hide_empty' => 0
+	    );
+	    $categories = get_categories( $args );
+	    $wp_category_list = array();
+	    $i = 1;
+	    foreach ($categories as $category_list ) {
+		    $wp_category_list[$category_list->cat_ID] = $category_list->cat_name;
+
+		    $cat_color = 'cat-'.esc_attr( get_cat_id($wp_category_list[$category_list->cat_ID]) );
+		    $cat_hover_color = 'cat-hover-'.esc_attr( get_cat_id($wp_category_list[$category_list->cat_ID]) );
+
+		    if( isset( $supermag_customizer_all_values[$cat_color] )){
+			    $cat_color = $supermag_customizer_all_values[$cat_color];
+			    if( !empty( $cat_color )){
+				    $custom_css .= "
+                    .cat-links .at-cat-item-{$category_list->cat_ID}{
+                    background: {$cat_color}!important;
+                    color : #fff!important;
+                    }
+                    ";
+
+				    /*widget tittle*/
+				    $custom_css .= "
+                    .at-cat-color-wrap-{$category_list->cat_ID} .widget-title::before,
+                    body.category-{$category_list->cat_ID} .page-header .page-title::before
+                    {
+                     border-bottom: 7px solid {$cat_color};
+                    }
+                    ";
+				    $custom_css .= "
+                    .at-cat-color-wrap-{$category_list->cat_ID} .widget-title,
+                     body.category-{$category_list->cat_ID} .page-header .page-title
+                    {
+                     border-bottom: 1px solid {$cat_color};
+                    }";
+			    }
+		    }
+		    else{
+			    $custom_css .= "
+                    .cat-links .at-cat-item-{$category_list->cat_ID}{
+                    background: {$supermag_primary_color}!important;
+                    color : #fff!important;
+                    }
+                    ";
+		    }
+		    if( isset( $supermag_customizer_all_values[$cat_hover_color] )){
+			    $cat_hover_color = $supermag_customizer_all_values[$cat_hover_color];
+			    if( !empty( $cat_hover_color )){
+				    $custom_css .= "
+                    .cat-links .at-cat-item-{$category_list->cat_ID}:hover{
+                    background: {$cat_hover_color}!important;
+                    color : #fff!important;
+                    }
+                    ";
+			    }
+		    }
+		    else{
+			    $custom_css .= "
+                    .cat-links .at-cat-item-{$category_list->cat_ID}:hover{
+                    background: #2d2d2d!important;
+                    color : #fff!important;
+                    }
+                    ";
+		    }
+		    $i++;
+	    }
+        /*category color end*/
         /*custom css*/
         $supermag_custom_css = wp_strip_all_tags ( $supermag_customizer_all_values['supermag-custom-css'] );
         if ( ! empty( $supermag_custom_css ) ) {

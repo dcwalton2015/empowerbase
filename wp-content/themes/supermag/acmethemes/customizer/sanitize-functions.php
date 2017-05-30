@@ -22,7 +22,7 @@ endif;
 /**
  * Sanitizing the checkbox
  *
- * @since supermag 1.0.0
+ * @since SuperMag 1.0.0
  *
  * @param $checked
  * @return Boolean
@@ -39,7 +39,7 @@ endif;
 /**
  * Sanitizing the page/post
  *
- * @since supermag 1.0.0
+ * @since SuperMag 1.0.0
  *
  * @param $input user input value
  * @return sanitized output as $input
@@ -57,7 +57,7 @@ endif;
 /**
  * Sanitizing the select callback example
  *
- * @since supermag 1.0.0
+ * @since SuperMag 1.0.0
  *
  * @see sanitize_key()               https://developer.wordpress.org/reference/functions/sanitize_key/
  * @see $wp_customize->get_control() https://developer.wordpress.org/reference/classes/wp_customize_manager/get_control/
@@ -87,7 +87,7 @@ endif;
  *
  * @see wp_check_filetype() https://developer.wordpress.org/reference/functions/wp_check_filetype/
  *
- * @since supermag 1.0.0
+ * @since SuperMag 1.0.0
  *
  * @param string $image Image filename.
  * @param $setting Setting instance.

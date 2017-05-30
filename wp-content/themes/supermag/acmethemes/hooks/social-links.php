@@ -2,7 +2,7 @@
 /**
  * Display Social Links
  *
- * @since supermag 1.1.0
+ * @since SuperMag 1.1.0
  *
  * @param null
  * @return void
@@ -13,7 +13,7 @@ if ( !function_exists('supermag_social_links') ) :
 
     function supermag_social_links( ) {
 
-        global $supermag_customizer_all_values;
+	    $supermag_customizer_all_values = supermag_get_theme_options();
         ?>
         <div class="socials">
             <?php

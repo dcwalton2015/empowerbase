@@ -1,7 +1,7 @@
 <?php
 /*adding sections for footer options*/
 $wp_customize->add_section( 'supermag-footer-option', array(
-    'priority'       => 170,
+    'priority'       => 80,
     'capability'     => 'edit_theme_options',
     'theme_supports' => '',
     'title'          => __( 'Footer Option', 'supermag' )

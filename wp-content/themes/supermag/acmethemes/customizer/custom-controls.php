@@ -3,8 +3,8 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Supermag_Customi
 
     /**
      * Custom Control for category dropdown
-     * @package AcmeThemes
-     * @subpackage Supermag
+     * @package Acme Themes
+     * @subpackage SuperMag
      * @since 1.0.0
      *
      */
@@ -53,8 +53,8 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Supermag_Customi
 
     /**
      * Custom Control for post dropdown
-     * @package AcmeThemes
-     * @subpackage Supermag
+     * @package Acme Themes
+     * @subpackage SuperMag
      * @since 1.0.0
      *
      */
@@ -79,7 +79,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Supermag_Customi
          */
         public function render_content() {
             $supermag_customizer_post_args = array(
-                'posts_per_page'   => -1,
+                'posts_per_page'   => 20,
             );
             $supermag_posts = get_posts( $supermag_customizer_post_args );
             if(!empty($supermag_posts))  {
@@ -95,7 +95,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Supermag_Customi
                         else{
                             $supermag_default_selected = 0;
                         }
-                        printf('<option value="-1" %s>%s</option>',selected($supermag_default_selected, 1, false),__('Select','supermag'));
+                        printf('<option value="0" %s>%s</option>',selected($supermag_default_selected, 1, false),__('Select','supermag'));
                         foreach ( $supermag_posts as $supermag_post ) {
                             printf('<option value="%s" %s>%s</option>', $supermag_post->ID, selected($this->value(), $supermag_post->ID, false), $supermag_post->post_title);
                         }
@@ -111,8 +111,8 @@ endif;
 if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Supermag_Customize_Message_Control' )):
     /**
      * Custom Control for html display
-     * @package AcmeThemes
-     * @subpackage Supermag
+     * @package Acme Themes
+     * @subpackage SuperMag
      * @since 1.0.0
      *
      */
@@ -139,9 +139,24 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Supermag_Customi
             if ( empty( $this->description ) ) {
                 return;
             }
+	        $allowed_html = array(
+		        'a' => array(
+			        'href' => array(),
+			        'title' => array(),
+			        'data-section' => array(),
+			        'class' => array(),
+			        'target' => array(),
+		        ),
+		        'hr' => array(),
+		        'br' => array(),
+		        'em' => array(),
+		        'strong' => array(),
+	        );
             ?>
             <div class="supermag-customize-customize-message">
-                <?php echo wp_kses_post($this->description); ?>
+                <?php
+                echo wp_kses( $this->description , $allowed_html )
+                ?>
             </div> <!-- .supermag-customize-customize-message -->
             <?php
         }

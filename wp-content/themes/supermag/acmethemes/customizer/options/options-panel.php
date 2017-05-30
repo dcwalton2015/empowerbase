@@ -9,6 +9,12 @@ $wp_customize->add_panel( 'supermag-options', array(
 ) );
 
 /*
+* file for front page
+*/
+$supermag_customizer_options_front_page_file_path = supermag_file_directory('acmethemes/customizer/options/front-page.php');
+require $supermag_customizer_options_front_page_file_path;
+
+/*
 * file for header breadcrumb options
 */
 $supermag_customizer_options_breadcrumb_file_path = supermag_file_directory('acmethemes/customizer/options/breadcrumb.php');

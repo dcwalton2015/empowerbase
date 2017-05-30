@@ -3,20 +3,19 @@
 /**
  * The front-page template file.
  *
- * @package AcmeThemes
- * @subpackage Supermag
- * @since Supermag 1.1.0
+ * @package Acme Themes
+ * @subpackage SuperMag
+ * @since SuperMag 1.1.0
  */
-get_header(); ?>
-<?php
+get_header();
 /**
  * supermag_action_front_page hook
- * @since supermag 1.1.0
+ * @since SuperMag 1.1.0
  *
  * @hooked supermag_front_page -  10
  */
 do_action( 'supermag_action_front_page' );
-?>
-<?php get_sidebar( 'left' ); ?>
-<?php get_sidebar( ); ?>
-<?php get_footer();
+
+get_sidebar( 'left' );
+get_sidebar();
+get_footer();

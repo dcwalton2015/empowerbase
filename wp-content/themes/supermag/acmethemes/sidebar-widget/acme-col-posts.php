@@ -2,18 +2,28 @@
 /**
  * Custom columns of category with various options
  *
- * @package AcmeThemes
- * @subpackage Supermag
+ * @package Acme Themes
+ * @subpackage SuperMag
  */
 if ( ! class_exists( 'supermag_posts_col' ) ) {
     /**
      * Class for adding widget
      *
-     * @package AcmeThemes
-     * @subpackage Supermag_posts_col
+     * @package Acme Themes
+     * @subpackage SuperMag_posts_col
      * @since 1.0.0
      */
     class supermag_posts_col extends WP_Widget {
+
+        /*defaults values for fields*/
+        private $defaults = array(
+            'supermag_cat_title'            => '',
+            'supermag_cat'                  => 0,
+            'supermag_enable_first_featured'=> 0,
+            'supermag_post_col_layout'      => 0,
+            'supermag_post_col_first_featured_image_layout' => 'large',
+            'supermag_post_col_normal_image_layout' => 'large'
+        );
 
         function __construct() {
             parent::__construct(
@@ -27,30 +37,37 @@ if ( ! class_exists( 'supermag_posts_col' ) ) {
         }
         /*Widget Backend*/
         public function form( $instance ) {
+            /*defaults values*/
+            $instance = wp_parse_args( (array) $instance, $this->defaults );
 
-            if ( isset( $instance[ 'supermag_cat' ] ) ) {
-                $supermag_selected_cat = $instance[ 'supermag_cat' ];
-            }
-            else {
-                $supermag_selected_cat = 0;
+            /*selected cat*/
+            $supermag_selected_cat = esc_attr( $instance['supermag_cat'] );
+            /*Main title*/
+            $supermag_col_posts_title = esc_attr( $instance['supermag_cat_title'] );
+            if( empty( $supermag_col_posts_title ) && 0 != $supermag_selected_cat ){
+                $supermag_col_posts_title = get_cat_name($supermag_selected_cat);
             }
 
-            if ( isset( $instance[ 'supermag_enable_first_featured' ] ) && 1 == $instance[ 'supermag_enable_first_featured' ] ) {
-                $supermag_enable_first_featured = 1;
-            }
-            else {
-                $supermag_enable_first_featured = 0;
-            }
+            /*Enable first featured*/
+            $supermag_enable_first_featured = esc_attr( $instance['supermag_enable_first_featured'] );
+
             /*Layout options*/
             $supermag_layout_arrays = array( __('Layout 1','supermag'), __('Layout 2','supermag')  );
-            if( isset( $instance['supermag_post_col_layout'] )){
-                $supermag_post_col_layout = $instance['supermag_post_col_layout'];
-            }
-            else{
-                $supermag_post_col_layout = 0;
-            }
+            $supermag_post_col_layout = $instance['supermag_post_col_layout'];
 
-           ?>
+            /*first featured image*/
+            $supermag_post_col_first_featured_image_layout = $instance['supermag_post_col_first_featured_image_layout'];
+
+            /*normal featured image*/
+            $supermag_post_col_normal_image_layout = $instance['supermag_post_col_normal_image_layout'];
+
+            $choices = supermag_get_image_sizes_options();
+
+            ?>
+            <p>
+                <label for="<?php echo $this->get_field_id( 'supermag_cat_title' ); ?>"><?php _e( 'Title:', 'supermag' ); ?></label>
+                <input class="widefat" id="<?php echo $this->get_field_id( 'supermag_cat_title' ); ?>" name="<?php echo $this->get_field_name( 'supermag_cat_title' ); ?>" type="text" value="<?php echo $supermag_col_posts_title; ?>" />
+            </p>
             <p>
                 <label for="<?php echo $this->get_field_id('supermag_cat'); ?>"><?php _e('Select Category', 'supermag'); ?></label>
                 <?php
@@ -73,20 +90,50 @@ if ( ! class_exists( 'supermag_posts_col' ) ) {
                 ?>
             </p>
             <p>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'supermag_enable_first_featured' ); ?>" name="<?php echo $this->get_field_name( 'supermag_enable_first_featured' ); ?>" type="checkbox" <?php checked( 1, esc_attr( $supermag_enable_first_featured ), 1 ); ?>/>
+                <input class="widefat supermag-enable-first-featured" id="<?php echo $this->get_field_id( 'supermag_enable_first_featured' ); ?>" name="<?php echo $this->get_field_name( 'supermag_enable_first_featured' ); ?>" type="checkbox" <?php checked( 1, esc_attr( $supermag_enable_first_featured ), 1 ); ?>/>
                 <label for="<?php echo $this->get_field_id( 'supermag_enable_first_featured' ); ?>"><?php _e( 'Enable First Post Featured' ,'supermag'); ?></label>
                 <br />
             </p>
+            <div class="supermag-enable-first-featured-toggle">
+                <p>
+                    <label for="<?php echo $this->get_field_id( 'supermag_post_col_layout' ); ?>">
+                        <?php _e( 'First Featured Post Layout', 'supermag' ); ?>
+                        <br />
+                        <small><?php _e( 'Enable First Post Featured to work this layout', 'supermag' ); ?></small>
+                    </label>
+                    <select class="widefat" id="<?php echo $this->get_field_id( 'supermag_post_col_layout' ); ?>" name="<?php echo $this->get_field_name( 'supermag_post_col_layout' ); ?>">
+                        <?php
+                        foreach( $supermag_layout_arrays as $key => $supermag_column_array ){
+                            echo ' <option value="'.$key.'"'.selected( $supermag_post_col_layout, $key, 0).'>'.$supermag_column_array.'</option>';
+                        }
+                        ?>
+                    </select>
+                </p>
+                <p>
+                    <label for="<?php echo $this->get_field_id( 'supermag_post_col_first_featured_image_layout' ); ?>">
+                        <?php _e( 'First Featured Post Image', 'supermag' ); ?>
+                        <br />
+                        <small><?php _e( 'Enable First Post Featured to work this layout', 'supermag' ); ?></small>
+                    </label>
+                    <select class="widefat" id="<?php echo $this->get_field_id( 'supermag_post_col_first_featured_image_layout' ); ?>" name="<?php echo $this->get_field_name( 'supermag_post_col_first_featured_image_layout' ); ?>">
+                        <?php
+                        foreach( $choices as $key => $supermag_column_array ){
+                            echo ' <option value="'.$key.'"'.selected( $supermag_post_col_first_featured_image_layout, $key, 0).'>'.$supermag_column_array.'</option>';
+                        }
+                        ?>
+                    </select>
+                </p>
+            </div>
             <p>
-                <label for="<?php echo $this->get_field_id( 'supermag_post_col_layout' ); ?>">
-                    <?php _e( 'First Featured Post Layout', 'supermag' ); ?>
+                <label for="<?php echo $this->get_field_id( 'supermag_post_col_normal_image_layout' ); ?>">
+                    <?php _e( 'Normal Featured Post Image', 'supermag' ); ?>
                     <br />
                     <small><?php _e( 'Enable First Post Featured to work this layout', 'supermag' ); ?></small>
                 </label>
-                <select class="widefat" id="<?php echo $this->get_field_id( 'supermag_post_col_layout' ); ?>" name="<?php echo $this->get_field_name( 'supermag_post_col_layout' ); ?>">
+                <select class="widefat" id="<?php echo $this->get_field_id( 'supermag_post_col_normal_image_layout' ); ?>" name="<?php echo $this->get_field_name( 'supermag_post_col_normal_image_layout' ); ?>">
                     <?php
-                    foreach( $supermag_layout_arrays as $key => $supermag_column_array ){
-                        echo ' <option value="'.$key.'"'.selected( $supermag_post_col_layout, $key, 0).'>'.$supermag_column_array.'</option>';
+                    foreach( $choices as $key => $supermag_column_array ){
+                        echo ' <option value="'.$key.'"'.selected( $supermag_post_col_normal_image_layout, $key, 0).'>'.$supermag_column_array.'</option>';
                     }
                     ?>
                 </select>
@@ -109,9 +156,12 @@ if ( ! class_exists( 'supermag_posts_col' ) ) {
          */
         public function update( $new_instance, $old_instance ) {
             $instance = array();
+            $instance['supermag_cat_title'] = ( isset( $new_instance['supermag_cat_title'] ) ) ? sanitize_text_field( $new_instance['supermag_cat_title'] ) : '';
             $instance['supermag_cat'] = ( isset( $new_instance['supermag_cat'] ) ) ? esc_attr( $new_instance['supermag_cat'] ) : '';
             $instance['supermag_enable_first_featured'] = isset($new_instance['supermag_enable_first_featured'])? 1 : 0;
             $instance['supermag_post_col_layout'] = isset($new_instance['supermag_post_col_layout'])? absint( $new_instance['supermag_post_col_layout'] ) : 1;
+            $instance['supermag_post_col_first_featured_image_layout'] = isset($new_instance['supermag_post_col_first_featured_image_layout'])? esc_attr( $new_instance['supermag_post_col_first_featured_image_layout'] ) : 'large';
+            $instance['supermag_post_col_normal_image_layout'] = isset($new_instance['supermag_post_col_normal_image_layout'])? esc_attr( $new_instance['supermag_post_col_normal_image_layout'] ) : 'large';
 
             return $instance;
         }
@@ -127,19 +177,23 @@ if ( ! class_exists( 'supermag_posts_col' ) ) {
          *
          */
         public function widget($args, $instance) {
-            $supermag_sidebar_id = $args['id'];
-            if( isset($instance['supermag_cat'] )){
-                $supermag_cat = $instance['supermag_cat'];
+            if( isset( $args['id'] ) ){
+                $supermag_sidebar_id = $args['id'];
             }
             else{
-                $supermag_cat = -1;
+                $supermag_sidebar_id = 'supermag-home';
             }
-            if(isset(  $instance['supermag_enable_first_featured'] )){
-                $supermag_enable_first_featured = $instance['supermag_enable_first_featured'];
-            }
-            else{
-                $supermag_enable_first_featured = 0;
-            }
+            /*defaults values*/
+            $instance = wp_parse_args( (array) $instance, $this->defaults );
+            /*selected cat*/
+            $supermag_selected_cat = esc_attr( $instance['supermag_cat'] );
+
+            /*Main title*/
+            $supermag_col_posts_title = !empty( $instance['supermag_cat_title'] ) ? esc_attr( $instance['supermag_cat_title'] ) : get_cat_name($supermag_selected_cat);
+            $supermag_col_posts_title = apply_filters( 'widget_title', $supermag_col_posts_title, $instance, $this->id_base );
+
+            /*Enable first featured*/
+            $supermag_enable_first_featured = esc_attr( $instance['supermag_enable_first_featured'] );
 
             if( 1 == $supermag_enable_first_featured ){
                 $supermag_number = 4;
@@ -160,13 +214,14 @@ if ( ! class_exists( 'supermag_posts_col' ) ) {
             }
 
             /*column layout*/
-            if( isset( $instance['supermag_post_col_layout'] )){
-                $supermag_post_col_layout = absint( $instance['supermag_post_col_layout'] );
-            }
-            else{
-                $supermag_post_col_layout = 0;
-            }
-            
+            $supermag_post_col_layout = absint( $instance['supermag_post_col_layout'] );
+
+            /*first featured post layout*/
+            $supermag_post_col_first_featured_image_layout = esc_attr( $instance['supermag_post_col_first_featured_image_layout'] );
+
+            /*normal featured image*/
+            $supermag_post_col_normal_image_layout = esc_attr( $instance['supermag_post_col_normal_image_layout'] );
+
             /**
              * Filter the arguments for the Recent Posts widget.
              *
@@ -175,25 +230,32 @@ if ( ! class_exists( 'supermag_posts_col' ) ) {
              * @see WP_Query
              *
              */
+            $sticky = get_option( 'sticky_posts' );
             $supermag_cat_post_args = array(
                 'posts_per_page'      => $supermag_number,
                 'no_found_rows'       => true,
                 'post_status'         => 'publish',
-                'ignore_sticky_posts' => true
+                'ignore_sticky_posts' => true,
+                'post__not_in' => $sticky
             );
-            if( -1 != $supermag_cat ){
-                $supermag_cat_post_args['cat'] = $supermag_cat;
-                $supermag_title = get_cat_name($supermag_cat);
-            }
-            else{
-                $supermag_title = __('Recent Posts','supermag');
+            if( -1 != $supermag_selected_cat ){
+                $supermag_cat_post_args['cat'] = $supermag_selected_cat;
             }
             $supermag_featured_query = new WP_Query($supermag_cat_post_args);
 
             if ($supermag_featured_query->have_posts()) :
-                ?>
-                <?php echo $args['before_widget'];
-                echo $args['before_title'] . esc_html( $supermag_title ). $args['after_title'];
+
+                echo $args['before_widget'];
+                if ( !empty( $supermag_col_posts_title ) ){
+	                if( -1 != $supermag_selected_cat ){
+		                echo "<div class='at-cat-color-wrap-".$supermag_selected_cat."'>";
+	                }
+                    echo $args['before_title'] . $supermag_col_posts_title . $args['after_title'];
+
+	                if( -1 != $supermag_selected_cat ){
+		                echo "</div>";
+	                }
+                }
                 $supermag_post_col_layout_class ='';
                 if( 1 == $supermag_post_col_layout ){
                     $supermag_post_col_layout_class = 'sm-col-post-type-2';
@@ -204,15 +266,13 @@ if ( ! class_exists( 'supermag_posts_col' ) ) {
                     $supermag_featured_index = 1;
                     while ( $supermag_featured_query->have_posts() ) :$supermag_featured_query->the_post();
                         if( 1 == $supermag_featured_index && 1 == $supermag_enable_first_featured ){
-                            $thumb = 'medium';
+                            $thumb = $supermag_post_col_first_featured_image_layout;
                             $supermag_list_classes = 'acme-col-3 featured-post-main';
-                            $supermag_sidebar_no_thumbnail = 'no-image-660-365.png';
                             $supermag_words = 48;
                         }
                         else{
-                            $thumb = 'thumbnail';
+                            $thumb = $supermag_post_col_normal_image_layout;
                             $supermag_list_classes = 'acme-col-3';
-                            $supermag_sidebar_no_thumbnail = 'no-image-500-280.png';
                             $supermag_words = 16;
                             if( 1 == $supermag_post_col_layout ){
                                 $supermag_words = 8;
@@ -221,15 +281,23 @@ if ( ! class_exists( 'supermag_posts_col' ) ) {
                         ?>
                         <li class="<?php echo esc_attr( $supermag_list_classes ); ?>">
                             <figure class="widget-image">
-                                <?php
-                                if ( has_post_thumbnail() ):
-                                    $post_thumb = wp_get_attachment_image_src(get_post_thumbnail_id(), $thumb );
-                                else:
-                                    $post_thumb[0] = get_template_directory_uri() . '/assets/img/'.$supermag_sidebar_no_thumbnail;
-                                endif;
-                                ?>
-                                <a href="<?php the_permalink()?>">
-                                    <img src="<?php echo esc_url( $post_thumb[0] ); ?>" alt="<?php the_title_attribute(); ?>" title="<?php the_title_attribute(); ?>" />
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php
+                                    if( has_post_thumbnail() ):
+                                        the_post_thumbnail( $thumb );
+                                    else:
+                                        ?>
+                                        <div class="no-image-widgets">
+                                            <?php
+                                            the_title( sprintf( '<h2 class="caption-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+                                            if( !get_the_title() ){
+                                                the_date( '', sprintf( '<h2 class="caption-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+                                            }
+                                            ?>
+                                        </div>
+                                        <?php
+                                    endif;
+                                    ?>
                                 </a>
                             </figure>
                             <div class="featured-desc">
@@ -242,7 +310,7 @@ if ( ! class_exists( 'supermag_posts_col' ) ) {
                                     <span>
                                         <a href="<?php echo esc_url(get_day_link( $archive_year, $archive_month, $archive_day ) ); ?>">
                                             <i class="fa fa-calendar"></i>
-                                            <?php echo esc_html( get_the_date('F d, Y') ); ?>
+                                            <?php echo esc_html( get_the_date() ); ?>
                                         </a>
                                     </span>
                                     <span>

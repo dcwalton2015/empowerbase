@@ -4,9 +4,13 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package AcmeThemes
- * @subpackage Supermag
+ * @package Acme Themes
+ * @subpackage SuperMag
  */
+
+$supermag_customizer_all_values = supermag_get_theme_options();
+$supermag_single_image_layout = $supermag_customizer_all_values['supermag-single-image-layout'];
+$supermag_single_category_display_options = $supermag_customizer_all_values['supermag-single-category-display-options'];
 
 ?>
 
@@ -20,31 +24,20 @@
 	</header><!-- .entry-header -->
 
 	<!--post thumbnal options-->
-	<div class="single-feat clearfix">
-		<figure class="single-thumb single-thumb-full">
-			<?php
-			$sidebar_layout = supermag_sidebar_selection();
-			if( $sidebar_layout == "no-sidebar"){
-				$thumbnail = 'large';
-				$no_image = get_template_directory_uri().'/assets/img/no-image-840-480.png';
-			}
-			else{
-				$thumbnail = 'medium';
-				$no_image = get_template_directory_uri().'/assets/img/no-image-660-365.png';
-
-			}
-			if( has_post_thumbnail() ):
-				the_post_thumbnail( $thumbnail );
-			else:
-				$img_url[0] = $no_image;
-				?>
-				<img src="<?php echo esc_url( $img_url[0] ); ?>" alt="<?php the_title_attribute(); ?>" title="<?php the_title_attribute(); ?>" />
-				<?php
-			endif;
-			?>
-		</figure>
-	</div><!-- .single-feat-->
-
+	<?php
+	if ( has_post_thumbnail() &&
+		( $supermag_customizer_all_values['supermag-single-post-layout'] == 'left-image' ||
+			$supermag_customizer_all_values['supermag-single-post-layout'] == 'large-image' )
+	){
+		?>
+		<div class="single-feat clearfix">
+			<figure class="single-thumb single-thumb-full">
+				<?php the_post_thumbnail( $supermag_single_image_layout );?>
+			</figure>
+		</div><!-- .single-feat-->
+	<?php
+	}
+	?>
 	<div class="entry-content">
 		<?php the_content(); ?>
 		<?php
@@ -55,8 +48,19 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php supermag_entry_footer(); ?>
+	<footer class="entry-footer featured-desc">
+		<?php
+		if( 'cat-color' == $supermag_single_category_display_options){
+			?>
+            <div class="below-entry-meta">
+				<?php supermag_list_category(); ?>
+            </div>
+			<?php
+		}
+		else{
+			supermag_entry_footer();
+		}
+		?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 

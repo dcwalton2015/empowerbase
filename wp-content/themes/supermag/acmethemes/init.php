@@ -2,7 +2,7 @@
 /**
  * Main include functions ( to support child theme )
  *
- * @since supermag 1.0.0
+ * @since SuperMag 1.0.0
  *
  * @param string $file_path, path from the theme
  * @return string full path of file inside theme
@@ -19,6 +19,25 @@ if( !function_exists('supermag_file_directory') ){
     }
 
 }
+
+/**
+ * Check empty or null
+ *
+ * @since SuperMag 1.0.0
+ *
+ * @param string $str, string
+ * @return boolean
+ *
+ */
+if( !function_exists('supermag_is_null_or_empty') ){
+	function supermag_is_null_or_empty( $str ){
+		return ( !isset($str) || trim($str)==='' );
+	}
+}
+
+/*file for library*/
+require supermag_file_directory('acmethemes/library/tgm/class-tgm-plugin-activation.php');
+
 /*
 * file for customizer theme options
 */
@@ -32,9 +51,14 @@ require $supermag_customizer_file_path;
 $supermag_date_display_file_path = supermag_file_directory('acmethemes/functions.php');
 require $supermag_date_display_file_path;
 
+require_once supermag_file_directory('acmethemes/functions/header.php');
+
+
 /*
 * files for hooks
 */
+require supermag_file_directory('acmethemes/hooks/tgm.php');
+
 $supermag_front_page_file_path = supermag_file_directory('acmethemes/hooks/front-page.php');
 require $supermag_front_page_file_path;
 
@@ -65,6 +89,10 @@ require $supermag_excerpts_form_file_path;
 $supermag_related_posts_file_path = supermag_file_directory('acmethemes/hooks/related-posts.php');
 require $supermag_related_posts_file_path;
 
+require supermag_file_directory('acmethemes/hooks/siteorigin-panels.php');
+
+require supermag_file_directory('acmethemes/hooks/acme-demo-setup.php');
+
 /*
 * file for sidebar and widgets
 */
@@ -82,3 +110,11 @@ require $supermag_sidebar;
 */
 $supermag_sidebar = supermag_file_directory('acmethemes/core.php');
 require $supermag_sidebar;
+
+/**
+ * Implement Custom Metaboxes
+ */
+require supermag_file_directory('acmethemes/metabox/metabox.php');
+
+/*themes info*/
+require supermag_file_directory('acmethemes/at-theme-info/class-at-theme-info.php');

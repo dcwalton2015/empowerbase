@@ -4,10 +4,12 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package AcmeThemes
- * @subpackage Supermag
+ * @package Acme Themes
+ * @subpackage SuperMag
  */
-global $supermag_customizer_all_values;
+$supermag_customizer_all_values = supermag_get_theme_options();
+$supermag_get_image_sizes_options = $supermag_customizer_all_values['supermag-blog-archive-image-layout'];
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -22,19 +24,18 @@ global $supermag_customizer_all_values;
 	</header><!-- .entry-header -->
 
 	<?php
-	if ( $supermag_customizer_all_values['supermag-blog-archive-layout'] == 'left-image') {
+	if (
+		has_post_thumbnail() &&
+		( $supermag_customizer_all_values['supermag-blog-archive-layout'] == 'left-image' ||
+		$supermag_customizer_all_values['supermag-blog-archive-layout'] == 'large-image' )
+	) {
 		?>
 		<!--post thumbnal options-->
 		<div class="post-thumb">
-			<?php
-			if( has_post_thumbnail() ):
-				$image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
-			else:
-				$image_url[0] = get_template_directory_uri().'/assets/img/no-image-500-280.png';
-			endif;
-			?>
-			<a href="<?php the_permalink(); ?>">
-				<img src="<?php echo esc_url( $image_url[0] ); ?>" alt="<?php the_title_attribute(); ?>" title="<?php the_title_attribute(); ?>" />
+			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+				<?php
+				the_post_thumbnail( $supermag_get_image_sizes_options );
+				?>
 			</a>
 		</div><!-- .post-thumb-->
 		<?php

@@ -2,7 +2,7 @@
 /**
  * List down the post category
  *
- * @since supermag 1.0.0
+ * @since SuperMag 1.0.0
  *
  * @param int $post_id
  * @return string list of category
@@ -21,7 +21,7 @@ if ( !function_exists('supermag_list_category') ) :
         if($categories) {
             $output .= '<span class="cat-links">';
             foreach($categories as $category) {
-                $output .= '<a href="'.esc_url( get_category_link( $category->term_id ) ).'"  rel="category tag">'.esc_html( $category->cat_name ).'</a>'.$separator;
+                $output .= '<a class="at-cat-item-'.esc_attr($category->term_id).'" href="'.esc_url( get_category_link( $category->term_id ) ).'"  rel="category tag">'.esc_html( $category->cat_name ).'</a>'.$separator;
             }
             $output .='</span>';
             echo trim( $output, $separator );
@@ -33,7 +33,7 @@ endif;
 /**
  * Callback functions for comments
  *
- * @since supermag 1.0.0
+ * @since SuperMag 1.0.0
  *
  * @param $comment
  * @param $args
@@ -44,7 +44,6 @@ endif;
 if ( !function_exists('supermag_commment_list') ) :
 
     function supermag_commment_list($comment, $args, $depth) {
-        $GLOBALS['comment'] = $comment;
         extract($args, EXTR_SKIP);
         if ('div' == $args['style']) {
             $tag = 'div';
@@ -91,7 +90,8 @@ endif;
 /**
  * Date display functions
  *
- * @since supermag 1.0.0
+ * @since SuperMag 1.0.0
+ * edited 1.5.0
  *
  * @param string $format
  * @return string
@@ -99,39 +99,106 @@ endif;
  */
 if ( ! function_exists( 'supermag_date_display' ) ) :
     function supermag_date_display( $format = 'l, F j, Y') {
-        echo esc_html( date_i18n( $format, current_time( 'timestamp' ) ) );
+	    $supermag_customizer_all_values = supermag_get_theme_options();
+	    if( 'default' == $supermag_customizer_all_values['supermag-header-date-format'] ){
+		    echo esc_html( date_i18n( $format ) );
+        }
+        else{
+	        echo date_i18n(get_option('date_format'));
+        }
     }
 endif;
 
 /**
  * Select sidebar according to the options saved
  *
- * @since supermag 1.0.0
+ * @since SuperMag 1.0.0
  *
  * @param null
  * @return string
  *
  */
 if ( !function_exists('supermag_sidebar_selection') ) :
-    function supermag_sidebar_selection( ) {
-        global $supermag_customizer_all_values;
-        if(
-            'left-sidebar' == $supermag_customizer_all_values['supermag-sidebar-layout'] ||
-            'no-sidebar' == $supermag_customizer_all_values['supermag-sidebar-layout']
-        ){
-            $supermagbody_global_class = $supermag_customizer_all_values['supermag-sidebar-layout'];
-        }
-        else{
-            $supermagbody_global_class= 'right-sidebar';
-        }
-        return $supermagbody_global_class;
-    }
+	function supermag_sidebar_selection( ) {
+		wp_reset_postdata();
+		$supermag_customizer_all_values = supermag_get_theme_options();
+		global $post;
+		if(
+			isset( $supermag_customizer_all_values['supermag-sidebar-layout'] ) &&
+			(
+				'left-sidebar' == $supermag_customizer_all_values['supermag-sidebar-layout'] ||
+				'both-sidebar' == $supermag_customizer_all_values['supermag-sidebar-layout'] ||
+				'no-sidebar' == $supermag_customizer_all_values['supermag-sidebar-layout']
+			)
+		){
+			$supermag_body_global_class = $supermag_customizer_all_values['supermag-sidebar-layout'];
+		}
+		else{
+			$supermag_body_global_class= 'right-sidebar';
+		}
+
+		if( is_front_page() ){
+			if( isset( $supermag_customizer_all_values['supermag-front-page-sidebar-layout'] ) ){
+				if(
+					'right-sidebar' == $supermag_customizer_all_values['supermag-front-page-sidebar-layout'] ||
+					'left-sidebar' == $supermag_customizer_all_values['supermag-front-page-sidebar-layout'] ||
+					'both-sidebar' == $supermag_customizer_all_values['supermag-front-page-sidebar-layout'] ||
+					'no-sidebar' == $supermag_customizer_all_values['supermag-front-page-sidebar-layout']
+				){
+					$supermag_body_classes = $supermag_customizer_all_values['supermag-front-page-sidebar-layout'];
+				}
+				else{
+					$supermag_body_classes = $supermag_body_global_class;
+				}
+			}
+			else{
+				$supermag_body_classes= $supermag_body_global_class;
+			}
+		}
+        elseif (is_singular() && isset( $post->ID )) {
+			$post_class = get_post_meta( $post->ID, 'supermag_sidebar_layout', true );
+			if ( 'default-sidebar' != $post_class ){
+				if ( $post_class ) {
+					$supermag_body_classes = $post_class;
+				} else {
+					$supermag_body_classes = $supermag_body_global_class;
+				}
+			}
+			else{
+				$supermag_body_classes = $supermag_body_global_class;
+			}
+
+		}
+        elseif ( is_archive() ) {
+			if( isset( $supermag_customizer_all_values['supermag-archive-sidebar-layout'] ) ){
+				$supermag_archive_sidebar_layout = $supermag_customizer_all_values['supermag-archive-sidebar-layout'];
+				if(
+					'right-sidebar' == $supermag_archive_sidebar_layout ||
+					'left-sidebar' == $supermag_archive_sidebar_layout ||
+					'both-sidebar' == $supermag_archive_sidebar_layout ||
+					'no-sidebar' == $supermag_archive_sidebar_layout
+				){
+					$supermag_body_classes = $supermag_archive_sidebar_layout;
+				}
+				else{
+					$supermag_body_classes = $supermag_body_global_class;
+				}
+			}
+			else{
+				$supermag_body_classes= $supermag_body_global_class;
+			}
+		}
+		else {
+			$supermag_body_classes = $supermag_body_global_class;
+		}
+		return $supermag_body_classes;
+	}
 endif;
 
 /**
  * Return content of fixed lenth
  *
- * @since supermag 1.0.0
+ * @since SuperMag 1.0.0
  *
  * @param string $supermag_content
  * @param int $length

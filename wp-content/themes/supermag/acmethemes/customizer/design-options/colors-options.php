@@ -13,9 +13,14 @@ $wp_customize->add_setting( 'supermag_theme_options[supermag-primary-color]', ar
     'default'			=> $defaults['supermag-primary-color'],
     'sanitize_callback' => 'sanitize_hex_color'
 ) );
-$wp_customize->add_control( 'supermag_theme_options[supermag-primary-color]', array(
-    'label'		=> __( 'Primary Color', 'supermag' ),
-    'section'   => 'colors',
-    'settings'  => 'supermag_theme_options[supermag-primary-color]',
-    'type'	  	=> 'color'
-) );
+
+$wp_customize->add_control(
+    new WP_Customize_Color_Control(
+        $wp_customize,
+        'supermag_theme_options[supermag-primary-color]',
+        array(
+            'label'		=> __( 'Primary Color', 'supermag' ),
+            'section'   => 'colors',
+            'settings'  => 'supermag_theme_options[supermag-primary-color]',
+            'type'	  	=> 'color'
+) ) );

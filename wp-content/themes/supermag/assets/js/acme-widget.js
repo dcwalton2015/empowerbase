@@ -1,6 +1,6 @@
 /*!
  * Custom JS for custom image uploading
- * @package AcmeThemes
+ * @package Acme Themes
  * @subpackage SuperMag
  */
 jQuery(function($){
@@ -41,4 +41,5 @@ jQuery(function($){
         $(this).siblings('.img-preview-wrap').hide();
         $(this).prev().prev().val('');
     });
+    
 });

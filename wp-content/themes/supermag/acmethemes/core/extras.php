@@ -4,8 +4,8 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package AcmeThemes
- * @subpackage Supermag
+ * @package Acme Themes
+ * @subpackage SuperMag
  */
 
 /**

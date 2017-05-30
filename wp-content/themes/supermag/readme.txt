@@ -1,21 +1,21 @@
 === SuperMag ===
 
-AcmeThemes  ( http://acmethemes.com ) proudly presents SuperMag, a Ultimate Theme for Magazine. SuperMag is specially designed for news, magazine and blog, suitable for any magazine style site. SuperMag is also advertisement ready theme, Advertisement can be added from customizer and widgets. SuperMag is highly customizable theme. You can customize header, footer, sidebar, main homepage and inner sections. The whole site color can be changed with single click. SuperMag is widgetized theme, with advanced widgets you can design your site yourself. Its unique feature includes: drag/drop/reorder widgetized area, advanced custom widgets, advanced layout options, breaking news options, featured images options for blog/category/archive pages and single page/post, social media integration, advertisement ready, breadcrumb and more. Design your site without touching code. You can check our demo here http://www.acmethemes.com/demo/?theme=supermag
+AcmeThemes  ( https://acmethemes.com ) proudly presents SuperMag, a Ultimate Theme for News, Magazine and Blog.
 
 Contributors: acmethemes
 
-Tags: orange, brown, yellow, dark, one-column, two-columns, left-sidebar, right-sidebar, fixed-layout, responsive-layout, custom-background, custom-colors, custom-menu, featured-images, sticky-post, theme-options, threaded-comments, translation-ready
+Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, footer-widgets, featured-images, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, blog, news, e-commerce
 
-Requires at least: 4.3
-Tested up to: 4.5.3
-Stable tag: 1.3.3
+Requires at least: 4.4
+Tested up to: 4.7.5
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 == Description ==
 
-AcmeThemes  ( http://acmethemes.com ) proudly presents SuperMag, a Ultimate Theme for Magazine. SuperMag is specially designed for news, magazine and blog, suitable for any magazine style site. SuperMag is also advertisement ready theme, Advertisement can be added from customizer and widgets. SuperMag is highly customizable theme. You can customize header, footer, sidebar, main homepage and inner sections. The whole site color can be changed with single click. SuperMag is widgetized theme, with advanced widgets you can design your site yourself. Its unique feature includes: drag/drop/reorder widgetized area, advanced custom widgets, advanced layout options, breaking news options, featured images options for blog/category/archive pages and single page/post, social media integration, advertisement ready, breadcrumb and more. Design your site without touching code. You can check our demo here http://www.acmethemes.com/demo/?theme=supermag
+Description: Acme Themes  ( https://www.acmethemes.com ) proudly presents SuperMag, a Ultimate Theme for Magazine. SuperMag is specially designed for news, magazine and blog, suitable for any magazine style site. SuperMag is also advertisement ready theme, Advertisement can be added from customizer and widgets. SuperMag is highly customizable theme. You can customize header, footer, sidebar, main homepage and inner sections. The whole site color can be changed with single click. SuperMag is widgetized theme, with advanced widgets you can design your site yourself. Its unique feature includes: drag/drop/reorder widgetized area, advanced custom widgets, advanced layout options, breaking news options, featured images options for blog/category/archive pages and single page/post, social media integration, advertisement ready, breadcrumb, WooCommerce and Page Builder Ready and more. Design your site without touching code. You can check our demo here http://www.acmethemes.com/demo/?theme=supermag
 
 == Translation ==
 
@@ -39,6 +39,7 @@ The exceptions to license are as follows:
 * html5shiv https://github.com/afarkas/html5shiv [MIT](http://opensource.org/licenses/MIT) by @afarkas @jdalton @jon_neal @rem
 * respond.min https://github.com/scottjehl/Respond [MIT](http://opensource.org/licenses/MIT) Copyright 2011 Scott Jehl, scottjehl.com
 * SlickNav https://github.com/ComputerWolf/SlickNav [MIT](http://opensource.org/licenses/MIT) Copyright 2014 Josh Cope
+* theia-sticky-sidebar https://github.com/WeCodePixels/theia-sticky-sidebar [MIT](http://opensource.org/licenses/MIT)
 
 Image used in screenshot
 https://pixabay.com/en/cheerleaders-girls-hot-sexy-sporty-560455/ - License CC0 Public Domain
@@ -47,13 +48,21 @@ https://pixabay.com/en/girl-woman-lady-makeup-sunglasses-863120/ - License CC0 P
 https://pixabay.com/en/volleyball-women-return-spike-673552/ - License CC0 Public Domain
 https://pixabay.com/en/soccer-goalkeeper-competition-game-673599/ - License CC0 Public Domain
 https://pixabay.com/en/woman-female-bike-beauty-model-695451/ - License CC0 Public Domain
+https://pixabay.com/en/soccer-competition-game-men-males-673606/ - License CC0 Public Domain
+https://pixabay.com/en/control-work-official-form-427510/ - License CC0 Public Domain
+
+New screenshot: All License CC0 Public Domain :
+https://pixabay.com/en/light-bulb-light-halogen-bulb-lamp-1407610/
+https://pixabay.com/en/cranes-construction-build-site-1758459/
+https://pixabay.com/en/jetliner-boeing-747sp-modified-1767818/
+https://pixabay.com/en/drone-multicopter-dji-inspire-1080844/
+https://pixabay.com/en/woman-bike-urban-leisure-wheel-1426435/
+
 Other images in screenshot are self created and all are under GPLv2.
 
 Other Images:
 no-image-240-172.png self created GPLv2
-no-image-500-280.png self created GPLv2
 no-image-660-365.png self created GPLv2
-no-image-840-480.png self created GPLv2
 supermag.png self created GPLv2
 supermag-add-1-240-172.png self created GPLv2
 supermag-add-2-240-172.png self created GPLv2

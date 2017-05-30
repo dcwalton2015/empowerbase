@@ -1,7 +1,7 @@
 <?php
 /*adding header options panel*/
 $wp_customize->add_panel( 'supermag-header-panel', array(
-    'priority'       => 160,
+    'priority'       => 30,
     'capability'     => 'edit_theme_options',
     'theme_supports' => '',
     'title'          => __( 'Header Options', 'supermag' ),
@@ -44,5 +44,13 @@ require $supermag_customizer_header_ad_file_path;
 $supermag_customizer_header_menu_option_file_path = supermag_file_directory('acmethemes/customizer/header-options/menu-option.php');
 require $supermag_customizer_header_menu_option_file_path;
 
+/*
+* file for header menu options
+*/
+$supermag_customizer_header_menu_option_file_path = supermag_file_directory('acmethemes/customizer/header-options/site-identity-placement.php');
+require $supermag_customizer_header_menu_option_file_path;
 
-
+/*
+* file for header media display option
+*/
+require_once supermag_file_directory('acmethemes/customizer/header-options/header-media-display-options.php');

@@ -4,8 +4,8 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package AcmeThemes
- * @subpackage Supermag
+ * @package Acme Themes
+ * @subpackage SuperMag
  */
 
 get_header(); ?>
@@ -23,9 +23,7 @@ get_header(); ?>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-
-				<?php
+			<?php while ( have_posts() ) : the_post();
 
 					/*
 					 * Include the Post-Format-specific template for the content.
@@ -33,20 +31,15 @@ get_header(); ?>
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
 					get_template_part( 'template-parts/content', get_post_format() );
-				?>
-
-			<?php endwhile; ?>
-
-			<?php the_posts_navigation(); ?>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-		<?php endif; ?>
+            endwhile;
+            the_posts_navigation();
+            else :
+                get_template_part( 'template-parts/content', 'none' );
+            endif; ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-<?php get_sidebar( 'left' ); ?>
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php
+get_sidebar( 'left' );
+get_sidebar();
+get_footer();

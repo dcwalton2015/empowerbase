@@ -1,7 +1,7 @@
 <?php
 /*adding sections for enabling feature section in front page*/
 $wp_customize->add_section( 'supermag-enable-feature', array(
-    'priority'       => 30,
+    'priority'       => 10,
     'capability'     => 'edit_theme_options',
     'theme_supports' => '',
     'title'          => __( 'Enable Feature Section', 'supermag' ),

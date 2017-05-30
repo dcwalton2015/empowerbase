@@ -2,9 +2,15 @@
 /**
  * SuperMag Theme Customizer.
  *
- * @package AcmeThemes
- * @subpackage Supermag
+ * @package Acme Themes
+ * @subpackage SuperMag
  */
+
+/*
+* file for upgrade to pro
+*/
+$supermag_custom_controls_file_path = supermag_file_directory('acmethemes/customizer/customizer-pro/class-customize.php');
+require $supermag_custom_controls_file_path;
 
 /*
 * file for customizer core functions
@@ -85,6 +91,14 @@ function supermag_customize_register( $wp_customize ) {
     /*removing*/
     $wp_customize->remove_panel('header_image');
     $wp_customize->remove_control('header_textcolor');
+
+	/*sorting core and widget for ease of theme use*/
+	$supermag_home_section = $wp_customize->get_section( 'sidebar-widgets-supermag-home' );
+	if ( ! empty( $supermag_home_section ) ) {
+		$supermag_home_section->panel = '';
+		$supermag_home_section->title = __( 'Home Main Content Area ', 'supermag' );
+		$supermag_home_section->priority = 80;
+	}
 }
 add_action( 'customize_register', 'supermag_customize_register' );
 
@@ -95,20 +109,6 @@ function supermag_customize_preview_js() {
     wp_enqueue_script( 'supermag-customizer', get_template_directory_uri() . '/acmethemes/core/js/customizer.js', array( 'customize-preview' ), '1.1.0', true );
 }
 add_action( 'customize_preview_init', 'supermag_customize_preview_js' );
-
-
-/**
- * Enqueue scripts for customizer
- */
-function supermag_customizer_js() {
-    wp_enqueue_script('supermag-customizer', get_template_directory_uri() . '/assets/js/supermag-customizer.js', array('jquery'), '1.3.0', 1);
-
-    wp_localize_script( 'supermag-customizer', 'supermag_customizer_js_obj', array(
-        'pro' => __('Upgrade To Pro','supermag')
-    ) );
-    wp_enqueue_style( 'supermag-customizer', get_template_directory_uri() . '/assets/css/supermag-customizer.css');
-}
-add_action( 'customize_controls_enqueue_scripts', 'supermag_customizer_js' );
 
 /**
  * Theme Update Script
@@ -140,3 +140,12 @@ function supermag_update_check() {
 
 }
 add_action( 'after_setup_theme', 'supermag_update_check' );
+
+
+/**
+ * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
+ */
+function supermag_customize_controls_scripts() {
+	wp_enqueue_script( 'supermag-customizer-controls', get_template_directory_uri() . '/acmethemes/core/js/customizer-controls.js', array( 'customize-preview' ), '1.1.0', true );
+}
+add_action( 'customize_controls_enqueue_scripts', 'supermag_customize_controls_scripts' );

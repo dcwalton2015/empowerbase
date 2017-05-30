@@ -2,7 +2,7 @@
 /**
  * Display default slider
  *
- * @since supermag 1.0.0
+ * @since SuperMag 1.0.0
  *
  * @param int $post_id
  * @return void
@@ -11,9 +11,9 @@
 if ( !function_exists('supermag_default_slider') ) :
     function supermag_default_slider(){
         ?>
-        <li>
+        <li class="default-content">
             <a href="#">
-                <img src="<?php echo esc_url( get_template_directory_uri()."/assets/img/no-image-660-365.png" ); ?>"/>
+                <img src="<?php echo esc_url( get_template_directory_uri()."/assets/img/fs-img-1.jpg" ); ?>"/>
             </a>
             <div class="slider-desc">
                 <div class="slider-details">
@@ -28,9 +28,9 @@ if ( !function_exists('supermag_default_slider') ) :
                 ?>
             </div>
         </li>
-        <li>
+        <li class="default-content">
             <a href="#">
-                <img src="<?php echo esc_url( get_template_directory_uri()."/assets/img/no-image-660-365.png" ); ?>"/>
+                <img src="<?php echo esc_url( get_template_directory_uri()."/assets/img/fs-img-2.jpg" ); ?>"/>
             </a>
             <div class="slider-desc">
                 <div class="slider-details">
@@ -52,7 +52,7 @@ endif;
 /**
  * Featured Slider display
  *
- * @since Supermag 1.1.0
+ * @since SuperMag 1.1.0
  *
  * @param null
  * @return void
@@ -62,15 +62,17 @@ if ( ! function_exists( 'supermag_display_feature_slider' ) ) :
 
     function supermag_display_feature_slider( ){
 
-        global $supermag_customizer_all_values;
+	    $supermag_customizer_all_values = supermag_get_theme_options();
         $supermag_feature_cat = $supermag_customizer_all_values['supermag-feature-cat'];
         if ( 0 != $supermag_feature_cat ) {
+            $sticky = get_option( 'sticky_posts' );
             $supermag_cat_post_args = array(
                 'cat'                 => $supermag_feature_cat,
                 'posts_per_page'      => 5,
                 'no_found_rows'       => true,
                 'post_status'         => 'publish',
-                'ignore_sticky_posts' => true
+                'ignore_sticky_posts' => true,
+                'post__not_in' => $sticky
             );
             $slider_query = new WP_Query($supermag_cat_post_args);
             if ($slider_query->have_posts()):
@@ -94,7 +96,7 @@ if ( ! function_exists( 'supermag_display_feature_slider' ) ) :
                                 ?>
                                 <a href="<?php echo esc_url(get_day_link( $archive_year, $archive_month, $archive_day ) ); ?>">
                                     <i class="fa fa-calendar"></i>
-                                    <?php echo esc_html( get_the_date('F d, Y') ); ?>
+                                    <?php echo esc_html( get_the_date() ); ?>
                                 </a>
                                 <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" title="<?php echo esc_attr( get_the_author() ); ?>">
                                     <i class="fa fa-user"></i>
@@ -133,7 +135,7 @@ endif;
 /**
  * Display related posts from same category
  *
- * @since supermag 1.0.0
+ * @since SuperMag 1.0.0
  *
  * @param int $post_id
  * @return void

@@ -445,6 +445,33 @@ jQuery(document).ready(function($) {
         'openedSymbol': '<i class="fa fa-angle-up"></i>'
     });
 
+    /*sticky menu*/
+    var menu_sticky_height = $('#masthead').height() - $('#site-navigation').height();
+
+    function supermag_enable_sticky_menu( ) {
+        if($(this).width() > 991 ){
+            if ( $(this).scrollTop() > menu_sticky_height) {
+                var wrapper_width = $('#page').width();
+                var supermag_enable_sticky_menu = $('.supermag-enable-sticky-menu');
+                supermag_enable_sticky_menu.css({"position": "fixed", "right": "0","left": "0","top": "0","z-index":'999'});
+                supermag_enable_sticky_menu.width(wrapper_width);
+
+            }
+            else {
+                $('.supermag-enable-sticky-menu').removeAttr( 'style' );
+            }
+        }
+        else{
+            $('.supermag-enable-sticky-menu').removeAttr( 'style' );
+        }
+    }
+    supermag_enable_sticky_menu();
+    $(window).scroll(function(){
+        supermag_enable_sticky_menu();
+    });
+    $(window).resize(function(){
+        supermag_enable_sticky_menu();
+    });
     /*featured slider*/
     jQuery('.home-bxslider').show().bxSlider({
         speed: 1000,
@@ -466,18 +493,47 @@ jQuery(document).ready(function($) {
         speed: 15000
     });
 
+    // ticker
+    $('.duper-bn').show().bxSlider({
+        speed: 500,
+        auto: true,
+        controls: false,
+        pager: false,
+        autoHover : true,
+        mode:'fade'
+    });
+
     //for menu
      $('.header-wrapper #site-navigation .menu-main-menu-container').addClass('clearfix');
 
+    /*search*/
+    $('.search-icon-menu').click(function(){
+        $('.menu-search-toggle').fadeToggle();
+    });
+    
     jQuery('.menu-item-has-children > a').click(function(){
         var at_this = jQuery(this);
         if( at_this.hasClass('at-clicked')){
             return true;
-        };
+        }
         var at_width = jQuery(window).width();
         if( at_width > 992 && at_width <= 1230 ){
             at_this.addClass('at-clicked');
             return false;
         }
+    });
+
+    $(window).on('load',function(){
+        //Sickey Sidebar
+        var at_body = $('body');
+        if(at_body.hasClass('at-sticky-sidebar')){
+            if(at_body.hasClass('both-sidebar')){
+                $('#secondary-right, #primary-wrap').theiaStickySidebar();
+            }
+            else{
+                $('.secondary-sidebar, #primary').theiaStickySidebar();
+            }
+        }
+
     });
 });

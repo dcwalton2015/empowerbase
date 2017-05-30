@@ -4,8 +4,8 @@
  *
  * @link https://jetpack.me/
  *
- * @package AcmeThemes
- * @subpackage Supermag
+ * @package Acme Themes
+ * @subpackage SuperMag
  */
 
 /**

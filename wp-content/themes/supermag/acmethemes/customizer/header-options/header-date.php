@@ -22,3 +22,19 @@ $wp_customize->add_control( 'supermag_theme_options[supermag-show-date]', array(
     'type'	  	=> 'checkbox',
     'priority'  => 7,
 ) );
+
+/*date format*/
+$wp_customize->add_setting( 'supermag_theme_options[supermag-header-date-format]', array(
+	'capability'		=> 'edit_theme_options',
+	'default'			=> $defaults['supermag-header-date-format'],
+	'sanitize_callback' => 'supermag_sanitize_select'
+) );
+$choices = supermag_header_date_format();
+$wp_customize->add_control( 'supermag_theme_options[supermag-header-date-format]', array(
+	'choices'  	=> $choices,
+	'label'		=> __( 'Date Format', 'supermag' ),
+	'section'   => 'supermag-header-date',
+	'settings'  => 'supermag_theme_options[supermag-header-date-format]',
+	'type'	  	=> 'select',
+	'priority'  => 20
+) );

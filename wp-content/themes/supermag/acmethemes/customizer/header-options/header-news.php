@@ -22,16 +22,18 @@ $wp_customize->add_control( 'supermag_theme_options[supermag-breaking-news-title
     'priority'  => 10
 ) );
 
-/*header news enable*/
-$wp_customize->add_setting( 'supermag_theme_options[supermag-enable-breaking-news]', array(
+/*breaking news options*/
+$wp_customize->add_setting( 'supermag_theme_options[supermag-breaking-news-options]', array(
     'capability'		=> 'edit_theme_options',
-    'default'			=> $defaults['supermag-enable-breaking-news'],
-    'sanitize_callback' => 'supermag_sanitize_checkbox'
+    'default'			=> $defaults['supermag-breaking-news-options'],
+    'sanitize_callback' => 'supermag_sanitize_select'
 ) );
-$wp_customize->add_control( 'supermag_theme_options[supermag-enable-breaking-news]', array(
-    'label'		=> __( 'Enable Breaking News', 'supermag' ),
+$choices = supermag_breaking_news_options();
+$wp_customize->add_control( 'supermag_theme_options[supermag-breaking-news-options]', array(
+    'choices'  	=> $choices,
+    'label'		=> __( 'Breaking News Options', 'supermag' ),
     'section'   => 'supermag-header-news',
-    'settings'  => 'supermag_theme_options[supermag-enable-breaking-news]',
-    'type'	  	=> 'checkbox',
-    'priority'  => 10
+    'settings'  => 'supermag_theme_options[supermag-breaking-news-options]',
+    'type'	  	=> 'select',
+    'priority'  => 20
 ) );

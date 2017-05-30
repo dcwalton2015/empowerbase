@@ -4,8 +4,8 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package AcmeThemes
- * @subpackage Supermag
+ * @package Acme Themes
+ * @subpackage SuperMag
  */
 
 if ( ! is_active_sidebar( 'supermag-sidebar' ) ) {
@@ -18,4 +18,4 @@ if( $sidebar_layout == "right-sidebar" || empty( $sidebar_layout ) ) : ?>
 			<?php dynamic_sidebar( 'supermag-sidebar' ); ?>
 		</div>
 	</div>
-<?php endif; ?>
+<?php endif;

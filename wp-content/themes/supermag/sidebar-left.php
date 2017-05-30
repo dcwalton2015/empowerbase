@@ -13,4 +13,4 @@ $sidebar_layout = supermag_sidebar_selection();
             <?php dynamic_sidebar( 'supermag-sidebar' ); ?>
         </div>
     </div>
-<?php endif; ?>
+<?php endif;

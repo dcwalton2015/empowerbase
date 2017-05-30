@@ -6,7 +6,7 @@
  * @param  array $reset_options
  * @return void
  *
- * @since supermag 1.1.0
+ * @since SuperMag 1.1.0
  */
 if ( ! function_exists( 'supermag_reset_db_options' ) ) :
     function supermag_reset_db_options( $reset_options ) {
@@ -14,11 +14,11 @@ if ( ! function_exists( 'supermag_reset_db_options' ) ) :
     }
 endif;
 
-function supermag_reset_setting_callback( $input, $setting ){
-    // Ensure input is a slug.
-    $input = sanitize_text_field( $input );
+function supermag_reset_db_setting( ){
+	$supermag_customizer_all_values = supermag_get_theme_options();
+    $input = $supermag_customizer_all_values['supermag-reset-options'];
     if( '0' == $input ){
-        return '0';
+        return;
     }
     $supermag_default_theme_options = supermag_get_default_theme_options();
     $supermag_get_theme_options = get_theme_mod( 'supermag_theme_options');
@@ -37,6 +37,8 @@ function supermag_reset_setting_callback( $input, $setting ){
             break;
     }
 }
+add_action( 'customize_save_after','supermag_reset_db_setting' );
+
 /*adding sections for Reset Options*/
 $wp_customize->add_section( 'supermag-reset-options', array(
     'priority'       => 220,
@@ -49,8 +51,8 @@ $wp_customize->add_section( 'supermag-reset-options', array(
 $wp_customize->add_setting( 'supermag_theme_options[supermag-reset-options]', array(
     'capability'		=> 'edit_theme_options',
     'default'			=> $defaults['supermag-reset-options'],
-    'sanitize_callback' => 'supermag_reset_setting_callback',
-    'transport'			=> 'postMessage'
+    'transport'			=> 'postMessage',
+    'sanitize_callback' => 'supermag_sanitize_select'
 ) );
 
 $choices = supermag_reset_options();

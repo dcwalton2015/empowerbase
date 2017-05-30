@@ -2,15 +2,15 @@
 /**
  * Custom advertisement
  *
- * @package AcmeThemes
- * @subpackage Supermag
+ * @package Acme Themes
+ * @subpackage SuperMag
  */
 if ( ! class_exists( 'supermag_ad_widget' ) ) :
     /**
      * Class for adding advertisement widget
      * A new way to add advertisement
-     * @package AcmeThemes
-     * @subpackage Supermag
+     * @package Acme Themes
+     * @subpackage SuperMag
      * @since 1.1.0
      */
     class supermag_ad_widget extends WP_Widget {
