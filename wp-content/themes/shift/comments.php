@@ -9,11 +9,11 @@ if ( comments_open() ) { ?>
     <section id="comments" class="comments">
         <div class="comments-number">
             <h2>
-                <?php comments_number( __( 'Be First to Comment', 'shift' ), __( 'One Comment', 'shift' ), __( '% Comments', 'shift' ) ); ?>
+                <?php comments_number( __( 'Be First to Comment', 'shift' ), __( 'One Comment', 'shift' ), _x( '% Comments', 'noun: 5 comments', 'shift' ) ); ?>
             </h2>
         </div>
         <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_shift_customize_comments', 'max_depth' => '3' ) ); ?>
+            <?php wp_list_comments( array( 'callback' => 'ct_shift_customize_comments' ) ); ?>
         </ol>
         <?php
         if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>
@@ -29,11 +29,11 @@ if ( comments_open() ) { ?>
     <section id="comments" class="comments">
         <div class="comments-number">
             <h2>
-                <?php comments_number( __( 'Be First to Comment', 'shift' ), __( 'One Comment', 'shift' ), __( '% Comments', 'shift' ) ); ?>
+                <?php comments_number( __( 'Be First to Comment', 'shift' ), __( 'One Comment', 'shift' ), _x( '% Comments', 'noun: 5 comments', 'shift' ) ); ?>
             </h2>
         </div>
         <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_shift_customize_comments', 'max_depth' => '3' ) ); ?>
+            <?php wp_list_comments( array( 'callback' => 'ct_shift_customize_comments' ) ); ?>
         </ol>
         <?php
         if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>
@@ -51,11 +51,11 @@ if ( comments_open() ) { ?>
     <section id="comments" class="comments">
         <div class="comments-number">
             <h2>
-                <?php comments_number( __( 'Be First to Comment', 'shift' ), __( 'One Comment', 'shift' ), __( '% Comments', 'shift' ) ); ?>
+                <?php comments_number( __( 'Be First to Comment', 'shift' ), __( 'One Comment', 'shift' ), _x( '% Comments', 'noun: 5 comments', 'shift' ) ); ?>
             </h2>
         </div>
         <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_shift_customize_comments', 'max_depth' => '3' ) ); ?>
+            <?php wp_list_comments( array( 'callback' => 'ct_shift_customize_comments' ) ); ?>
         </ol>
         <?php
         if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>

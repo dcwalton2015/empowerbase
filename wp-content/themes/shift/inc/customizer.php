@@ -25,15 +25,16 @@ function ct_shift_add_customizer_content( $wp_customize ) {
 	class ct_shift_pro_ad extends WP_Customize_Control {
 		public function render_content() {
 			$link = 'https://www.competethemes.com/shift-pro/';
-			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%s">Shift Pro</a> is the plugin that makes advanced customization simple - and fun too.', 'shift'), $link) . "</p>";
+			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/shift-pro.png' srcset='" . get_template_directory_uri() . "/assets/images/shift-pro-2x.png 2x' /></a>";
+			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> is the plugin that makes advanced customization simple - and fun too!', 'shift'), $link, wp_get_theme( get_template() )) . "</p>";
+			echo "<p>" . sprintf( __('%1$s Pro adds the following features to %1$s:', 'shift'), wp_get_theme( get_template() ) ) . "</p>";
 			echo "<ul>
-					<li>" . __('Custom Colors', 'shift') . "</li>
-					<li>" . __('New Layouts', 'shift') . "</li>
-					<li>" . __('Background Images', 'shift') . "</li>
-					<li>" . __('+ 9 more features', 'shift') . "</li>
+					<li>" . __('6 new layouts', 'shift') . "</li>
+					<li>" . __('Custom colors', 'shift') . "</li>
+					<li>" . __('New fonts', 'shift') . "</li>
+					<li>" . __('+ 10 more features', 'shift') . "</li>
 				  </ul>";
-			echo "<p>" . __('Download the Shift Pro Plugin to get started now.', 'shift') . "</p>";
-			echo "<p class='button-wrapper'><a target=\"_blank\" class='shift-pro-button' href='" . $link . "'>" . __('Get Shift Pro', 'shift') . "</a></p>";
+			echo "<p class='button-wrapper'><a target=\"_blank\" class='shift-pro-button' href='" . $link . "'>" . sprintf( __('View %s Pro', 'shift'), wp_get_theme( get_template() ) ) . "</a></p>";
 		}
 	}
 
@@ -43,7 +44,7 @@ function ct_shift_add_customizer_content( $wp_customize ) {
 	if ( !function_exists( 'ct_shift_pro_init' ) ) {
 		// section
 		$wp_customize->add_section( 'ct_shift_pro', array(
-			'title'    => __( 'Shift Pro', 'shift' ),
+			'title'    => sprintf( __( '%s Pro', 'shift' ), wp_get_theme( get_template() ) ),
 			'priority' => 1
 		) );
 		// Upload - setting
@@ -108,6 +109,8 @@ function ct_shift_add_customizer_content( $wp_customize ) {
 				$label = 'DeviantArt';
 			} elseif ( $social_site == 'hacker-news' ) {
 				$label = 'Hacker News';
+			} elseif ( $social_site == 'google-wallet' ) {
+				$label = 'Google Wallet';
 			} elseif ( $social_site == 'whatsapp' ) {
 				$label = 'WhatsApp';
 			} elseif ( $social_site == 'qq' ) {
@@ -185,7 +188,7 @@ function ct_shift_add_customizer_content( $wp_customize ) {
 	$wp_customize->add_section( 'shift_layout', array(
 		'title'       => __( 'Layout', 'shift' ),
 		'priority'    => 40,
-		'description' => sprintf( __( 'Want more layouts? Check out the <a target="_blank" href="%s">Shift Pro plugin</a>.', 'shift' ), 'https://www.competethemes.com/shift-pro/' )
+		'description' => sprintf( __( 'Want more layouts? Check out the <a target="_blank" href="%1$s">%2$s Pro plugin</a>.', 'shift' ), 'https://www.competethemes.com/shift-pro/', wp_get_theme( get_template() ) )
 	) );
 	// setting
 	$wp_customize->add_setting( 'layout', array(
@@ -209,7 +212,7 @@ function ct_shift_add_customizer_content( $wp_customize ) {
 
 	// section
 	$wp_customize->add_section( 'shift_blog', array(
-		'title'    => __( 'Blog', 'shift' ),
+		'title'    => _x( 'Blog', 'noun: the blog section', 'shift' ),
 		'priority' => 45
 	) );
 	// setting
@@ -259,7 +262,7 @@ function ct_shift_add_customizer_content( $wp_customize ) {
 	$wp_customize->add_section( 'shift_display', array(
 		'title'       => __( 'Display Controls', 'shift' ),
 		'priority'    => 55,
-		'description' => sprintf( __( 'Want more options like these? Check out the <a target="_blank" href="%s"> Shift Pro plugin</a>.', 'shift' ), 'https://www.competethemes.com/shift-pro/' )
+		'description' => sprintf( __( 'Want more options like these? Check out the <a target="_blank" href="%1$s"> %2$s Pro plugin</a>.', 'shift' ), 'https://www.competethemes.com/shift-pro/', wp_get_theme( get_template() ) )
 	) );
 	// setting - post author
 	$wp_customize->add_setting( 'display_post_author', array(
@@ -312,23 +315,36 @@ function ct_shift_add_customizer_content( $wp_customize ) {
 
 	/***** Custom CSS *****/
 
-	// section
-	$wp_customize->add_section( 'shift_custom_css', array(
-		'title'    => __( 'Custom CSS', 'shift' ),
-		'priority' => 75
-	) );
-	// setting
-	$wp_customize->add_setting( 'custom_css', array(
-		'sanitize_callback' => 'ct_shift_sanitize_css',
-		'transport'         => 'postMessage'
-	) );
-	// control
-	$wp_customize->add_control( 'custom_css', array(
-		'type'     => 'textarea',
-		'label'    => __( 'Add Custom CSS Here:', 'shift' ),
-		'section'  => 'shift_custom_css',
-		'settings' => 'custom_css'
-	) );
+	if ( function_exists( 'wp_update_custom_css_post' ) ) {
+		// Migrate any existing theme CSS to the core option added in WordPress 4.7.
+		$css = get_theme_mod( 'custom_css' );
+		if ( $css ) {
+			$core_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
+			$return = wp_update_custom_css_post( $core_css . $css );
+			if ( ! is_wp_error( $return ) ) {
+				// Remove the old theme_mod, so that the CSS is stored in only one place moving forward.
+				remove_theme_mod( 'custom_css' );
+			}
+		}
+	} else {
+		// section
+		$wp_customize->add_section( 'shift_custom_css', array(
+			'title'    => __( 'Custom CSS', 'shift' ),
+			'priority' => 75
+		) );
+		// setting
+		$wp_customize->add_setting( 'custom_css', array(
+			'sanitize_callback' => 'ct_shift_sanitize_css',
+			'transport'         => 'postMessage'
+		) );
+		// control
+		$wp_customize->add_control( 'custom_css', array(
+			'type'     => 'textarea',
+			'label'    => __( 'Add Custom CSS Here:', 'shift' ),
+			'section'  => 'shift_custom_css',
+			'settings' => 'custom_css'
+		) );
+	}
 }
 
 /***** Custom Sanitization Functions *****/
