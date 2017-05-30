@@ -40,11 +40,11 @@ function clean_box_featured_content_display() {
 	// Get Page ID outside Loop
 	$page_id = $wp_query->get_queried_object_id();
 
-	if ( $enablecontent == 'entire-site' || ( ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) && $enablecontent == 'homepage' ) ) {
+	if ( 'entire-site' == $enablecontent  || ( ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) && 'homepage' == $enablecontent  ) ) {
 		if( ( !$clean_box_featured_content = get_transient( 'clean_box_featured_content' ) ) ) {
-			$layouts 	 = $options ['featured_content_layout'];
-			$headline 	 = $options ['featured_content_headline'];
-			$subheadline = $options ['featured_content_subheadline'];
+			$layouts 	 = $options['featured_content_layout'];
+			$headline 	 = $options['featured_content_headline'];
+			$subheadline = $options['featured_content_subheadline'];
 
 			echo '<!-- refreshing cache -->';
 
@@ -52,7 +52,7 @@ function clean_box_featured_content_display() {
 				$classes = $layouts ;
 			}
 
-			if( $contentselect == 'demo-featured-content' ) {
+			if( 'demo-featured-content' == $contentselect  ) {
 				$headline 		= __( 'Featured Content', 'clean-box' );
 				$subheadline 	= __( 'Here you can showcase the x number of Featured Content. You can edit this Headline, Subheadline and Feaured Content from "Appearance -> Customize -> Featured Content Options".', 'clean-box' );
 			}
@@ -60,8 +60,8 @@ function clean_box_featured_content_display() {
 			$classes 	.= ' ' . $contentselect ;
 
 			//Check Featured Content Position
-			if ( isset( $options [ 'featured_content_position' ] ) ) {
-				$featured_content_position = $options [ 'featured_content_position' ];
+			if ( isset( $options['featured_content_position'] ) ) {
+				$featured_content_position = $options['featured_content_position'];
 			}
 
 			if ( '1' == $featured_content_position ) {
@@ -85,10 +85,10 @@ function clean_box_featured_content_display() {
 						<div class="featured-content-wrap">';
 
 							// Select content
-							if ( $contentselect == 'demo-featured-content'  && function_exists( 'clean_box_demo_content' ) ) {
+							if ( 'demo-featured-content' == $contentselect   && function_exists( 'clean_box_demo_content' ) ) {
 								$clean_box_featured_content .= clean_box_demo_content( $options );
 							}
-							elseif ( $contentselect == 'featured-page-content' && function_exists( 'clean_box_page_content' ) ) {
+							elseif ( 'featured-page-content' == $contentselect  && function_exists( 'clean_box_page_content' ) ) {
 								$clean_box_featured_content .= clean_box_page_content( $options );
 							}
 
@@ -118,8 +118,8 @@ function clean_box_featured_content_display_position() {
 	$options 		= clean_box_get_theme_options();
 
 	//Check Featured Content Position
-	if ( isset( $options [ 'featured_content_position' ] ) ) {
-		$featured_content_position = $options [ 'featured_content_position' ];
+	if ( isset( $options['featured_content_position'] ) ) {
+		$featured_content_position = $options['featured_content_position'];
 	}
 
 	if ( '1' != $featured_content_position ) {
@@ -192,7 +192,7 @@ function clean_box_demo_content( $options ) {
 			</div><!-- .entry-container -->
 		</article>';
 
-	if( 'layout-four' == $options ['featured_content_layout']) {
+	if( 'layout-four' == $options['featured_content_layout']) {
 		$clean_box_demo_content .= '
 		<article id="featured-post-4" class="post hentry post-demo">
 			<figure class="featured-content-image">
@@ -227,11 +227,11 @@ if ( ! function_exists( 'clean_box_page_content' ) ) :
 function clean_box_page_content( $options ) {
 	global $post;
 
-	$quantity 					= $options [ 'featured_content_number' ];
+	$quantity 					= $options['featured_content_number'];
 
 	$more_link_text				= $options['excerpt_more_text'];
 
-	$show_content	= isset( $options['featured_content_show'] ) ? $options['featured_content_show'] : 'excerpt';
+	$show_content	= $options['featured_content_show'];
 
 	$clean_box_page_content 	= '';
 
@@ -249,7 +249,7 @@ function clean_box_page_content( $options ) {
 
 	}
 	if ( !empty( $page_list ) && $number_of_page > 0 ) {
-		$get_featured_posts = new WP_Query( array(
+		$loop = new WP_Query( array(
                     'posts_per_page' 		=> $number_of_page,
                     'post__in'       		=> $page_list,
                     'orderby'        		=> 'post__in',
@@ -257,8 +257,8 @@ function clean_box_page_content( $options ) {
                 ));
 
 		$i=0;
-		while ( $get_featured_posts->have_posts()) : $get_featured_posts->the_post(); $i++;
-			$title_attribute = the_title_attribute( array( 'before' => __( 'Permalink to:', 'clean-box' ), 'echo' => false ) );
+		while ( $loop->have_posts()) : $loop->the_post(); $i++;
+			$title_attribute = the_title_attribute( 'echo=0' );
 
 			$excerpt = get_the_excerpt();
 
@@ -268,12 +268,12 @@ function clean_box_page_content( $options ) {
 					$clean_box_page_content .= '
 					<figure class="featured-homepage-image">
 						<a href="' . esc_url( get_permalink() ) . '" title="' . $title_attribute . '">
-						'. get_the_post_thumbnail( $post->ID, 'medium', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ) ) ) .'
+						'. get_the_post_thumbnail( $post->ID, 'clean-box-featured-content', array( 'title' => $title_attribute, 'alt' => $title_attribute ) ) .'
 						</a>
 					</figure>';
 				}
 				else {
-					$clean_box_first_image = clean_box_get_first_image( $post->ID, 'medium', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ) ) );
+					$clean_box_first_image = clean_box_get_first_image( $post->ID, 'clean-box-featured-content', array( 'title' => $title_attribute, 'alt' => $title_attribute ) );
 
 					if ( '' != $clean_box_first_image ) {
 						$clean_box_page_content .= '
@@ -305,7 +305,7 @@ function clean_box_page_content( $options ) {
 				</article><!-- .featured-post-'. $i .' -->';
 		endwhile;
 
-		wp_reset_query();
+		wp_reset_postdata();
 	}
 
 	return $clean_box_page_content;

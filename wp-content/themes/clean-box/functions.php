@@ -8,17 +8,17 @@
  *
  * @package Catch Themes
  * @subpackage Clean Box
- * @since Clean Box 0.1 
+ * @since Clean Box 0.1
  */
 
 //define theme version
 if ( !defined( 'CLEAN_BOX_THEME_VERSION' ) ) {
 	$theme_data = wp_get_theme();
-	
+
 	define ( 'CLEAN_BOX_THEME_VERSION', $theme_data->get( 'Version' ) );
 }
 
 /**
  * Implement the core functions
  */
-require get_template_directory() . '/inc/clean-box-core.php';
+require trailingslashit( get_template_directory() ) . 'inc/clean-box-core.php';

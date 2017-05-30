@@ -239,7 +239,7 @@ function clean_box_scripts() {
 	/**
 	 * Loads up Responsive Menu
 	 */
-	wp_register_script('sidr', get_template_directory_uri() . '/js/jquery.sidr.min.js', array('jquery'), '2.2.1.1 - 2016-03-03', false );
+	wp_register_script( 'jquery-sidr', get_template_directory_uri() . '/js/jquery.sidr.min.js', array('jquery'), '2.2.1.1 - 2016-03-03', false );
 
 
 	/**
@@ -252,7 +252,11 @@ function clean_box_scripts() {
 	/**
 	 * Enqueue custom script for clean-box.
 	 */
-	wp_enqueue_script( 'clean-box-custom-scripts', get_template_directory_uri() . '/js/clean-box-custom-scripts.min.js', array( 'jquery', 'sidr' ), null );
+	wp_enqueue_script( 'clean-box-custom-scripts', get_template_directory_uri() . '/js/clean-box-custom-scripts.min.js', array( 'jquery', 'jquery-sidr' ), null );
+
+	// Load the html5 shiv.
+	wp_enqueue_script( 'clean-box-html5', get_template_directory_uri() . '/js/html5.min.js', array(), '3.7.3' );
+	wp_script_add_data( 'clean-box-html5', 'conditional', 'lt IE 9' );
 }
 add_action( 'wp_enqueue_scripts', 'clean_box_scripts' );
 
@@ -281,72 +285,72 @@ add_action( 'admin_print_scripts-page.php', 'clean_box_enqueue_metabox_scripts',
 /**
  * Default Options.
  */
-require get_template_directory() . '/inc/clean-box-default-options.php';
+require trailingslashit( get_template_directory() ) . 'inc/clean-box-default-options.php';
 
 /**
  * Custom Header.
  */
-require get_template_directory() . '/inc/clean-box-custom-header.php';
+require trailingslashit( get_template_directory() ) . 'inc/clean-box-custom-header.php';
 
 
 /**
  * Structure for clean-box
  */
-require get_template_directory() . '/inc/clean-box-structure.php';
+require trailingslashit( get_template_directory() ) . 'inc/clean-box-structure.php';
 
 
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer-includes/clean-box-customizer.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer-includes/clean-box-customizer.php';
 
 
 /**
  * Custom Menus
  */
-require get_template_directory() . '/inc/clean-box-menus.php';
+require trailingslashit( get_template_directory() ) . 'inc/clean-box-menus.php';
 
 
 /**
  * Load Featured Content.
  */
-require get_template_directory() . '/inc/clean-box-featured-content.php';
+require trailingslashit( get_template_directory() ) . 'inc/clean-box-featured-content.php';
 
 
 /**
  * Load Featured Grid file.
  */
-require get_template_directory() . '/inc/clean-box-featured-grid-content.php';
+require trailingslashit( get_template_directory() ) . 'inc/clean-box-featured-grid-content.php';
 
 
 /**
  * Load Featured Content.
  */
-require get_template_directory() . '/inc/clean-box-featured-slider.php';
+require trailingslashit( get_template_directory() ) . 'inc/clean-box-featured-slider.php';
 
 
 /**
  * Load Breadcrumb file.
  */
-require get_template_directory() . '/inc/clean-box-breadcrumb.php';
+require trailingslashit( get_template_directory() ) . 'inc/clean-box-breadcrumb.php';
 
 
 /**
  * Load Widgets and Sidebars
  */
-require get_template_directory() . '/inc/clean-box-widgets.php';
+require trailingslashit( get_template_directory() ) . 'inc/clean-box-widgets.php';
 
 
 /**
  * Load Social Icons
  */
-require get_template_directory() . '/inc/clean-box-social-icons.php';
+require trailingslashit( get_template_directory() ) . 'inc/clean-box-social-icons.php';
 
 
 /**
  * Load Metaboxes
  */
-require get_template_directory() . '/inc/clean-box-metabox.php';
+require trailingslashit( get_template_directory() ) . 'inc/clean-box-metabox.php';
 
 
 /**
@@ -460,7 +464,7 @@ if ( ! function_exists( 'clean_box_custom_css' ) ) :
 			}
 
 			//Custom CSS Option
-			if( !empty( $options[ 'custom_css' ] ) ) {
+			if( !empty( $options['custom_css'] ) ) {
 				$clean_box_custom_css	.=  $options[ 'custom_css'] . "\n";
 			}
 
@@ -490,12 +494,12 @@ add_action( 'wp_head', 'clean_box_custom_css', 101  );
  * @since Clean Box 0.1
  */
 function clean_box_alter_home( $query ){
-	$options 			= clean_box_get_theme_options();
+	if( $query->is_main_query() && $query->is_home() ) {
+		$options 			= clean_box_get_theme_options();
 
-    $cats 				= $options[ 'front_page_category' ];
+	    $cats 				= $options['front_page_category'];
 
-	if ( is_array( $cats ) && !in_array( '0', $cats ) ) {
-		if( $query->is_main_query() && $query->is_home() ) {
+		if ( is_array( $cats ) && !in_array( '0', $cats ) ) {
 			$query->query_vars['category__in'] =  $cats;
 		}
 	}
@@ -570,8 +574,6 @@ if ( ! function_exists( 'clean_box_comment' ) ) :
 	 * @since Clean Box 0.1
 	 */
 	function clean_box_comment( $comment, $args, $depth ) {
-		$GLOBALS['comment'] = $comment;
-
 		if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
 
 		<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
@@ -672,7 +674,7 @@ if ( ! function_exists( 'clean_box_the_attached_image' ) ) :
 
 		printf( '<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
 			esc_url( $next_attachment_url ),
-			the_title_attribute( array( 'echo' => false ) ),
+			the_title_attribute( 'echo=0' ),
 			wp_get_attachment_image( $post->ID, $attachment_size )
 		);
 	}
@@ -873,21 +875,6 @@ endif; //clean_box_excerpt_length
 add_filter( 'excerpt_length', 'clean_box_excerpt_length' );
 
 
-/**
- * Change the defult excerpt length of 30 to whatever passed as value
- *
- * @use excerpt(10) or excerpt (..)  if excerpt length needs only 10 or whatevere
- * @uses get_permalink, get_the_excerpt
- */
-function clean_box_excerpt_desired( $num ) {
-    $limit = $num+1;
-    $excerpt = explode( ' ', get_the_excerpt(), $limit );
-    array_pop( $excerpt );
-    $excerpt = implode( " ",$excerpt )."<a href='" . esc_url( get_permalink() ) ." '></a>";
-    return $excerpt;
-}
-
-
 if ( ! function_exists( 'clean_box_continue_reading' ) ) :
 	/**
 	 * Returns a "Custom Continue Reading" link for excerpts
@@ -899,7 +886,7 @@ if ( ! function_exists( 'clean_box_continue_reading' ) ) :
 		$options		=	clean_box_get_theme_options();
 		$more_tag_text	= $options['excerpt_more_text'];
 
-		return ' <a class="more-link" href="' . esc_url( get_permalink() ) . '">' .  sprintf( __( '%s', 'clean-box' ) , $more_tag_text ) . '</a>';
+		return ' <a class="more-link" href="' . esc_url( get_permalink() ) . '">' .  $more_tag_text . '</a>';
 	}
 endif; //clean_box_continue_reading
 add_filter( 'excerpt_more', 'clean_box_continue_reading' );
@@ -1164,7 +1151,7 @@ if ( ! function_exists( 'clean_box_single_content_image' ) ) :
 
 		$featured_image = $options['single_post_image_layout'];
 
-		if ( ( $individual_featured_image == 'disable' || '' == get_the_post_thumbnail() || ( $individual_featured_image=='default' && $featured_image == 'disabled') ) ) {
+		if ( ( 'disable' == $individual_featured_image  || '' == get_the_post_thumbnail() || ( $individual_featured_image=='default' && 'disabled' == $featured_image ) ) ) {
 			echo '<!-- Page/Post Single Image Disabled or No Image set in Post Thumbnail -->';
 			return false;
 		}
@@ -1181,7 +1168,7 @@ if ( ! function_exists( 'clean_box_single_content_image' ) ) :
 			?>
 			<figure class="featured-image <?php echo $class; ?>">
                 <?php
-				if ( $individual_featured_image == 'featured' || ( $individual_featured_image=='default' && $featured_image == 'featured' ) ) {
+				if ( 'featured' == $individual_featured_image  || ( $individual_featured_image=='default' && 'featured' == $featured_image  ) ) {
                      the_post_thumbnail( 'clean-box-featured' );
                 }
                 else {
@@ -1237,8 +1224,8 @@ if ( ! function_exists( 'clean_box_promotion_headline' ) ) :
 		$promotion_headline_target_2= $options['promotion_headline_target_2'];
 		$enablepromotion 			= $options['promotion_headline_option'];
 
-		$promotion_headline_url_1= $options[ 'promotion_headline_url_1' ];
-		$promotion_headline_url_2= $options[ 'promotion_headline_url_2' ];
+		$promotion_headline_url_1= $options['promotion_headline_url_1'];
+		$promotion_headline_url_2= $options['promotion_headline_url_2'];
 
 		//support qTranslate plugin
 		if ( function_exists( 'qtrans_convertURL' ) ) {
@@ -1253,7 +1240,7 @@ if ( ! function_exists( 'clean_box_promotion_headline' ) ) :
 		// Get Page ID outside Loop
 		$page_id = $wp_query->get_queried_object_id();
 
-		 if ( ( "" != $promotion_headline || "" != $promotion_subheadline || "" != $promotion_headline_url_1 || "" != $promotion_headline_url_2 ) && ( $enablepromotion == 'entire-site' || ( ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) && $enablepromotion == 'homepage' ) ) ) {
+		 if ( ( "" != $promotion_headline || "" != $promotion_subheadline || "" != $promotion_headline_url_1 || "" != $promotion_headline_url_2 ) && ( 'entire-site' == $enablepromotion  || ( ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) && 'homepage' == $enablepromotion  ) ) ) {
 
 			if ( !$clean_box_promotion_headline = get_transient( 'clean_box_promotion_headline' ) ) {
 
@@ -1419,7 +1406,7 @@ if ( ! function_exists( 'clean_box_page_post_meta' ) ) :
 		$clean_box_author_url = esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) );
 
 		$clean_box_page_post_meta = '<span class="post-time">' . __( 'Posted on', 'clean-box' ) . ' <time class="entry-date updated" datetime="' . esc_attr( get_the_date( 'c' ) ) . '" pubdate>' . esc_html( get_the_date() ) . '</time></span>';
-	    $clean_box_page_post_meta .= '<span class="post-author">' . __( 'By', 'clean-box' ) . ' <span class="author vcard"><a class="url fn n" href="' . $clean_box_author_url . '" title="View all posts by ' . get_the_author() . '" rel="author">' .get_the_author() . '</a></span>';
+	    $clean_box_page_post_meta .= '<span class="post-author">' . __( 'By', 'clean-box' ) . ' <span class="author vcard"><a class="url fn n" href="' . esc_url( $clean_box_author_url ) . '" title="View all posts by ' . esc_attr( get_the_author() ) . '" rel="author">' .get_the_author() . '</a></span>';
 
 		return $clean_box_page_post_meta;
 	}
@@ -1496,7 +1483,7 @@ if ( ! function_exists( 'clean_box_get_the_content_limit' ) ) :
 
 		//* More link?
 		if ( $more_link_text ) {
-			$link   = apply_filters( 'get_the_content_more_link', sprintf( '<a href="%s" class="more-link">%s</a>', get_permalink(), $more_link_text ), $more_link_text );
+			$link   = apply_filters( 'get_the_content_more_link', sprintf( '<a href="%s" class="more-link">%s</a>', esc_url( get_permalink() ), $more_link_text ), $more_link_text );
 			$output = sprintf( '<p>%s %s</p>', $content, $link );
 		} else {
 			$output = sprintf( '<p>%s</p>', $content );
@@ -1568,3 +1555,41 @@ function clean_box_logo_migrate() {
 
 }
 add_action( 'after_setup_theme', 'clean_box_logo_migrate' );
+
+/**
+ * Migrate Custom CSS to WordPress core Custom CSS
+ *
+ * Runs if version number saved in theme_mod "custom_css_version" doesn't match current theme version.
+ */
+function clean_box_custom_css_migrate(){
+	$ver = get_theme_mod( 'custom_css_version', false );
+
+	// Return if update has already been run
+	if ( version_compare( $ver, '4.7' ) >= 0 ) {
+		return;
+	}
+
+	if ( function_exists( 'wp_update_custom_css_post' ) ) {
+	    // Migrate any existing theme CSS to the core option added in WordPress 4.7.
+
+	    /**
+		 * Get Theme Options Values
+		 */
+	    $options = clean_box_get_theme_options();
+
+	    if ( '' != $options['custom_css'] ) {
+			$core_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
+			$return   = wp_update_custom_css_post( $core_css . $options['custom_css'] );
+
+	        if ( ! is_wp_error( $return ) ) {
+	            // Remove the old theme_mod, so that the CSS is stored in only one place moving forward.
+	            unset( $options['custom_css'] );
+	            set_theme_mod( 'clean_box_theme_options', $options );
+
+	            // Update to match custom_css_version so that script is not executed continously
+				set_theme_mod( 'custom_css_version', '4.7' );
+	        }
+	    }
+	}
+}
+add_action( 'after_setup_theme', 'clean_box_custom_css_migrate' );

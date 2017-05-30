@@ -40,14 +40,8 @@ if ( ! defined( 'CLEAN_BOX_THEME_VERSION' ) ) {
 		'sanitize_callback'	=> 'clean_box_sanitize_select'
 	) );
 
-	$featured_grid_content_content_options = clean_box_featured_grid_content_options();
-	$choices = array();
-	foreach ( $featured_grid_content_content_options as $featured_grid_content_content_option ) {
-		$choices[$featured_grid_content_content_option['value']] = $featured_grid_content_content_option['label'];
-	}
-
 	$wp_customize->add_control( 'clean_box_theme_options[featured_grid_content_option]', array(
-		'choices'   => $choices,
+		'choices'   => clean_box_featured_grid_content_options(),
 		'label'    	=> __( 'Enable Grid Content on', 'clean-box' ),
 		'priority'	=> '1.1',
 		'section'  	=> 'clean_box_featured_grid_content',
@@ -60,16 +54,10 @@ if ( ! defined( 'CLEAN_BOX_THEME_VERSION' ) ) {
 		'default'			=> $defaults['featured_grid_content_type'],
 		'sanitize_callback'	=> 'clean_box_sanitize_select',
 	) );
-
-	$featured_grid_content_types = clean_box_featured_grid_content_types();
-	$choices = array();
-	foreach ( $featured_grid_content_types as $featured_grid_content_type ) {
-		$choices[$featured_grid_content_type['value']] = $featured_grid_content_type['label'];
-	}
-
+	
 	$wp_customize->add_control( 'clean_box_theme_options[featured_grid_content_type]', array(
 		'active_callback'	=> 'clean_box_is_grid_content_active',
-		'choices'  	=> $choices,
+		'choices'  	=> clean_box_featured_grid_content_types(),
 		'label'    	=> __( 'Select Grid Content Type', 'clean-box' ),
 		'priority'	=> '2.1.3',
 		'section'  	=> 'clean_box_featured_grid_content',

@@ -82,8 +82,8 @@ if ( ! function_exists( 'clean_box_header_style' ) ) :
 function clean_box_header_style() {
 
 	// If no custom options for text are set, let's bail
-	// get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank') or any hex value
-	if ( HEADER_TEXTCOLOR == get_header_textcolor() )
+	// get_header_textcolor() options: get_theme_support( 'custom-header', 'default-text-color' ) is default, hide text (returns 'blank') or any hex value
+	if ( get_theme_support( 'custom-header', 'default-text-color' ) === get_header_textcolor() )
 		return;
 	// If we get this far, we have custom styles. Let's do this.
 	?>
@@ -160,23 +160,23 @@ function clean_box_admin_header_style() {
 	}
 	<?php
 	// If the user has set a custom color for the text use that
-	if ( get_header_textcolor() != HEADER_TEXTCOLOR  && 'blank' != $text_color ) {
+	if ( get_theme_support( 'custom-header', 'default-text-color' ) !== get_header_textcolor()  && 'blank' != $text_color ) {
 		echo '
 		#site-branding .site-title a,
 		#site-branding .site-description {
 			color: #' . get_header_textcolor() . ';
 		}';
 	}
-	if( $defaults[ 'site_title_color' ] != $options[ 'site_title_color' ] ) {
-		echo "#site-branding .site-title a { color: ".  $options[ 'site_title_color' ] ."; }". "\n";
+	if( $defaults[ 'site_title_color' ] != $options['site_title_color'] ) {
+		echo "#site-branding .site-title a { color: ".  $options['site_title_color'] ."; }". "\n";
 	}
 
-	if( $defaults[ 'site_title_hover_color' ] != $options[ 'site_title_hover_color' ] ) {
-		echo "#site-branding .site-title a:hover { color: ".  $options[ 'site_title_hover_color' ] ."; }". "\n";
+	if( $defaults[ 'site_title_hover_color' ] != $options['site_title_hover_color'] ) {
+		echo "#site-branding .site-title a:hover { color: ".  $options['site_title_hover_color'] ."; }". "\n";
 	}
 
-	if( $defaults[ 'tagline_color' ] != $options[ 'tagline_color' ] ) {
-		echo "#site-branding .site-description { color: ".  $options[ 'tagline_color' ] ."; }". "\n";
+	if( $defaults[ 'tagline_color' ] != $options['tagline_color'] ) {
+		echo "#site-branding .site-description { color: ".  $options['tagline_color'] ."; }". "\n";
 	}
 
 	 ?>
@@ -307,19 +307,19 @@ if ( ! function_exists( 'clean_box_featured_image' ) ) :
 
 			echo '<!-- refreshing cache -->';
 
-			if ( $header_image != '' ) {
+			if ( '' != $header_image  ) {
 
 				// Header Image Link and Target
-				if ( !empty( $options[ 'featured_header_image_url' ] ) ) {
+				if ( !empty( $options['featured_header_image_url'] ) ) {
 					//support for qtranslate custom link
 					if ( function_exists( 'qtrans_convertURL' ) ) {
-						$link = qtrans_convertURL($options[ 'featured_header_image_url' ]);
+						$link = qtrans_convertURL($options['featured_header_image_url']);
 					}
 					else {
-						$link = esc_url( $options[ 'featured_header_image_url' ] );
+						$link = esc_url( $options['featured_header_image_url'] );
 					}
 					//Checking Link Target
-					if ( !empty( $options[ 'featured_header_image_base' ] ) )  {
+					if ( !empty( $options['featured_header_image_base'] ) )  {
 						$target = '_blank';
 					}
 					else {
@@ -332,21 +332,21 @@ if ( ! function_exists( 'clean_box_featured_image' ) ) :
 				}
 
 				// Header Image Title/Alt
-				if ( !empty( $options[ 'featured_header_image_alt' ] ) ) {
-					$title = esc_attr( $options[ 'featured_header_image_alt' ] );
+				if ( !empty( $options['featured_header_image_alt'] ) ) {
+					$title = esc_attr( $options['featured_header_image_alt'] );
 				}
 				else {
 					$title = '';
 				}
 
 				// Header Image
-				$feat_image = '<img class="wp-post-image" alt="'.$title.'" src="'.esc_url(  $header_image ).'" />';
+				$feat_image = '<img class="wp-post-image" alt="' . esc_attr( $title ) . '" src="'.esc_url(  $header_image ).'" />';
 
 				$clean_box_featured_image = '<div id="header-featured-image">
 					<div class="wrapper">';
 					// Header Image Link
-					if ( !empty( $options[ 'featured_header_image_url' ] ) ) :
-						$clean_box_featured_image .= '<a title="'. esc_attr( $title ).'" href="'. esc_url( $link ) .'" target="'.$target.'">' . $feat_image . '</a>';
+					if ( !empty( $options['featured_header_image_url'] ) ) :
+						$clean_box_featured_image .= '<a title="'. esc_attr( $title ).'" href="'. esc_url( $link ) .'" target="' . $target . '">' . $feat_image . '</a>';
 					else:
 						// if empty featured_header_image on theme options, display default
 						$clean_box_featured_image .= $feat_image;
@@ -437,7 +437,7 @@ if ( ! function_exists( 'clean_box_featured_page_post_image' ) ) :
 			$clean_box_featured_image = '<div id="header-featured-image" class =' . $featured_image_size . '>';
 				// Header Image Link
 				if ( '' != $featured_header_image_url ) :
-					$clean_box_featured_image .= '<a title="'. esc_attr( $title ).'" href="'. esc_url( $link ) .'" target="'.$target.'">' . $feat_image . '</a>';
+					$clean_box_featured_image .= '<a title="'. esc_attr( $title ).'" href="'. esc_url( $link ) .'" target="' . $target . '">' . $feat_image . '</a>';
 				else:
 					// if empty featured_header_image on theme options, display default
 					$clean_box_featured_image .= $feat_image;
@@ -478,23 +478,23 @@ if ( ! function_exists( 'clean_box_featured_overall_image' ) ) :
 			//Individual Page/Post Image Setting
 			$individual_featured_image = get_post_meta( $post->ID, 'clean-box-header-image', true );
 
-			if ( $individual_featured_image == 'disable' || ( $individual_featured_image == 'default' && $enableheaderimage == 'disable' ) ) {
+			if ( 'disable' == $individual_featured_image  || ( 'default' == $individual_featured_image  && 'disable' == $enableheaderimage  ) ) {
 				echo '<!-- Page/Post Disable Header Image -->';
 				return;
 			}
-			elseif ( $individual_featured_image == 'enable' && $enableheaderimage == 'disabled' ) {
+			elseif ( 'enable' == $individual_featured_image  && 'disabled' == $enableheaderimage  ) {
 				clean_box_featured_page_post_image();
 			}
 		}
 
 		// Check Homepage
-		if ( $enableheaderimage == 'homepage' ) {
+		if ( 'homepage' == $enableheaderimage  ) {
 			if ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) {
 				clean_box_featured_image();
 			}
 		}
 		// Check Excluding Homepage
-		if ( $enableheaderimage == 'exclude-home' ) {
+		if ( 'exclude-home' == $enableheaderimage  ) {
 			if ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) {
 				return false;
 			}
@@ -502,7 +502,7 @@ if ( ! function_exists( 'clean_box_featured_overall_image' ) ) :
 				clean_box_featured_image();
 			}
 		}
-		elseif ( $enableheaderimage == 'exclude-home-page-post' ) {
+		elseif ( 'exclude-home-page-post' == $enableheaderimage  ) {
 			if ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) {
 				return false;
 			}
@@ -514,11 +514,11 @@ if ( ! function_exists( 'clean_box_featured_overall_image' ) ) :
 			}
 		}
 		// Check Entire Site
-		elseif ( $enableheaderimage == 'entire-site' ) {
+		elseif ( 'entire-site' == $enableheaderimage  ) {
 			clean_box_featured_image();
 		}
 		// Check Entire Site (Post/Page)
-		elseif ( $enableheaderimage == 'entire-site-page-post' ) {
+		elseif ( 'entire-site-page-post' == $enableheaderimage  ) {
 			if ( is_page() || is_single() ) {
 				clean_box_featured_page_post_image();
 			}
@@ -527,7 +527,7 @@ if ( ! function_exists( 'clean_box_featured_overall_image' ) ) :
 			}
 		}
 		// Check Page/Post
-		elseif ( $enableheaderimage == 'pages-posts' ) {
+		elseif ( 'pages-posts' == $enableheaderimage  ) {
 			if ( is_page() || is_single() ) {
 				clean_box_featured_page_post_image();
 			}

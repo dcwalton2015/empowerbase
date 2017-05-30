@@ -1,9 +1,22 @@
 == Changelog ==
 
+= 2.2.1 =
+* Added: Option to Display all Categories in Customizer
+* Bug Fixed: Featured content image sizes changed from medium to clean-box-featured-content
+* Code Optimization
+
+= 2.2 =
+* Bug Fixed: array_filter() in category types for slider,content, etc causing issues in some php versions
+ * Solved by removing the function and type casting using (array)
+
 = 2.1 =
 * Added: French translation fr_FR.po and fr_FR.mo
 * Updated: Reset all settings compatibility with WordPress v4.6
 * Updated: Used the_archive_title() and the_archive_description() in archive.php
+* Updated: Upgrade Button in customizer with respect to trt decision
+* Updated: HTML Shiv script loading
+* Updated: Custom CSS to Additional CSS( Core Support ) for WP version 4.7
+* Code Optimization
 
 = 2.0 =
 * Added: German translation de_DE.po and de_DE.mo

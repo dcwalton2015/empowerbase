@@ -38,7 +38,7 @@ function clean_box_featured_slider() {
 	$page_on_front = get_option('page_on_front') ;
 	$page_for_posts = get_option('page_for_posts');
 
-	if ( $enableslider == 'entire-site' || ( ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) && $enableslider == 'homepage' ) ) {
+	if ( 'entire-site' == $enableslider  || ( ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) && 'homepage' == $enableslider  ) ) {
 		if( ( !$clean_box_featured_slider = get_transient( 'clean_box_featured_slider' ) ) ) {
 			echo '<!-- refreshing cache -->';
 
@@ -65,10 +65,10 @@ function clean_box_featured_slider() {
 	    					<div class="cycle-pager"></div>';
 
 							// Select Slider
-							if ( $sliderselect == 'demo-featured-slider' && function_exists( 'clean_box_demo_slider' ) ) {
+							if ( 'demo-featured-slider' == $sliderselect  && function_exists( 'clean_box_demo_slider' ) ) {
 								$clean_box_featured_slider .=  clean_box_demo_slider( $options );
 							}
-							elseif ( $sliderselect == 'featured-page-slider' && function_exists( 'clean_box_page_slider' ) ) {
+							elseif ( 'featured-page-slider' == $sliderselect  && function_exists( 'clean_box_page_slider' ) ) {
 								$clean_box_featured_slider .=  clean_box_page_slider( $options );
 							}
 
@@ -168,7 +168,7 @@ function clean_box_page_slider( $options ) {
 	}
 
 	if ( !empty( $page_list ) && $number_of_page > 0 ) {
-		$get_featured_posts = new WP_Query( array(
+		$loop = new WP_Query( array(
 			'posts_per_page'	=> $quantity,
 			'post_type'			=> 'page',
 			'post__in'			=> $page_list,
@@ -176,8 +176,8 @@ function clean_box_page_slider( $options ) {
 		));
 		$i=0;
 
-		while ( $get_featured_posts->have_posts()) : $get_featured_posts->the_post(); $i++;
-			$title_attribute = the_title_attribute( array( 'before' => __( 'Permalink to:', 'clean-box' ), 'echo' => false ) );
+		while ( $loop->have_posts()) : $loop->the_post(); $i++;
+			$title_attribute = the_title_attribute( 'echo=0' );
 			$excerpt = get_the_excerpt();
 			if ( $i == 1 ) { $classes = 'page pageid-'.$post->ID.' hentry slides displayblock'; } else { $classes = 'page pageid-'.$post->ID.' hentry slides displaynone'; }
 			$clean_box_page_slider .= '
@@ -185,7 +185,7 @@ function clean_box_page_slider( $options ) {
 				<figure class="slider-image">';
 				if ( has_post_thumbnail() ) {
 					$clean_box_page_slider .= '<a title="' . $title_attribute . '" href="' . esc_url( get_permalink() ) . '">
-						'. get_the_post_thumbnail( $post->ID, 'clean-box-slider', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ) ) ).'
+						'. get_the_post_thumbnail( $post->ID, 'clean-box-slider', array( 'title' => $title_attribute, 'alt' => $title_attribute ) ).'
 					</a>';
 				}
 				else {
@@ -193,7 +193,7 @@ function clean_box_page_slider( $options ) {
 					$clean_box_image = '<img class="wp-post-image" src="'.get_template_directory_uri().'/images/gallery/no-featured-image-1680x720.jpg" >';
 
 					//Get the first image in page, returns false if there is no image
-					$clean_box_first_image = clean_box_get_first_image( $post->ID, 'fullframe-slider', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ) ) );
+					$clean_box_first_image = clean_box_get_first_image( $post->ID, 'fullframe-slider', array( 'title' => $title_attribute, 'alt' => $title_attribute ) );
 
 					//Set value of image as first image if there is an image present in the page
 					if ( '' != $clean_box_first_image ) {
@@ -222,7 +222,7 @@ function clean_box_page_slider( $options ) {
 			</article><!-- .slides -->';
 		endwhile;
 
-		wp_reset_query();
+		wp_reset_postdata();
   	}
 	return $clean_box_page_slider;
 }

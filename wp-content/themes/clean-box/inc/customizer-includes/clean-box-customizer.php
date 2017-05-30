@@ -38,7 +38,7 @@ function clean_box_customize_register( $wp_customize ) {
 	$defaults = clean_box_get_default_theme_options();
 
 	//Custom Controls
-	require get_template_directory() . '/inc/customizer-includes/clean-box-customizer-custom-controls.php';
+	require trailingslashit( get_template_directory() ) . 'inc/customizer-includes/clean-box-customizer-custom-controls.php';
 
 	//@remove Remove this block when WordPress 4.8 is released
 	if ( ! function_exists( 'has_custom_logo' ) ) {
@@ -125,16 +125,8 @@ function clean_box_customize_register( $wp_customize ) {
 		'sanitize_callback'	=> 'clean_box_sanitize_select'
 	) );
 
-	$schemes = clean_box_color_schemes();
-
-	$choices = array();
-
-	foreach ( $schemes as $scheme ) {
-		$choices[ $scheme['value'] ] = $scheme['label'];
-	}
-
 	$wp_customize->add_control( 'clean_box_theme_options[color_scheme]', array(
-		'choices'  => $choices,
+		'choices'  => clean_box_color_schemes(),
 		'label'    => __( 'Color Scheme', 'clean-box' ),
 		'priority' => 5,
 		'section'  => 'colors',
@@ -144,22 +136,22 @@ function clean_box_customize_register( $wp_customize ) {
 	//End Color Scheme
 
 	// Header Options (added to Header section in Theme Customizer)
-	require get_template_directory() . '/inc/customizer-includes/clean-box-customizer-header-options.php';
+	require trailingslashit( get_template_directory() ) . 'inc/customizer-includes/clean-box-customizer-header-options.php';
 
 	//Theme Options
-	require get_template_directory() . '/inc/customizer-includes/clean-box-customizer-theme-options.php';
+	require trailingslashit( get_template_directory() ) . 'inc/customizer-includes/clean-box-customizer-theme-options.php';
 
 	//Featured Content Setting
-	require get_template_directory() . '/inc/customizer-includes/clean-box-customizer-featured-content-setting.php';
+	require trailingslashit( get_template_directory() ) . 'inc/customizer-includes/clean-box-customizer-featured-content-setting.php';
 
 	//Featured Grid Content
-	require get_template_directory() . '/inc/customizer-includes/clean-box-customizer-featured-grid-content.php';
+	require trailingslashit( get_template_directory() ) . 'inc/customizer-includes/clean-box-customizer-featured-grid-content.php';
 
 	//Featured Slider
-	require get_template_directory() . '/inc/customizer-includes/clean-box-customizer-featured-slider-options.php';
+	require trailingslashit( get_template_directory() ) . 'inc/customizer-includes/clean-box-customizer-featured-slider-options.php';
 
 	//Social Links
-	require get_template_directory() . '/inc/customizer-includes/clean-box-customizer-social-icons.php';
+	require trailingslashit( get_template_directory() ) . 'inc/customizer-includes/clean-box-customizer-social-icons.php';
 
 	// Reset all settings to default
 	$wp_customize->add_section( 'clean_box_reset_all_settings', array(
@@ -231,20 +223,11 @@ add_action( 'customize_preview_init', 'clean_box_customize_preview' );
 function clean_box_customize_scripts() {
 	wp_enqueue_script( 'clean_box_customizer_custom', get_template_directory_uri() . '/js/clean-box-customizer-custom-scripts.min.js', array( 'customize-controls', 'iris', 'underscore', 'wp-util' ), '20150630', true );
 
-	$clean_box_misc_links = array(
-							'upgrade_link' 				=> esc_url( 'https://catchthemes.com/themes/clean-box-pro/' ),
-							'upgrade_text'	 			=> __( 'Upgrade To Pro &raquo;', 'clean-box' ),
-							'WP_version'				=> get_bloginfo( 'version' ),
-							'old_version_message'		=> __( 'Some settings might be missing or disorganized in this version of WordPress. So we suggest you to upgrade to version 4.0 or better.', 'clean-box' )
-		);
-
 	$clean_box_misc_links['color_list']    = clean_box_color_list();
 	$clean_box_misc_links['reset_message'] = esc_html__( 'Refresh the customizer page after saving to view reset effects', 'clean-box' );
 
 	//Add Upgrade Button and old WordPress message via localized script
 	wp_localize_script( 'clean_box_customizer_custom', 'clean_box_misc_links', $clean_box_misc_links );
-
-	wp_enqueue_style( 'clean_box_customizer_custom_css', get_template_directory_uri() . '/css/clean-box-customizer.css');
 }
 add_action( 'customize_controls_enqueue_scripts', 'clean_box_customize_scripts');
 
@@ -288,8 +271,11 @@ add_action( 'customize_save_after', 'clean_box_reset_data' );
 
 
 //Active callbacks for customizer
-require get_template_directory() . '/inc/customizer-includes/clean-box-customizer-active-callbacks.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer-includes/clean-box-customizer-active-callbacks.php';
 
 
 //Sanitize functions for customizer
-require get_template_directory() . '/inc/customizer-includes/clean-box-customizer-sanitize-functions.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer-includes/clean-box-customizer-sanitize-functions.php';
+
+//Add upgrade button
+require trailingslashit( get_template_directory() ) . 'inc/customizer-includes/upgrade-button/class-customize.php';

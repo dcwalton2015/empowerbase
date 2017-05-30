@@ -20,14 +20,8 @@ if ( ! defined( 'CLEAN_BOX_THEME_VERSION' ) ) {
 		'sanitize_callback' => 'clean_box_sanitize_select',
 	) );
 
-	$clean_box_enable_featured_header_image_options = clean_box_enable_featured_header_image_options();
-	$choices = array();
-	foreach ( $clean_box_enable_featured_header_image_options as $clean_box_enable_featured_header_image_option ) {
-		$choices[$clean_box_enable_featured_header_image_option['value']] = $clean_box_enable_featured_header_image_option['label'];
-	}
-
 	$wp_customize->add_control( 'clean_box_theme_options[enable_featured_header_image]', array(
-			'choices'  	=> $choices,
+			'choices'  	=> clean_box_enable_featured_header_image_options(),
 			'label'		=> __( 'Enable Featured Header Image on ', 'clean-box' ),
 			'section'   => 'header_image',
 	        'settings'  => 'clean_box_theme_options[enable_featured_header_image]',
@@ -40,14 +34,8 @@ if ( ! defined( 'CLEAN_BOX_THEME_VERSION' ) ) {
 		'sanitize_callback' => 'clean_box_sanitize_select',
 	) );
 
-	$clean_box_featured_image_size_options = clean_box_featured_image_size_options();
-	$choices = array();
-	foreach ( $clean_box_featured_image_size_options as $clean_box_featured_image_size_option ) {
-		$choices[$clean_box_featured_image_size_option['value']] = $clean_box_featured_image_size_option['label'];
-	}
-
 	$wp_customize->add_control( 'clean_box_theme_options[featured_image_size]', array(
-			'choices'  	=> $choices,
+			'choices'  	=> clean_box_featured_image_size_options(),
 			'label'		=> __( 'Page/Post Featured Header Image Size', 'clean-box' ),
 			'section'   => 'header_image',
 			'settings'  => 'clean_box_theme_options[featured_image_size]',

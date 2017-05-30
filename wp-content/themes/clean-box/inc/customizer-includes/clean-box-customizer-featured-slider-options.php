@@ -40,14 +40,8 @@ if ( ! defined( 'CLEAN_BOX_THEME_VERSION' ) ) {
 		'sanitize_callback' => 'clean_box_sanitize_select',
 	) );
 
-	$featured_slider_content_options = clean_box_featured_grid_content_options();
-	$choices = array();
-	foreach ( $featured_slider_content_options as $featured_slider_content_option ) {
-		$choices[$featured_slider_content_option['value']] = $featured_slider_content_option['label'];
-	}
-
 	$wp_customize->add_control( 'clean_box_theme_options[featured_slider_option]', array(
-		'choices'   => $choices,
+		'choices'   => clean_box_featured_grid_content_options(),
 		'label'    	=> __( 'Enable Slider on', 'clean-box' ),
 		'priority'	=> '1.1',
 		'section'  	=> 'clean_box_featured_slider',
@@ -61,15 +55,9 @@ if ( ! defined( 'CLEAN_BOX_THEME_VERSION' ) ) {
 		'sanitize_callback'	=> 'clean_box_sanitize_select',
 	) );
 
-	$clean_box_featured_slider_transition_effects = catch_box_featured_slider_transition_effects();
-	$choices = array();
-	foreach ( $clean_box_featured_slider_transition_effects as $clean_box_featured_slider_transition_effect ) {
-		$choices[$clean_box_featured_slider_transition_effect['value']] = $clean_box_featured_slider_transition_effect['label'];
-	}
-
 	$wp_customize->add_control( 'clean_box_theme_options[featured_slider_transition_effect]' , array(
 		'active_callback'	=> 'clean_box_is_slider_active',
-		'choices'  			=> $choices,
+		'choices'  			=> catch_box_featured_slider_transition_effects(),
 		'label'				=> __( 'Transition Effect', 'clean-box' ),
 		'priority'			=> '2',
 		'section'  			=> 'clean_box_featured_slider',
@@ -122,16 +110,10 @@ if ( ! defined( 'CLEAN_BOX_THEME_VERSION' ) ) {
 		'sanitize_callback' => 'clean_box_sanitize_select',
 	) );
 
-	$featured_slider_image_loader_options = clean_box_featured_slider_image_loader();
-	$choices = array();
-	foreach ( $featured_slider_image_loader_options as $featured_slider_image_loader_option ) {
-		$choices[$featured_slider_image_loader_option['value']] = $featured_slider_image_loader_option['label'];
-	}
-
 	$wp_customize->add_control( 'clean_box_theme_options[featured_slider_image_loader]', array(
 		'active_callback'	=> 'clean_box_is_slider_active',
 		'description'		=> __( 'True: Fixes the height overlap issue. Slideshow will start as soon as two slider are available. Slide may display in random, as image is fetch.<br>Wait: Fixes the height overlap issue.<br> Slideshow will start only after all images are available.', 'clean-box' ),
-		'choices'   => $choices,
+		'choices'   => clean_box_featured_slider_image_loader(),
 		'label'    	=> __( 'Image Loader', 'clean-box' ),
 		'priority'	=> '2.1.3',
 		'section'  	=> 'clean_box_featured_slider',
@@ -145,15 +127,9 @@ if ( ! defined( 'CLEAN_BOX_THEME_VERSION' ) ) {
 		'sanitize_callback' => 'clean_box_sanitize_select',
 	) );
 
-	$featured_slider_types = clean_box_featured_slider_types();
-	$choices = array();
-	foreach ( $featured_slider_types as $featured_slider_type ) {
-		$choices[$featured_slider_type['value']] = $featured_slider_type['label'];
-	}
-
 	$wp_customize->add_control( 'clean_box_theme_options[featured_slider_type]', array(
 		'active_callback'	=> 'clean_box_is_slider_active',
-		'choices'  	=> $choices,
+		'choices'  	=> clean_box_featured_slider_types(),
 		'label'    	=> __( 'Select Slider Type', 'clean-box' ),
 		'priority'	=> '2.1.3',
 		'section'  	=> 'clean_box_featured_slider',

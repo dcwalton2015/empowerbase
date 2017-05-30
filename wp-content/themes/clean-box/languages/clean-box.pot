@@ -1,24 +1,27 @@
 # Copyright (C) 2016 Catch Themes
-# This file is distributed under the GNU General Public License v3 or later.
+# This file is distributed under the GNU General Public License, version 3 (GPLv3).
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Clean Box\n"
-"Report-Msgid-Bugs-To: https://catchthemes.com/support-forum/forum/clean-box-pro-"
-"premium/pro-premium/\n"
-"POT-Creation-Date: 2016-10-29 18:20+0545\n"
-"PO-Revision-Date: 2016-10-29 18:20+0545\n"
+"Project-Id-Version: Clean Box 2.1\n"
+"Report-Msgid-Bugs-To: https://catchthemes.com/contact-us/\n"
+"POT-Creation-Date: 2017-05-24 23:58+0545\n"
+"PO-Revision-Date: 2016-12-07 16:01-0500\n"
 "Last-Translator: Catch Themes <info@catchthemes.com>\n"
 "Language-Team: Catch Themes <info@catchthemes.com>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.1\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;esc_attr_e;esc_attr__;"
-"_nx:1,2,4c;esc_html__;esc_html_e;esc_attr_x:1,2c\n"
+"X-Generator: Poedit 2.0.2\n"
+"X-Poedit-KeywordsList: __;_e;_x;esc_html_e;esc_html__;esc_attr_e;esc_attr__;"
+"_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;"
+"__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Basepath: .\n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: \n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../404.php:19
@@ -31,27 +34,33 @@ msgid ""
 "below or a search?"
 msgstr ""
 
-#: ../comments.php:27
+#: ../comments.php:30
 #, php-format
 msgctxt "comments title"
-msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid "One thought on &ldquo;%s&rdquo;"
+msgstr ""
+
+#: ../comments.php:35
+#, php-format
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../comments.php:34 ../comments.php:58
+#: ../comments.php:50 ../comments.php:74
 msgid "Comment navigation"
 msgstr ""
 
-#: ../comments.php:35 ../comments.php:59
+#: ../comments.php:51 ../comments.php:75
 msgid "&larr; Older Comments"
 msgstr ""
 
-#: ../comments.php:36 ../comments.php:60
+#: ../comments.php:52 ../comments.php:76
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: ../comments.php:70
+#: ../comments.php:86
 msgid "Comments are closed."
 msgstr ""
 
@@ -81,8 +90,8 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: ../content-page.php:35 ../inc/clean-box-core.php:579
-#: ../inc/clean-box-core.php:598 ../inc/clean-box-core.php:724
+#: ../content-page.php:35 ../inc/clean-box-core.php:581
+#: ../inc/clean-box-core.php:600 ../inc/clean-box-core.php:726
 msgid "Edit"
 msgstr ""
 
@@ -128,103 +137,98 @@ msgstr ""
 msgid "Secondary Menu"
 msgstr ""
 
-#: ../inc/clean-box-core.php:545
+#: ../inc/clean-box-core.php:549
 msgid "Post navigation"
 msgstr ""
 
-#: ../inc/clean-box-core.php:554
+#: ../inc/clean-box-core.php:558
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr ""
 
-#: ../inc/clean-box-core.php:555
+#: ../inc/clean-box-core.php:559
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: ../inc/clean-box-core.php:579
+#: ../inc/clean-box-core.php:581
 msgid "Pingback:"
 msgstr ""
 
-#: ../inc/clean-box-core.php:589
+#: ../inc/clean-box-core.php:591
 #, php-format
 msgid "%s <span class=\"says\">says:</span>"
 msgstr ""
 
-#: ../inc/clean-box-core.php:595
+#: ../inc/clean-box-core.php:597
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: ../inc/clean-box-core.php:602
+#: ../inc/clean-box-core.php:604
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: ../inc/clean-box-core.php:705
+#: ../inc/clean-box-core.php:707
 msgid "<span class=\"screen-reader-text\">Posted on</span>"
 msgstr ""
 
-#: ../inc/clean-box-core.php:712
+#: ../inc/clean-box-core.php:714
 msgctxt "Used before post author name."
 msgid "<span class=\"screen-reader-text\">Author</span>"
 msgstr ""
 
-#: ../inc/clean-box-core.php:720
+#: ../inc/clean-box-core.php:722
 msgid "Leave a comment"
 msgstr ""
 
-#: ../inc/clean-box-core.php:720
+#: ../inc/clean-box-core.php:722
 msgid "1 Comment"
 msgstr ""
 
-#: ../inc/clean-box-core.php:720
+#: ../inc/clean-box-core.php:722
 msgid "% Comments"
 msgstr ""
 
-#: ../inc/clean-box-core.php:741 ../inc/clean-box-core.php:749
+#: ../inc/clean-box-core.php:743 ../inc/clean-box-core.php:751
 msgctxt "Used between list items, there is a space after the comma."
 msgid ", "
 msgstr ""
 
-#: ../inc/clean-box-core.php:744
+#: ../inc/clean-box-core.php:746
 msgctxt "Used before category names."
 msgid "<span class=\"screen-reader-text\">Categories</span>"
 msgstr ""
 
-#: ../inc/clean-box-core.php:752
+#: ../inc/clean-box-core.php:754
 msgctxt "Used before tag names."
 msgid "<span class=\"screen-reader-text\">Tags</span>"
 msgstr ""
 
-#: ../inc/clean-box-core.php:902
-#, php-format
-msgid "%s"
-msgstr ""
-
-#: ../inc/clean-box-core.php:1403
+#: ../inc/clean-box-core.php:1390
 msgid "Scroll Up"
 msgstr ""
 
-#: ../inc/clean-box-core.php:1421
+#: ../inc/clean-box-core.php:1408
 msgid "Posted on"
 msgstr ""
 
-#: ../inc/clean-box-core.php:1422
+#: ../inc/clean-box-core.php:1409
 msgid "By"
 msgstr ""
 
-#: ../inc/clean-box-core.php:1524
+#: ../inc/clean-box-core.php:1511
 msgid "Next &rarr;"
 msgstr ""
 
-#: ../inc/clean-box-core.php:1525
+#: ../inc/clean-box-core.php:1512
 msgid "Next post:"
 msgstr ""
 
-#: ../inc/clean-box-core.php:1527
+#: ../inc/clean-box-core.php:1514
 msgid "&larr; Previous"
 msgstr ""
 
-#: ../inc/clean-box-core.php:1528
+#: ../inc/clean-box-core.php:1515
 msgid "Previous post:"
 msgstr ""
 
@@ -254,364 +258,367 @@ msgstr ""
 msgid "Search..."
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:81
-#: ../inc/clean-box-default-options.php:982
+#: ../inc/clean-box-default-options.php:81 ../inc/clean-box-default-options.php:829
 #, php-format
 msgctxt "1: Year, 2: Site Title with home URL"
 msgid "Copyright &copy; %1$s %2$s. All Rights Reserved."
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:130
+#: ../inc/clean-box-default-options.php:128
 msgid "Light"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:134
+#: ../inc/clean-box-default-options.php:129
 msgid "Dark"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:151
-#: ../inc/clean-box-default-options.php:900
+#: ../inc/clean-box-default-options.php:143
+#: ../inc/clean-box-default-options.php:747
 msgid "Primary Sidebar, Content"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:155
-#: ../inc/clean-box-default-options.php:905
+#: ../inc/clean-box-default-options.php:144
+#: ../inc/clean-box-default-options.php:752
 msgid "Content, Primary Sidebar"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:159
-#: ../inc/clean-box-default-options.php:910
+#: ../inc/clean-box-default-options.php:145
+#: ../inc/clean-box-default-options.php:757
 msgid "No Sidebar ( Content Width )"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:175
+#: ../inc/clean-box-default-options.php:158
 msgid "Show Excerpt (Image Top)"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:179
+#: ../inc/clean-box-default-options.php:159
 msgid "Show Full Content (No Featured Image)"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:196
-#: ../inc/clean-box-default-options.php:262
+#: ../inc/clean-box-default-options.php:173
+#: ../inc/clean-box-default-options.php:209
 msgid "Homepage / Frontpage"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:200
+#: ../inc/clean-box-default-options.php:174
 msgid "Excluding Homepage"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:204
+#: ../inc/clean-box-default-options.php:175
 msgid "Excluding Homepage, Page/Post Featured Image"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:208
-#: ../inc/clean-box-default-options.php:266
+#: ../inc/clean-box-default-options.php:176
+#: ../inc/clean-box-default-options.php:210
 msgid "Entire Site"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:212
+#: ../inc/clean-box-default-options.php:177
 msgid "Entire Site, Page/Post Featured Image"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:216
+#: ../inc/clean-box-default-options.php:178
 msgid "Pages and Posts"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:220
-#: ../inc/clean-box-default-options.php:270
-#: ../inc/clean-box-default-options.php:509
+#: ../inc/clean-box-default-options.php:179
+#: ../inc/clean-box-default-options.php:211
+#: ../inc/clean-box-default-options.php:357
 msgid "Disabled"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:237
+#: ../inc/clean-box-default-options.php:193
 msgid "Featured Header Size"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:241
+#: ../inc/clean-box-default-options.php:194
 msgid "Featured Size"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:245
-#: ../inc/clean-box-default-options.php:505
-#: ../inc/clean-box-default-options.php:963
+#: ../inc/clean-box-default-options.php:195
+#: ../inc/clean-box-default-options.php:356
+#: ../inc/clean-box-default-options.php:810
 msgid "Full Size"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:287
+#: ../inc/clean-box-default-options.php:225
 msgid "Demo Featured Content"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:291
+#: ../inc/clean-box-default-options.php:226
 msgid "Featured Page Content"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:308
+#: ../inc/clean-box-default-options.php:240
 msgid "3 columns"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:312
+#: ../inc/clean-box-default-options.php:241
 msgid "4 columns"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:328
+#: ../inc/clean-box-default-options.php:254
 msgid "Show Excerpt"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:332
+#: ../inc/clean-box-default-options.php:255
 msgid "Show Full Content"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:336
+#: ../inc/clean-box-default-options.php:256
 msgid "Hide Content"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:353
+#: ../inc/clean-box-default-options.php:270
 msgid "Demo Featured Grid Content"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:357
+#: ../inc/clean-box-default-options.php:271
 msgid "Featured Page Grid Content"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:373
+#: ../inc/clean-box-default-options.php:284
 msgid "Demo Featured Slider"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:377
+#: ../inc/clean-box-default-options.php:285
 msgid "Featured Page Slider"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:394
+#: ../inc/clean-box-default-options.php:299
 msgid "Fade"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:398
+#: ../inc/clean-box-default-options.php:300
 msgid "Fade Out"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:402
+#: ../inc/clean-box-default-options.php:301
 msgid "None"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:406
+#: ../inc/clean-box-default-options.php:302
 msgid "Scroll Horizontal"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:410
+#: ../inc/clean-box-default-options.php:303
 msgid "Scroll Vertical"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:414
+#: ../inc/clean-box-default-options.php:304
 msgid "Flip Horizontal"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:418
+#: ../inc/clean-box-default-options.php:305
 msgid "Flip Vertical"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:422
+#: ../inc/clean-box-default-options.php:306
 msgid "Tile Slide"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:426
+#: ../inc/clean-box-default-options.php:307
 msgid "Tile Blind"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:430
+#: ../inc/clean-box-default-options.php:308
 msgid "Shuffle"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:447
+#: ../inc/clean-box-default-options.php:322
 msgid "True"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:451
+#: ../inc/clean-box-default-options.php:323
 msgid "Wait"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:455
+#: ../inc/clean-box-default-options.php:324
 msgid "False"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:472
+#: ../inc/clean-box-default-options.php:338
 msgid "Default(Older Posts/Newer Posts)"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:476
+#: ../inc/clean-box-default-options.php:339
 msgid "Numeric"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:480
+#: ../inc/clean-box-default-options.php:340
 msgid "Infinite Scroll (Click)"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:484
+#: ../inc/clean-box-default-options.php:341
 msgid "Infinite Scroll (Scroll)"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:501
+#: ../inc/clean-box-default-options.php:355
 msgid "Featured"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:750
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:75
+#: ../inc/clean-box-default-options.php:597
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:76
 msgid "Facebook"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:754
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:79
+#: ../inc/clean-box-default-options.php:601
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:80
 msgid "Twitter"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:758
+#: ../inc/clean-box-default-options.php:605
 msgid "Googleplus"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:762 ../inc/clean-box-social-icons.php:37
+#: ../inc/clean-box-default-options.php:609 ../inc/clean-box-social-icons.php:37
 msgid "Email"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:766
+#: ../inc/clean-box-default-options.php:613
 msgid "Feed"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:770
+#: ../inc/clean-box-default-options.php:617
 msgid "WordPress"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:774
+#: ../inc/clean-box-default-options.php:621
 msgid "GitHub"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:778
+#: ../inc/clean-box-default-options.php:625
 msgid "LinkedIn"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:782
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:87
+#: ../inc/clean-box-default-options.php:629
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:88
 msgid "Pinterest"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:786
+#: ../inc/clean-box-default-options.php:633
 msgid "Flickr"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:790
+#: ../inc/clean-box-default-options.php:637
 msgid "Vimeo"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:794
+#: ../inc/clean-box-default-options.php:641
 msgid "YouTube"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:798
+#: ../inc/clean-box-default-options.php:645
 msgid "Tumblr"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:802
+#: ../inc/clean-box-default-options.php:649
 msgid "Instagram"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:806
+#: ../inc/clean-box-default-options.php:653
 msgid "PollDaddy"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:810
+#: ../inc/clean-box-default-options.php:657
 msgid "CodePen"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:814
+#: ../inc/clean-box-default-options.php:661
 msgid "Path"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:818
+#: ../inc/clean-box-default-options.php:665
 msgid "Dribbble"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:822
+#: ../inc/clean-box-default-options.php:669
 msgid "Skype"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:826
+#: ../inc/clean-box-default-options.php:673
 msgid "Digg"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:830
+#: ../inc/clean-box-default-options.php:677
 msgid "Reddit"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:834
+#: ../inc/clean-box-default-options.php:681
 msgid "Stumbleupon"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:838
+#: ../inc/clean-box-default-options.php:685
 msgid "Pocket"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:842
+#: ../inc/clean-box-default-options.php:689
 msgid "DropBox"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:846
+#: ../inc/clean-box-default-options.php:693
 msgid "Spotify"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:850
+#: ../inc/clean-box-default-options.php:697
 msgid "Foursquare"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:854
+#: ../inc/clean-box-default-options.php:701
 msgid "Twitch"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:858
+#: ../inc/clean-box-default-options.php:705
 msgid "Website"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:862
+#: ../inc/clean-box-default-options.php:709
 msgid "Phone"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:866
+#: ../inc/clean-box-default-options.php:713
 msgid "Handset"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:870
+#: ../inc/clean-box-default-options.php:717
 msgid "Cart"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:874
+#: ../inc/clean-box-default-options.php:721
 msgid "Cloud"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:878
+#: ../inc/clean-box-default-options.php:725
 msgid "Link"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:895
-#: ../inc/clean-box-default-options.php:926
-#: ../inc/clean-box-default-options.php:953
+#: ../inc/clean-box-default-options.php:742
+#: ../inc/clean-box-default-options.php:773
+#: ../inc/clean-box-default-options.php:800
 msgid "Default"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:931
+#: ../inc/clean-box-default-options.php:778
 msgid "Enable"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:936
+#: ../inc/clean-box-default-options.php:783
 msgid "Disable"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:958
+#: ../inc/clean-box-default-options.php:805
 msgid "Featured Image"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:968
+#: ../inc/clean-box-default-options.php:815
 msgid "Disable Image"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:984
+#: ../inc/clean-box-default-options.php:829
+msgid "Y"
+msgstr ""
+
+#: ../inc/clean-box-default-options.php:831
 msgid "by"
 msgstr ""
 
@@ -628,12 +635,6 @@ msgid ""
 "Featured Content Options\"."
 msgstr ""
 
-#: ../inc/clean-box-featured-content.php:261
-#: ../inc/clean-box-featured-grid-content.php:165
-#: ../inc/clean-box-featured-slider.php:180
-msgid "Permalink to:"
-msgstr ""
-
 #: ../inc/clean-box-menus.php:30
 msgid "Menu"
 msgstr ""
@@ -647,7 +648,7 @@ msgid "Show Header Sidebar Content"
 msgstr ""
 
 #: ../inc/clean-box-metabox.php:93
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:172
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:178
 msgid "Layout Options"
 msgstr ""
 
@@ -656,7 +657,7 @@ msgid "Header Featured Image Options"
 msgstr ""
 
 #: ../inc/clean-box-metabox.php:95
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:229
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:216
 msgid "Single Page/Post Image Layout "
 msgstr ""
 
@@ -695,24 +696,28 @@ msgstr ""
 msgid "Title (optional):"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:40
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:29
+msgid "All Categories"
+msgstr ""
+
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:41
 msgid ""
 "Hold down the Ctrl (windows) / Command (Mac) button to select multiple options."
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:63
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:64
 msgid "Theme Instructions"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:67
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:68
 msgid "Support"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:71
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:72
 msgid "Changelog"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:83
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:84
 msgid "Google+"
 msgstr ""
 
@@ -724,55 +729,55 @@ msgstr ""
 msgid "Featured Content Options"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:52
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:46
 msgid "Enable Featured Content on"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:74
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:62
 msgid "Select Featured Content Layout"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:89
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:77
 msgid "Check to Move above Footer"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:111
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:93
 msgid "Select Content Type"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:126
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:108
 msgid "Leave field empty if you want to remove Headline"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:127
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:109
 msgid "Headline for Featured Content"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:143
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:125
 msgid "Leave field empty if you want to remove Sub-headline"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:144
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:126
 msgid "Sub-headline for Featured Content"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:160
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:142
 msgid ""
 "Save and refresh the page if No. of Featured Content is changed (Max no of "
 "Featured Content is 20)"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:167
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:149
 msgid "No of Featured Content"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:190
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:166
 msgid "Display Content"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:206
-#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:112
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:196
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:182
+#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:100
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:172
 msgid "Featured Page"
 msgstr ""
 
@@ -786,21 +791,21 @@ msgstr ""
 msgid "Featured Grid Content"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:51
+#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:45
 msgid "Enable Grid Content on"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:73
+#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:61
 msgid "Select Grid Content Type"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:88
+#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:76
 msgid ""
 "Save and refresh the page if No. of Grid Content is changed (Max no of grid "
 "content is 30). No. of Grid Content in set as a multiple of 3"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:95
+#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:83
 msgid "No of Grid Content"
 msgstr ""
 
@@ -814,28 +819,28 @@ msgstr ""
 msgid "Featured Slider"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:51
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:45
 msgid "Enable Slider on"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:73
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:61
 msgid "Transition Effect"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:89
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:108
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:77
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:96
 msgid "seconds(s)"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:93
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:81
 msgid "Transition Delay"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:112
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:100
 msgid "Transition Length"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:133
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:115
 msgid ""
 "True: Fixes the height overlap issue. Slideshow will start as soon as two slider "
 "are available. Slide may display in random, as image is fetch.<br>Wait: Fixes "
@@ -843,40 +848,40 @@ msgid ""
 "available."
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:135
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:117
 msgid "Image Loader"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:157
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:133
 msgid "Select Slider Type"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:172
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:148
 msgid ""
 "Save and refresh the page if No. of Slides is changed (Max no of slides is 20)"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:179
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:155
 msgid "No of Slides"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-header-options.php:31
+#: ../inc/customizer-includes/clean-box-customizer-header-options.php:25
 msgid "Enable Featured Header Image on "
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-header-options.php:51
+#: ../inc/customizer-includes/clean-box-customizer-header-options.php:39
 msgid "Page/Post Featured Header Image Size"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-header-options.php:64
+#: ../inc/customizer-includes/clean-box-customizer-header-options.php:52
 msgid "Featured Header Image Alt/Title Tag "
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-header-options.php:77
+#: ../inc/customizer-includes/clean-box-customizer-header-options.php:65
 msgid "Featured Header Image Link URL"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-header-options.php:90
+#: ../inc/customizer-includes/clean-box-customizer-header-options.php:78
 msgid "Check to Open Link in New Window/Tab"
 msgstr ""
 
@@ -921,45 +926,45 @@ msgstr ""
 msgid "Seperator between Breadcrumbs"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:79
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:84
 msgid "Custom/Inline CSS"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:82
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:87
 msgid "Custom CSS Options"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:92
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:97
 msgid "Enter Custom CSS"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:104
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:110
 msgid "Excerpt Options"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:114
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:120
 msgid "Excerpt length. Default is 35 words"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:121
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:127
 msgid "Excerpt Length (words)"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:135
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:141
 msgid "Read More Text"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:144
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:150
 msgid ""
 "Only posts that belong to the categories selected here will be displayed on the "
 "front page"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:147
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:153
 msgid "Homepage / Frontpage Options"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:157
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:163
 msgid "Select Categories"
 msgstr ""
 
@@ -967,113 +972,113 @@ msgstr ""
 msgid "Default Layout"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:209
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:203
 msgid "Archive Content Layout"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:240
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:227
 #, php-format
 msgid ""
-"Numeric Option requires <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</a>."
-"<br/>Infinite Scroll Options requires <a target=\"_blank\" href=\"%s\">JetPack "
-"Plugin</a> with Infinite Scroll module Enabled."
+"Numeric Option requires <a target=\"_blank\" href=\"%1$s\">WP-PageNavi Plugin</"
+"a>.<br/>Infinite Scroll Options requires <a target=\"_blank\" href=\"%2$s"
+"\">JetPack Plugin</a> with Infinite Scroll module Enabled."
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:247
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:234
 #, php-format
 msgid ""
 "Infinite Scroll Options requires <a target=\"_blank\" href=\"%s\">JetPack "
 "Plugin</a> with Infinite Scroll module Enabled."
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:258
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:245
 #, php-format
 msgid ""
 "Numeric Option requires <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</a>."
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:269
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:256
 msgid "Pagination Options"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:286
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:267
 msgid "Pagination type"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:295
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:276
 msgid "To disable the fields, simply leave them empty."
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:298
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:279
 msgid "Promotion Headline Options"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:315
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:290
 msgid "Enable Promotion Headline on"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:329
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:304
 msgid "Appropriate Words: 10"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:330
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:305
 msgid "Promotion Headline Text"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:343
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:318
 msgid "Appropriate Words: 15"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:344
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:319
 msgid "Promotion Subheadline Text"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:357
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:400
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:332
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:375
 msgid "Appropriate Words: 3"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:358
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:333
 msgid "Promotion Headline Button 1 Text "
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:372
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:347
 msgid "Promotion Headline Button 1 Link"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:386
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:361
 msgid "Check to Open Button 1 Link in New Window/Tab"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:401
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:376
 msgid "Promotion Headline Button 2 Text "
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:415
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:390
 msgid "Promotion Headline Button 2 Link"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:429
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:404
 msgid "Check to Open Button 2 Link in New Window/Tab"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:441
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:416
 msgid "Scrollup Options"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:451
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:426
 msgid "Check to disable Scroll Up"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:460
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:435
 msgid "Change default placeholder text in Search."
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:463
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:438
 msgid "Search Options"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:473
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:448
 msgid "Default Display Text in Search"
 msgstr ""
 
@@ -1101,41 +1106,39 @@ msgstr ""
 msgid "Select/Add Logo Icon"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer.php:138
+#: ../inc/customizer-includes/clean-box-customizer.php:130
 msgid "Color Scheme"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer.php:166
+#: ../inc/customizer-includes/clean-box-customizer.php:158
 msgid ""
 "Caution: Reset all settings to default. Refresh the page after save to view full "
 "effects."
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer.php:168
+#: ../inc/customizer-includes/clean-box-customizer.php:160
 msgid "Reset all settings"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer.php:179
+#: ../inc/customizer-includes/clean-box-customizer.php:171
 msgid "Check to reset all settings to default"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer.php:190
-#: ../inc/customizer-includes/clean-box-customizer.php:201
+#: ../inc/customizer-includes/clean-box-customizer.php:182
+#: ../inc/customizer-includes/clean-box-customizer.php:193
 msgid "Important Links"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer.php:236
-msgid "Upgrade To Pro &raquo;"
-msgstr ""
-
-#: ../inc/customizer-includes/clean-box-customizer.php:238
-msgid ""
-"Some settings might be missing or disorganized in this version of WordPress. So "
-"we suggest you to upgrade to version 4.0 or better."
-msgstr ""
-
-#: ../inc/customizer-includes/clean-box-customizer.php:242
+#: ../inc/customizer-includes/clean-box-customizer.php:227
 msgid "Refresh the customizer page after saving to view reset effects"
+msgstr ""
+
+#: ../inc/customizer-includes/upgrade-button/class-customize.php:76
+msgid "Clean Box Pro"
+msgstr ""
+
+#: ../inc/customizer-includes/upgrade-button/class-customize.php:77
+msgid "Upgrade Now"
 msgstr ""
 
 #: ../no-results.php:15
@@ -1150,11 +1153,6 @@ msgstr ""
 #: ../searchform.php:14 ../searchform.php:15
 msgctxt "label"
 msgid "Search for:"
-msgstr ""
-
-#: ../searchform.php:17
-msgctxt "submit button"
-msgid "Search"
 msgstr ""
 
 #: ../sidebar.php:35

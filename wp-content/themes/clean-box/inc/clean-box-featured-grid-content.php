@@ -38,7 +38,7 @@ function clean_box_featured_grid_content() {
 	$page_on_front = get_option('page_on_front') ;
 	$page_for_posts = get_option('page_for_posts');
 
-	if ( $enablegrid_content == 'entire-site' || ( ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) && $enablegrid_content == 'homepage' ) ) {
+	if ( 'entire-site' == $enablegrid_content  || ( ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) && 'homepage' == $enablegrid_content  ) ) {
 		if( ( !$clean_box_featured_grid_content = get_transient( 'clean_box_featured_grid_content' ) ) ) {
 			echo '<!-- refreshing cache -->';
 
@@ -46,10 +46,10 @@ function clean_box_featured_grid_content() {
 				<section id="featured-grid-content" class="'. $grid_contentselect .'">
 					<div class="wrapper">';
 							// Select Grid Content
-							if ( $grid_contentselect == 'demo-featured-grid-content' && function_exists( 'clean_box_demo_grid_content' ) ) {
+							if ( 'demo-featured-grid-content' == $grid_contentselect  && function_exists( 'clean_box_demo_grid_content' ) ) {
 								$clean_box_featured_grid_content .=  clean_box_demo_grid_content();
 							}
-							elseif ( $grid_contentselect == 'featured-page-grid-content' && function_exists( 'clean_box_page_grid_content' ) ) {
+							elseif ( 'featured-page-grid-content' == $grid_contentselect  && function_exists( 'clean_box_page_grid_content' ) ) {
 								$clean_box_featured_grid_content .=  clean_box_page_grid_content( $options );
 							}
 
@@ -149,7 +149,7 @@ function clean_box_page_grid_content( $options ) {
 	}
 
 	if ( !empty( $page_list ) && $number_of_page > 0 ) {
-		$get_featured_posts = new WP_Query( array(
+		$loop = new WP_Query( array(
 			'posts_per_page'	=> $quantity,
 			'post_type'			=> 'page',
 			'post__in'			=> $page_list,
@@ -158,11 +158,11 @@ function clean_box_page_grid_content( $options ) {
 
 		$i=1;
 
-		while ( $get_featured_posts->have_posts() ) {
+		while ( $loop->have_posts() ) {
 
-			$get_featured_posts->the_post();
+			$loop->the_post();
 
-			$title_attribute = the_title_attribute( array( 'before' => __( 'Permalink to:', 'clean-box' ), 'echo' => false ) );
+			$title_attribute = the_title_attribute( 'echo=0' );
 
 			$classes = 'page pageid-' . $post->ID;
 
@@ -178,10 +178,10 @@ function clean_box_page_grid_content( $options ) {
 
 			if ( has_post_thumbnail() ) {
 				if ( 1 == $i ) {
-					$clean_box_page_grid_content .= get_the_post_thumbnail( $post->ID, 'clean-box-featured-grid', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ) ) );
+					$clean_box_page_grid_content .= get_the_post_thumbnail( $post->ID, 'clean-box-featured-grid', array( 'title' => $title_attribute, 'alt' => $title_attribute ) );
 				}
 				else{
-					$clean_box_page_grid_content .= get_the_post_thumbnail( $post->ID, 'clean-box-featured-content', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ) ) );
+					$clean_box_page_grid_content .= get_the_post_thumbnail( $post->ID, 'clean-box-featured-content', array( 'title' => $title_attribute, 'alt' => $title_attribute ) );
 				}
 			}
 			else {
@@ -190,7 +190,7 @@ function clean_box_page_grid_content( $options ) {
 					'<img class="no-image" src="'.get_template_directory_uri().'/images/gallery/no-featured-image-800x450.jpg" />';
 
 				//Get the first image in page, returns false if there is no image
-				$clean_box_first_image = clean_box_get_first_image( $post->ID, 'medium', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ) ) );
+				$clean_box_first_image = clean_box_get_first_image( $post->ID, 'medium', array( 'title' => $title_attribute, 'alt' => $title_attribute ) );
 
 				//Set value of image as first image if there is an image present in the post
 				if ( '' != $clean_box_first_image ) {
@@ -219,7 +219,7 @@ function clean_box_page_grid_content( $options ) {
 			$i++;
 		}
 
-		wp_reset_query();
+		wp_reset_postdata();
 	}
 
 	return $clean_box_page_grid_content;

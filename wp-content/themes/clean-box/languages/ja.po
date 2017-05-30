@@ -3,8 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Clean Box\n"
-"POT-Creation-Date: 2016-10-29 18:20+0545\n"
-"PO-Revision-Date: 2016-10-29 18:20+0545\n"
+"Report-Msgid-Bugs-To: https://catchthemes.com/contact-us/\n"
+"POT-Creation-Date: 2017-05-24 23:58+0545\n"
+"PO-Revision-Date: 2017-05-24 23:58+0545\n"
 "Last-Translator: \n"
 "Language-Team: Catch Themes <info@catchthemes.com>\n"
 "Language: ja\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.7.1\n"
+"X-Generator: Poedit 2.0.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;esc_attr_e;esc_attr__;"
 "_nx:1,2,4c;esc_html__;esc_html_e;esc_attr_x:1,2c\n"
@@ -29,26 +30,38 @@ msgid ""
 "below or a search?"
 msgstr "何も見つかりませんでした。以下のリンクまたは検索をお試しください。"
 
-#: ../comments.php:27
-#, php-format
+#: ../comments.php:30
+#, fuzzy, php-format
+#| msgctxt "comments title"
+#| msgid "One thought on &ldquo;%2$s&rdquo;"
+#| msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgctxt "comments title"
-msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid "One thought on &ldquo;%s&rdquo;"
+msgstr "&ldquo;%2$s&rdquo; への%1$s件のフィードバック"
+
+#: ../comments.php:35
+#, fuzzy, php-format
+#| msgctxt "comments title"
+#| msgid "One thought on &ldquo;%2$s&rdquo;"
+#| msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] "&ldquo;%2$s&rdquo; への%1$s件のフィードバック"
 
-#: ../comments.php:34 ../comments.php:58
+#: ../comments.php:50 ../comments.php:74
 msgid "Comment navigation"
 msgstr "コメントナビゲーション"
 
-#: ../comments.php:35 ../comments.php:59
+#: ../comments.php:51 ../comments.php:75
 msgid "&larr; Older Comments"
 msgstr "&larr; 過去のコメント"
 
-#: ../comments.php:36 ../comments.php:60
+#: ../comments.php:52 ../comments.php:76
 msgid "Newer Comments &rarr;"
 msgstr "新しいコメント &rarr;"
 
-#: ../comments.php:70
+#: ../comments.php:86
 msgid "Comments are closed."
 msgstr "コメントは受け付けていません。"
 
@@ -58,23 +71,24 @@ msgstr "何も見つかりませんでした"
 
 #: ../content-none.php:22 ../no-results.php:22
 #, php-format
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
-"最初の投稿を公開する準備はできましたか ? <a href=\"%1$s\">ここから始めましょう</"
-"a>。"
+"最初の投稿を公開する準備はできましたか ? <a href=\"%1$s\">ここから始めましょ"
+"う</a>。"
 
 #: ../content-none.php:26 ../no-results.php:26
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
-"検索キーワードに一致するものが見つかりませんでした。 別のキーワードで試してみてく"
-"ださい。"
+"検索キーワードに一致するものが見つかりませんでした。 別のキーワードで試してみ"
+"てください。"
 
 #: ../content-none.php:31 ../no-results.php:31
 msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching "
-"can help."
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
 msgstr "お探しのものが見つからないようです。検索すると良いかもしれません。"
 
 #: ../content-page.php:28 ../content-single.php:31 ../content.php:44
@@ -82,8 +96,8 @@ msgstr "お探しのものが見つからないようです。検索すると良
 msgid "Pages:"
 msgstr "ページ:"
 
-#: ../content-page.php:35 ../inc/clean-box-core.php:579
-#: ../inc/clean-box-core.php:598 ../inc/clean-box-core.php:724
+#: ../content-page.php:35 ../inc/clean-box-core.php:581
+#: ../inc/clean-box-core.php:600 ../inc/clean-box-core.php:726
 msgid "Edit"
 msgstr "編集"
 
@@ -129,103 +143,98 @@ msgstr "メインメニュー"
 msgid "Secondary Menu"
 msgstr "サブメニュー"
 
-#: ../inc/clean-box-core.php:545
+#: ../inc/clean-box-core.php:549
 msgid "Post navigation"
 msgstr "投稿ナビゲーション"
 
-#: ../inc/clean-box-core.php:554
+#: ../inc/clean-box-core.php:558
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr "<span class=\"meta-nav\">&larr;</span> 以前の投稿"
 
-#: ../inc/clean-box-core.php:555
+#: ../inc/clean-box-core.php:559
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "新しい投稿 <span class=\"meta-nav\">&rarr;</span>"
 
-#: ../inc/clean-box-core.php:579
+#: ../inc/clean-box-core.php:581
 msgid "Pingback:"
 msgstr "ピンバック："
 
-#: ../inc/clean-box-core.php:589
+#: ../inc/clean-box-core.php:591
 #, php-format
 msgid "%s <span class=\"says\">says:</span>"
 msgstr "%s <span class=\"says\">のコメント:</span>"
 
-#: ../inc/clean-box-core.php:595
+#: ../inc/clean-box-core.php:597
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr "%1$s%2$s"
 
-#: ../inc/clean-box-core.php:602
+#: ../inc/clean-box-core.php:604
 msgid "Your comment is awaiting moderation."
 msgstr "あなたのコメントは認証待ちです。"
 
-#: ../inc/clean-box-core.php:705
+#: ../inc/clean-box-core.php:707
 msgid "<span class=\"screen-reader-text\">Posted on</span>"
 msgstr "<span class=\"screen-reader-text\">投稿日</span>"
 
-#: ../inc/clean-box-core.php:712
+#: ../inc/clean-box-core.php:714
 msgctxt "Used before post author name."
 msgid "<span class=\"screen-reader-text\">Author</span>"
 msgstr "<span class=“screen-reader-text”>投稿者</span>"
 
-#: ../inc/clean-box-core.php:720
+#: ../inc/clean-box-core.php:722
 msgid "Leave a comment"
 msgstr "コメントを残す"
 
-#: ../inc/clean-box-core.php:720
+#: ../inc/clean-box-core.php:722
 msgid "1 Comment"
 msgstr "1件のコメント"
 
-#: ../inc/clean-box-core.php:720
+#: ../inc/clean-box-core.php:722
 msgid "% Comments"
 msgstr "%件のコメント"
 
-#: ../inc/clean-box-core.php:741 ../inc/clean-box-core.php:749
+#: ../inc/clean-box-core.php:743 ../inc/clean-box-core.php:751
 msgctxt "Used between list items, there is a space after the comma."
 msgid ", "
 msgstr "、"
 
-#: ../inc/clean-box-core.php:744
+#: ../inc/clean-box-core.php:746
 msgctxt "Used before category names."
 msgid "<span class=\"screen-reader-text\">Categories</span>"
 msgstr "<span class=“screen-reader-text”>カテゴリー</span>"
 
-#: ../inc/clean-box-core.php:752
+#: ../inc/clean-box-core.php:754
 msgctxt "Used before tag names."
 msgid "<span class=\"screen-reader-text\">Tags</span>"
 msgstr "<span class=“screen-reader-text”>タグ</span>"
 
-#: ../inc/clean-box-core.php:902
-#, php-format
-msgid "%s"
-msgstr "%s"
-
-#: ../inc/clean-box-core.php:1403
+#: ../inc/clean-box-core.php:1390
 msgid "Scroll Up"
 msgstr "上にスクロール"
 
-#: ../inc/clean-box-core.php:1421
+#: ../inc/clean-box-core.php:1408
 msgid "Posted on"
 msgstr "投稿日"
 
-#: ../inc/clean-box-core.php:1422
+#: ../inc/clean-box-core.php:1409
 msgid "By"
 msgstr "から"
 
-#: ../inc/clean-box-core.php:1524
+#: ../inc/clean-box-core.php:1511
 msgid "Next &rarr;"
 msgstr "次へ &rarr;"
 
-#: ../inc/clean-box-core.php:1525
+#: ../inc/clean-box-core.php:1512
 msgid "Next post:"
 msgstr "次の投稿:"
 
-#: ../inc/clean-box-core.php:1527
+#: ../inc/clean-box-core.php:1514
 msgid "&larr; Previous"
 msgstr "&larr; 前へ"
 
-#: ../inc/clean-box-core.php:1528
+#: ../inc/clean-box-core.php:1515
 msgid "Previous post:"
 msgstr "過去の投稿:"
 
@@ -239,8 +248,8 @@ msgstr ""
 
 #: ../inc/clean-box-default-options.php:69
 msgid ""
-"This is promotion headline. You can edit this from Appearance -> Customize -> "
-"Theme Options -> Promotion Headline Options"
+"This is promotion headline. You can edit this from Appearance -> Customize -"
+"> Theme Options -> Promotion Headline Options"
 msgstr ""
 
 #: ../inc/clean-box-default-options.php:70
@@ -256,363 +265,371 @@ msgid "Search..."
 msgstr "検索…"
 
 #: ../inc/clean-box-default-options.php:81
-#: ../inc/clean-box-default-options.php:982
+#: ../inc/clean-box-default-options.php:829
 #, php-format
 msgctxt "1: Year, 2: Site Title with home URL"
 msgid "Copyright &copy; %1$s %2$s. All Rights Reserved."
 msgstr "Copyright &copy; %1$s %2$s. All Rights Reserved."
 
-#: ../inc/clean-box-default-options.php:130
+#: ../inc/clean-box-default-options.php:128
 msgid "Light"
 msgstr "Light"
 
-#: ../inc/clean-box-default-options.php:134
+#: ../inc/clean-box-default-options.php:129
 msgid "Dark"
 msgstr "ダーク"
 
-#: ../inc/clean-box-default-options.php:151
-#: ../inc/clean-box-default-options.php:900
+#: ../inc/clean-box-default-options.php:143
+#: ../inc/clean-box-default-options.php:747
 msgid "Primary Sidebar, Content"
 msgstr "メインサイドバー、コンテンツ"
 
-#: ../inc/clean-box-default-options.php:155
-#: ../inc/clean-box-default-options.php:905
+#: ../inc/clean-box-default-options.php:144
+#: ../inc/clean-box-default-options.php:752
 msgid "Content, Primary Sidebar"
 msgstr "コンテンツ、メインサイドバー"
 
-#: ../inc/clean-box-default-options.php:159
-#: ../inc/clean-box-default-options.php:910
+#: ../inc/clean-box-default-options.php:145
+#: ../inc/clean-box-default-options.php:757
 msgid "No Sidebar ( Content Width )"
 msgstr "サイドバーなし (コンテンツ幅)"
 
-#: ../inc/clean-box-default-options.php:175
+#: ../inc/clean-box-default-options.php:158
 msgid "Show Excerpt (Image Top)"
 msgstr "抜粋を表示 (画像上)"
 
-#: ../inc/clean-box-default-options.php:179
+#: ../inc/clean-box-default-options.php:159
 msgid "Show Full Content (No Featured Image)"
 msgstr "全文を表示 (アイキャッチ画像なし)"
 
-#: ../inc/clean-box-default-options.php:196
-#: ../inc/clean-box-default-options.php:262
+#: ../inc/clean-box-default-options.php:173
+#: ../inc/clean-box-default-options.php:209
 msgid "Homepage / Frontpage"
 msgstr "ホームページ / フロントページ"
 
-#: ../inc/clean-box-default-options.php:200
+#: ../inc/clean-box-default-options.php:174
 msgid "Excluding Homepage"
 msgstr "ホームページを除く"
 
-#: ../inc/clean-box-default-options.php:204
+#: ../inc/clean-box-default-options.php:175
 msgid "Excluding Homepage, Page/Post Featured Image"
 msgstr "ホームページ、ページ・投稿アイキャッチ画像を覗く"
 
-#: ../inc/clean-box-default-options.php:208
-#: ../inc/clean-box-default-options.php:266
+#: ../inc/clean-box-default-options.php:176
+#: ../inc/clean-box-default-options.php:210
 msgid "Entire Site"
 msgstr "サイト全体"
 
-#: ../inc/clean-box-default-options.php:212
+#: ../inc/clean-box-default-options.php:177
 msgid "Entire Site, Page/Post Featured Image"
 msgstr "サイト全体、ページ・投稿アイキャッチ画像"
 
-#: ../inc/clean-box-default-options.php:216
+#: ../inc/clean-box-default-options.php:178
 msgid "Pages and Posts"
 msgstr "ページと投稿"
 
-#: ../inc/clean-box-default-options.php:220
-#: ../inc/clean-box-default-options.php:270
-#: ../inc/clean-box-default-options.php:509
+#: ../inc/clean-box-default-options.php:179
+#: ../inc/clean-box-default-options.php:211
+#: ../inc/clean-box-default-options.php:357
 msgid "Disabled"
 msgstr "無効化"
 
-#: ../inc/clean-box-default-options.php:237
+#: ../inc/clean-box-default-options.php:193
 msgid "Featured Header Size"
 msgstr "ヘッダーアイキャッチ画像のサイズ"
 
-#: ../inc/clean-box-default-options.php:241
+#: ../inc/clean-box-default-options.php:194
 msgid "Featured Size"
 msgstr "アイキャッチサイズ"
 
-#: ../inc/clean-box-default-options.php:245
-#: ../inc/clean-box-default-options.php:505
-#: ../inc/clean-box-default-options.php:963
+#: ../inc/clean-box-default-options.php:195
+#: ../inc/clean-box-default-options.php:356
+#: ../inc/clean-box-default-options.php:810
 msgid "Full Size"
 msgstr "フルサイズ"
 
-#: ../inc/clean-box-default-options.php:287
+#: ../inc/clean-box-default-options.php:225
 msgid "Demo Featured Content"
 msgstr "おすすめコンテンツのデモ"
 
-#: ../inc/clean-box-default-options.php:291
+#: ../inc/clean-box-default-options.php:226
 msgid "Featured Page Content"
 msgstr "おすすめページコンテンツ"
 
-#: ../inc/clean-box-default-options.php:308
+#: ../inc/clean-box-default-options.php:240
 msgid "3 columns"
 msgstr "3カラム"
 
-#: ../inc/clean-box-default-options.php:312
+#: ../inc/clean-box-default-options.php:241
 msgid "4 columns"
 msgstr "4カラム"
 
-#: ../inc/clean-box-default-options.php:328
+#: ../inc/clean-box-default-options.php:254
 msgid "Show Excerpt"
 msgstr "抜粋を表示"
 
-#: ../inc/clean-box-default-options.php:332
+#: ../inc/clean-box-default-options.php:255
 msgid "Show Full Content"
 msgstr "全文を表示"
 
-#: ../inc/clean-box-default-options.php:336
+#: ../inc/clean-box-default-options.php:256
 msgid "Hide Content"
 msgstr "コンテンツを非表示"
 
-#: ../inc/clean-box-default-options.php:353
+#: ../inc/clean-box-default-options.php:270
 msgid "Demo Featured Grid Content"
 msgstr "おすすめグリッドコンテンツのデモ"
 
-#: ../inc/clean-box-default-options.php:357
+#: ../inc/clean-box-default-options.php:271
 msgid "Featured Page Grid Content"
 msgstr "おすすめグリッドコンテンツ"
 
-#: ../inc/clean-box-default-options.php:373
+#: ../inc/clean-box-default-options.php:284
 msgid "Demo Featured Slider"
 msgstr "おすすめスライダーのデモ"
 
-#: ../inc/clean-box-default-options.php:377
+#: ../inc/clean-box-default-options.php:285
 msgid "Featured Page Slider"
 msgstr "おすすめページスライダー"
 
-#: ../inc/clean-box-default-options.php:394
+#: ../inc/clean-box-default-options.php:299
 msgid "Fade"
 msgstr "フェード"
 
-#: ../inc/clean-box-default-options.php:398
+#: ../inc/clean-box-default-options.php:300
 msgid "Fade Out"
 msgstr "フェードアウト"
 
-#: ../inc/clean-box-default-options.php:402
+#: ../inc/clean-box-default-options.php:301
 msgid "None"
 msgstr "なし"
 
-#: ../inc/clean-box-default-options.php:406
+#: ../inc/clean-box-default-options.php:302
 msgid "Scroll Horizontal"
 msgstr "横方向にスクロール"
 
-#: ../inc/clean-box-default-options.php:410
+#: ../inc/clean-box-default-options.php:303
 msgid "Scroll Vertical"
 msgstr "縦方向にスクロール"
 
-#: ../inc/clean-box-default-options.php:414
+#: ../inc/clean-box-default-options.php:304
 msgid "Flip Horizontal"
 msgstr "水平に反転"
 
-#: ../inc/clean-box-default-options.php:418
+#: ../inc/clean-box-default-options.php:305
 msgid "Flip Vertical"
 msgstr "垂直に反転"
 
-#: ../inc/clean-box-default-options.php:422
+#: ../inc/clean-box-default-options.php:306
 msgid "Tile Slide"
 msgstr "タイルスライド"
 
-#: ../inc/clean-box-default-options.php:426
+#: ../inc/clean-box-default-options.php:307
 msgid "Tile Blind"
 msgstr "タイルブラインド"
 
-#: ../inc/clean-box-default-options.php:430
+#: ../inc/clean-box-default-options.php:308
 msgid "Shuffle"
 msgstr ""
 
-#: ../inc/clean-box-default-options.php:447
+#: ../inc/clean-box-default-options.php:322
 msgid "True"
 msgstr "真"
 
-#: ../inc/clean-box-default-options.php:451
+#: ../inc/clean-box-default-options.php:323
 msgid "Wait"
 msgstr "待機"
 
-#: ../inc/clean-box-default-options.php:455
+#: ../inc/clean-box-default-options.php:324
 msgid "False"
 msgstr "偽"
 
-#: ../inc/clean-box-default-options.php:472
+#: ../inc/clean-box-default-options.php:338
 msgid "Default(Older Posts/Newer Posts)"
 msgstr "デフォルト (過去の投稿/新しい投稿)"
 
-#: ../inc/clean-box-default-options.php:476
+#: ../inc/clean-box-default-options.php:339
 msgid "Numeric"
 msgstr "数字"
 
-#: ../inc/clean-box-default-options.php:480
+#: ../inc/clean-box-default-options.php:340
 msgid "Infinite Scroll (Click)"
 msgstr "無限スクロール (クリック)"
 
-#: ../inc/clean-box-default-options.php:484
+#: ../inc/clean-box-default-options.php:341
 msgid "Infinite Scroll (Scroll)"
 msgstr "無限スクロール (スクロール)"
 
-#: ../inc/clean-box-default-options.php:501
+#: ../inc/clean-box-default-options.php:355
 msgid "Featured"
 msgstr "特集商品"
 
-#: ../inc/clean-box-default-options.php:750
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:75
+#: ../inc/clean-box-default-options.php:597
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:76
 msgid "Facebook"
 msgstr "Facebook"
 
-#: ../inc/clean-box-default-options.php:754
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:79
+#: ../inc/clean-box-default-options.php:601
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:80
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../inc/clean-box-default-options.php:758
+#: ../inc/clean-box-default-options.php:605
 msgid "Googleplus"
 msgstr "Google+"
 
-#: ../inc/clean-box-default-options.php:762 ../inc/clean-box-social-icons.php:37
+#: ../inc/clean-box-default-options.php:609
+#: ../inc/clean-box-social-icons.php:37
 msgid "Email"
 msgstr "メール"
 
-#: ../inc/clean-box-default-options.php:766
+#: ../inc/clean-box-default-options.php:613
 msgid "Feed"
 msgstr "フィード"
 
-#: ../inc/clean-box-default-options.php:770
+#: ../inc/clean-box-default-options.php:617
 msgid "WordPress"
 msgstr "WordPress"
 
-#: ../inc/clean-box-default-options.php:774
+#: ../inc/clean-box-default-options.php:621
 msgid "GitHub"
 msgstr "GitHub"
 
-#: ../inc/clean-box-default-options.php:778
+#: ../inc/clean-box-default-options.php:625
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: ../inc/clean-box-default-options.php:782
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:87
+#: ../inc/clean-box-default-options.php:629
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:88
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: ../inc/clean-box-default-options.php:786
+#: ../inc/clean-box-default-options.php:633
 msgid "Flickr"
 msgstr "Flickr"
 
-#: ../inc/clean-box-default-options.php:790
+#: ../inc/clean-box-default-options.php:637
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: ../inc/clean-box-default-options.php:794
+#: ../inc/clean-box-default-options.php:641
 msgid "YouTube"
 msgstr "YouTube"
 
-#: ../inc/clean-box-default-options.php:798
+#: ../inc/clean-box-default-options.php:645
 msgid "Tumblr"
 msgstr "Tumblr"
 
-#: ../inc/clean-box-default-options.php:802
+#: ../inc/clean-box-default-options.php:649
 msgid "Instagram"
 msgstr "Instagram"
 
-#: ../inc/clean-box-default-options.php:806
+#: ../inc/clean-box-default-options.php:653
 msgid "PollDaddy"
 msgstr "PollDaddy"
 
-#: ../inc/clean-box-default-options.php:810
+#: ../inc/clean-box-default-options.php:657
 msgid "CodePen"
 msgstr "CodePen"
 
-#: ../inc/clean-box-default-options.php:814
+#: ../inc/clean-box-default-options.php:661
 msgid "Path"
 msgstr "パス"
 
-#: ../inc/clean-box-default-options.php:818
+#: ../inc/clean-box-default-options.php:665
 msgid "Dribbble"
 msgstr "Dribbble"
 
-#: ../inc/clean-box-default-options.php:822
+#: ../inc/clean-box-default-options.php:669
 msgid "Skype"
 msgstr "Skype"
 
-#: ../inc/clean-box-default-options.php:826
+#: ../inc/clean-box-default-options.php:673
 msgid "Digg"
 msgstr "Digg"
 
-#: ../inc/clean-box-default-options.php:830
+#: ../inc/clean-box-default-options.php:677
 msgid "Reddit"
 msgstr "Reddit"
 
-#: ../inc/clean-box-default-options.php:834
+#: ../inc/clean-box-default-options.php:681
 msgid "Stumbleupon"
 msgstr "StumbleUpon"
 
-#: ../inc/clean-box-default-options.php:838
+#: ../inc/clean-box-default-options.php:685
 msgid "Pocket"
 msgstr "Pocket"
 
-#: ../inc/clean-box-default-options.php:842
+#: ../inc/clean-box-default-options.php:689
 msgid "DropBox"
 msgstr "DropBox"
 
-#: ../inc/clean-box-default-options.php:846
+#: ../inc/clean-box-default-options.php:693
 msgid "Spotify"
 msgstr "Spotify"
 
-#: ../inc/clean-box-default-options.php:850
+#: ../inc/clean-box-default-options.php:697
 msgid "Foursquare"
 msgstr "Foursquare"
 
-#: ../inc/clean-box-default-options.php:854
+#: ../inc/clean-box-default-options.php:701
 msgid "Twitch"
 msgstr "Twitch"
 
-#: ../inc/clean-box-default-options.php:858
+#: ../inc/clean-box-default-options.php:705
 msgid "Website"
 msgstr "ウェブサイト"
 
-#: ../inc/clean-box-default-options.php:862
+#: ../inc/clean-box-default-options.php:709
 msgid "Phone"
 msgstr "電話番号"
 
-#: ../inc/clean-box-default-options.php:866
+#: ../inc/clean-box-default-options.php:713
 msgid "Handset"
 msgstr "ハンドセット"
 
-#: ../inc/clean-box-default-options.php:870
+#: ../inc/clean-box-default-options.php:717
 msgid "Cart"
 msgstr "お買い物カゴ"
 
-#: ../inc/clean-box-default-options.php:874
+#: ../inc/clean-box-default-options.php:721
 msgid "Cloud"
 msgstr "クラウド"
 
-#: ../inc/clean-box-default-options.php:878
+#: ../inc/clean-box-default-options.php:725
 msgid "Link"
 msgstr "リンク"
 
-#: ../inc/clean-box-default-options.php:895
-#: ../inc/clean-box-default-options.php:926
-#: ../inc/clean-box-default-options.php:953
+#: ../inc/clean-box-default-options.php:742
+#: ../inc/clean-box-default-options.php:773
+#: ../inc/clean-box-default-options.php:800
 msgid "Default"
 msgstr "デフォルト"
 
-#: ../inc/clean-box-default-options.php:931
+#: ../inc/clean-box-default-options.php:778
 msgid "Enable"
 msgstr "有効化"
 
-#: ../inc/clean-box-default-options.php:936
+#: ../inc/clean-box-default-options.php:783
 msgid "Disable"
 msgstr "無効化"
 
-#: ../inc/clean-box-default-options.php:958
+#: ../inc/clean-box-default-options.php:805
 msgid "Featured Image"
 msgstr "注目画像"
 
-#: ../inc/clean-box-default-options.php:968
+#: ../inc/clean-box-default-options.php:815
 msgid "Disable Image"
 msgstr "画像を無効化"
 
-#: ../inc/clean-box-default-options.php:984
+#: ../inc/clean-box-default-options.php:829
+#, fuzzy
+#| msgctxt "yearly archives date format"
+#| msgid "Y"
+msgid "Y"
+msgstr "Y年"
+
+#: ../inc/clean-box-default-options.php:831
 msgid "by"
 msgstr "による"
 
@@ -629,12 +646,6 @@ msgid ""
 "Featured Content Options\"."
 msgstr ""
 
-#: ../inc/clean-box-featured-content.php:261
-#: ../inc/clean-box-featured-grid-content.php:165
-#: ../inc/clean-box-featured-slider.php:180
-msgid "Permalink to:"
-msgstr "パーマリンク:"
-
 #: ../inc/clean-box-menus.php:30
 msgid "Menu"
 msgstr "メニュー"
@@ -648,7 +659,7 @@ msgid "Show Header Sidebar Content"
 msgstr "ヘッダーサイドバーコンテンツを表示"
 
 #: ../inc/clean-box-metabox.php:93
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:172
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:178
 msgid "Layout Options"
 msgstr "レイアウト設定"
 
@@ -657,7 +668,7 @@ msgid "Header Featured Image Options"
 msgstr "ヘッダーアイキャッチ画像設定"
 
 #: ../inc/clean-box-metabox.php:95
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:229
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:216
 msgid "Single Page/Post Image Layout "
 msgstr "個別ページ・投稿の画像レイアウト "
 
@@ -696,26 +707,33 @@ msgstr ""
 msgid "Title (optional):"
 msgstr "タイトル (オプション):"
 
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:40
-msgid ""
-"Hold down the Ctrl (windows) / Command (Mac) button to select multiple options."
-msgstr ""
-"複数のオプションを選択するには Ctrl (Windows) / Command (Mac) キーを押しながら選"
-"択してください。"
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:29
+#, fuzzy
+#| msgid "Select Categories"
+msgid "All Categories"
+msgstr "カテゴリーを選択してください"
 
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:63
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:41
+msgid ""
+"Hold down the Ctrl (windows) / Command (Mac) button to select multiple "
+"options."
+msgstr ""
+"複数のオプションを選択するには Ctrl (Windows) / Command (Mac) キーを押しなが"
+"ら選択してください。"
+
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:64
 msgid "Theme Instructions"
 msgstr "テーマ設定方法"
 
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:67
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:68
 msgid "Support"
 msgstr "応援"
 
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:71
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:72
 msgid "Changelog"
 msgstr "変更ログ"
 
-#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:83
+#: ../inc/customizer-includes/clean-box-customizer-custom-controls.php:84
 msgid "Google+"
 msgstr "Google+"
 
@@ -727,55 +745,55 @@ msgstr "おすすめコンテンツ設定"
 msgid "Featured Content Options"
 msgstr "おすすめコンテンツ設定"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:52
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:46
 msgid "Enable Featured Content on"
 msgstr "おすすめコンテンツを有効化"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:74
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:62
 msgid "Select Featured Content Layout"
 msgstr "おすすめコンテンツのレイアウトを選択"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:89
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:77
 msgid "Check to Move above Footer"
 msgstr "チェックしてフッターの上に移動"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:111
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:93
 msgid "Select Content Type"
 msgstr "コンテンツタイプの選択"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:126
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:108
 msgid "Leave field empty if you want to remove Headline"
 msgstr "見出しを削除したい場合は、フィールドを空のままにしてください"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:127
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:109
 msgid "Headline for Featured Content"
 msgstr "おすすめコンテンツの見出し"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:143
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:125
 msgid "Leave field empty if you want to remove Sub-headline"
 msgstr "小見出しを削除したい場合は、フィールドを空のままにしてください"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:144
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:126
 msgid "Sub-headline for Featured Content"
 msgstr "おすすめコンテンツの小見出し"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:160
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:142
 msgid ""
 "Save and refresh the page if No. of Featured Content is changed (Max no of "
 "Featured Content is 20)"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:167
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:149
 msgid "No of Featured Content"
 msgstr "おすすめコンテンツの数"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:190
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:166
 msgid "Display Content"
 msgstr "コンテンツ表示"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:206
-#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:112
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:196
+#: ../inc/customizer-includes/clean-box-customizer-featured-content-setting.php:182
+#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:100
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:172
 msgid "Featured Page"
 msgstr "おすすめページ"
 
@@ -789,21 +807,21 @@ msgstr "おすすめグリッドコンテンツ設定"
 msgid "Featured Grid Content"
 msgstr "おすすめグリッドコンテンツ"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:51
+#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:45
 msgid "Enable Grid Content on"
 msgstr "グリッドコンテンツを有効化:"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:73
+#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:61
 msgid "Select Grid Content Type"
 msgstr "コンテンツタイプの選択"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:88
+#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:76
 msgid ""
 "Save and refresh the page if No. of Grid Content is changed (Max no of grid "
 "content is 30). No. of Grid Content in set as a multiple of 3"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:95
+#: ../inc/customizer-includes/clean-box-customizer-featured-grid-content.php:83
 msgid "No of Grid Content"
 msgstr "グリッドコンテンツ数"
 
@@ -817,69 +835,70 @@ msgstr "おすすめスライダーオプション"
 msgid "Featured Slider"
 msgstr "おすすめスライダー"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:51
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:45
 msgid "Enable Slider on"
 msgstr "スライダーを有効化:"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:73
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:61
 msgid "Transition Effect"
 msgstr "遷移効果"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:89
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:108
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:77
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:96
 msgid "seconds(s)"
 msgstr "秒"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:93
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:81
 msgid "Transition Delay"
 msgstr "遷移遅延"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:112
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:100
 msgid "Transition Length"
 msgstr "遷移の長さ"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:133
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:115
 msgid ""
-"True: Fixes the height overlap issue. Slideshow will start as soon as two slider "
-"are available. Slide may display in random, as image is fetch.<br>Wait: Fixes "
-"the height overlap issue.<br> Slideshow will start only after all images are "
-"available."
+"True: Fixes the height overlap issue. Slideshow will start as soon as two "
+"slider are available. Slide may display in random, as image is fetch."
+"<br>Wait: Fixes the height overlap issue.<br> Slideshow will start only "
+"after all images are available."
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:135
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:117
 msgid "Image Loader"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:157
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:133
 msgid "Select Slider Type"
 msgstr "スライダーの種類を選択"
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:172
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:148
 msgid ""
-"Save and refresh the page if No. of Slides is changed (Max no of slides is 20)"
+"Save and refresh the page if No. of Slides is changed (Max no of slides is "
+"20)"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:179
+#: ../inc/customizer-includes/clean-box-customizer-featured-slider-options.php:155
 msgid "No of Slides"
 msgstr "スライドの数"
 
-#: ../inc/customizer-includes/clean-box-customizer-header-options.php:31
+#: ../inc/customizer-includes/clean-box-customizer-header-options.php:25
 msgid "Enable Featured Header Image on "
 msgstr "ヘッダーアイキャッチ画像設定を有効化: "
 
-#: ../inc/customizer-includes/clean-box-customizer-header-options.php:51
+#: ../inc/customizer-includes/clean-box-customizer-header-options.php:39
 msgid "Page/Post Featured Header Image Size"
 msgstr "ページ・投稿ヘッダーアイキャッチ画像サイズ"
 
-#: ../inc/customizer-includes/clean-box-customizer-header-options.php:64
+#: ../inc/customizer-includes/clean-box-customizer-header-options.php:52
 msgid "Featured Header Image Alt/Title Tag "
 msgstr "ヘッダーアイキャッチ画像 alt/title タグ "
 
-#: ../inc/customizer-includes/clean-box-customizer-header-options.php:77
+#: ../inc/customizer-includes/clean-box-customizer-header-options.php:65
 msgid "Featured Header Image Link URL"
 msgstr "ヘッダーアイキャッチ画像リンク URL"
 
-#: ../inc/customizer-includes/clean-box-customizer-header-options.php:90
+#: ../inc/customizer-includes/clean-box-customizer-header-options.php:78
 msgid "Check to Open Link in New Window/Tab"
 msgstr "チェックしてリンクを新しいウィンドウまたはタブで開く"
 
@@ -903,9 +922,9 @@ msgstr "テーマ設定"
 
 #: ../inc/customizer-includes/clean-box-customizer-theme-options.php:27
 msgid ""
-"Breadcrumbs are a great way of letting your visitors find out where they are on "
-"your site with just a glance. You can enable/disable them on homepage and entire "
-"site."
+"Breadcrumbs are a great way of letting your visitors find out where they are "
+"on your site with just a glance. You can enable/disable them on homepage and "
+"entire site."
 msgstr ""
 
 #: ../inc/customizer-includes/clean-box-customizer-theme-options.php:29
@@ -924,45 +943,46 @@ msgstr "チェックしてホームページでパンくずリストを有効化
 msgid "Seperator between Breadcrumbs"
 msgstr "パンくずリストの区切り記号"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:79
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:84
 msgid "Custom/Inline CSS"
 msgstr "カスタム/インライン CSS"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:82
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:87
 msgid "Custom CSS Options"
 msgstr "カスタム CSS 設定"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:92
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:97
 msgid "Enter Custom CSS"
 msgstr "カスタム CSS を入力"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:104
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:110
 msgid "Excerpt Options"
 msgstr "抜粋設定"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:114
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:120
 msgid "Excerpt length. Default is 35 words"
 msgstr "抜粋の長さ。デフォルトは35文字です。"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:121
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:127
 msgid "Excerpt Length (words)"
 msgstr "抜粋の長さ (文字数)"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:135
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:141
 msgid "Read More Text"
 msgstr "「続きを読む」テキスト"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:144
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:150
 msgid ""
-"Only posts that belong to the categories selected here will be displayed on the "
-"front page"
-msgstr "ここで選択したカテゴリーに投稿された記事のみがフロントページに表示されます"
+"Only posts that belong to the categories selected here will be displayed on "
+"the front page"
+msgstr ""
+"ここで選択したカテゴリーに投稿された記事のみがフロントページに表示されます"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:147
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:153
 msgid "Homepage / Frontpage Options"
 msgstr "ホームページ / フロントページ設定"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:157
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:163
 msgid "Select Categories"
 msgstr "カテゴリーを選択してください"
 
@@ -970,113 +990,114 @@ msgstr "カテゴリーを選択してください"
 msgid "Default Layout"
 msgstr "デフォルトのレイアウト"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:209
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:203
 msgid "Archive Content Layout"
 msgstr "アーカイブコンテンツレイアウト"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:240
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:227
 #, php-format
 msgid ""
-"Numeric Option requires <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</a>."
-"<br/>Infinite Scroll Options requires <a target=\"_blank\" href=\"%s\">JetPack "
-"Plugin</a> with Infinite Scroll module Enabled."
+"Numeric Option requires <a target=\"_blank\" href=\"%1$s\">WP-PageNavi "
+"Plugin</a>.<br/>Infinite Scroll Options requires <a target=\"_blank\" href="
+"\"%2$s\">JetPack Plugin</a> with Infinite Scroll module Enabled."
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:247
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:234
 #, php-format
 msgid ""
 "Infinite Scroll Options requires <a target=\"_blank\" href=\"%s\">JetPack "
 "Plugin</a> with Infinite Scroll module Enabled."
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:258
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:245
 #, php-format
 msgid ""
-"Numeric Option requires <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</a>."
+"Numeric Option requires <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</"
+"a>."
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:269
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:256
 msgid "Pagination Options"
 msgstr "ページ送り設定"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:286
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:267
 msgid "Pagination type"
 msgstr "ページ送りのタイプ"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:295
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:276
 msgid "To disable the fields, simply leave them empty."
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:298
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:279
 msgid "Promotion Headline Options"
 msgstr "プロモーション見出し設定"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:315
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:290
 msgid "Enable Promotion Headline on"
 msgstr "プロモーション見出しを有効化:"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:329
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:304
 msgid "Appropriate Words: 10"
 msgstr "適切な文字数: 10"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:330
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:305
 msgid "Promotion Headline Text"
 msgstr "プロモーション見出しテキスト"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:343
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:318
 msgid "Appropriate Words: 15"
 msgstr "適切な文字数: 15"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:344
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:319
 msgid "Promotion Subheadline Text"
 msgstr "プロモーション小見出しテキスト"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:357
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:400
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:332
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:375
 msgid "Appropriate Words: 3"
 msgstr "適切な文字数: 3"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:358
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:333
 msgid "Promotion Headline Button 1 Text "
 msgstr "プロモーション見出しボタン1のテキスト"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:372
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:347
 msgid "Promotion Headline Button 1 Link"
 msgstr "プロモーション見出しボタン1のリンク"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:386
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:361
 msgid "Check to Open Button 1 Link in New Window/Tab"
 msgstr "チェックしてボタン1のリンクを新しいウィンドウまたはタブで開く"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:401
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:376
 msgid "Promotion Headline Button 2 Text "
 msgstr "プロモーション見出しボタン2のテキスト "
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:415
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:390
 msgid "Promotion Headline Button 2 Link"
 msgstr "プロモーション見出しボタン2のリンク"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:429
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:404
 msgid "Check to Open Button 2 Link in New Window/Tab"
 msgstr "チェックしてボタン2のリンクを新しいウィンドウまたはタブで開く"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:441
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:416
 msgid "Scrollup Options"
 msgstr "上スクロール設定"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:451
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:426
 msgid "Check to disable Scroll Up"
 msgstr "チェックして上スクロールを無効化"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:460
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:435
 msgid "Change default placeholder text in Search."
 msgstr "検索フィールドのデフォルトテキストを変更。"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:463
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:438
 msgid "Search Options"
 msgstr "検索設定"
 
-#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:473
+#: ../inc/customizer-includes/clean-box-customizer-theme-options.php:448
 msgid "Default Display Text in Search"
 msgstr "検索フィールドのデフォルトテキスト"
 
@@ -1104,43 +1125,41 @@ msgstr "固定ヘッダー設定"
 msgid "Select/Add Logo Icon"
 msgstr "ロゴアイコンを選択・追加"
 
-#: ../inc/customizer-includes/clean-box-customizer.php:138
+#: ../inc/customizer-includes/clean-box-customizer.php:130
 msgid "Color Scheme"
 msgstr "配色 "
 
-#: ../inc/customizer-includes/clean-box-customizer.php:166
+#: ../inc/customizer-includes/clean-box-customizer.php:158
 msgid ""
-"Caution: Reset all settings to default. Refresh the page after save to view full "
-"effects."
+"Caution: Reset all settings to default. Refresh the page after save to view "
+"full effects."
 msgstr ""
-"警告: すべての設定をデフォルトにリセットします。全効果を表示するには保存後ページ"
-"を再読み込みしてください。"
+"警告: すべての設定をデフォルトにリセットします。全効果を表示するには保存後"
+"ページを再読み込みしてください。"
 
-#: ../inc/customizer-includes/clean-box-customizer.php:168
+#: ../inc/customizer-includes/clean-box-customizer.php:160
 msgid "Reset all settings"
 msgstr "すべての設定をリセット"
 
-#: ../inc/customizer-includes/clean-box-customizer.php:179
+#: ../inc/customizer-includes/clean-box-customizer.php:171
 msgid "Check to reset all settings to default"
 msgstr "チェックしてすべての設定をリセット"
 
-#: ../inc/customizer-includes/clean-box-customizer.php:190
-#: ../inc/customizer-includes/clean-box-customizer.php:201
+#: ../inc/customizer-includes/clean-box-customizer.php:182
+#: ../inc/customizer-includes/clean-box-customizer.php:193
 msgid "Important Links"
 msgstr "重要なリンク"
 
-#: ../inc/customizer-includes/clean-box-customizer.php:236
-msgid "Upgrade To Pro &raquo;"
-msgstr "プロ版にアップグレード &raquo;"
-
-#: ../inc/customizer-includes/clean-box-customizer.php:238
-msgid ""
-"Some settings might be missing or disorganized in this version of WordPress. So "
-"we suggest you to upgrade to version 4.0 or better."
+#: ../inc/customizer-includes/clean-box-customizer.php:227
+msgid "Refresh the customizer page after saving to view reset effects"
 msgstr ""
 
-#: ../inc/customizer-includes/clean-box-customizer.php:242
-msgid "Refresh the customizer page after saving to view reset effects"
+#: ../inc/customizer-includes/upgrade-button/class-customize.php:76
+msgid "Clean Box Pro"
+msgstr "Clean Box Pro"
+
+#: ../inc/customizer-includes/upgrade-button/class-customize.php:77
+msgid "Upgrade Now"
 msgstr ""
 
 #: ../no-results.php:15
@@ -1175,14 +1194,35 @@ msgstr ""
 #: ../sidebar.php:39
 #, php-format
 msgid ""
-"By default it will load Search and Archives widgets as shown below. You can add "
-"widget to this area by visiting your <a href=\"%s\">Widgets Panel</a> which will "
-"replace default widgets."
+"By default it will load Search and Archives widgets as shown below. You can "
+"add widget to this area by visiting your <a href=\"%s\">Widgets Panel</a> "
+"which will replace default widgets."
 msgstr ""
 
 #: ../sidebar.php:52
 msgid "Archives"
 msgstr "アーカイブ"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "Permalink to:"
+#~ msgstr "パーマリンク:"
+
+#~ msgid "Clean Box"
+#~ msgstr "Clean Box"
+
+#~ msgid "https://catchthemes.com/themes/clean-box"
+#~ msgstr "https://catchthemes.com/themes/clean-box"
+
+#~ msgid "Catch Themes"
+#~ msgstr "Catch Themes"
+
+#~ msgid "https://catchthemes.com/"
+#~ msgstr "https://catchthemes.com/"
+
+#~ msgid "Upgrade To Pro &raquo;"
+#~ msgstr "プロ版にアップグレード &raquo;"
 
 #~ msgid "Author: %s"
 #~ msgstr "作成者: %s"
@@ -1199,10 +1239,6 @@ msgstr "アーカイブ"
 
 #~ msgid "Year: %s"
 #~ msgstr "﻿年: %s"
-
-#~ msgctxt "yearly archives date format"
-#~ msgid "Y"
-#~ msgstr "Y年"
 
 #~ msgid "Asides"
 #~ msgstr "アサイド"
@@ -1231,21 +1267,9 @@ msgstr "アーカイブ"
 #~ msgid "Chats"
 #~ msgstr "チャット"
 
-#~ msgid "Clean Box"
-#~ msgstr "Clean Box"
-
 #~ msgid "Suffle"
 #~ msgstr "シャッフル"
 
 #~ msgctxt "Used before publish date."
 #~ msgid "<span class=\"screen-reader-text\">Posted on</span>"
 #~ msgstr "<span class=“screen-reader-text”>投稿日</span>"
-
-#~ msgid "https://catchthemes.com/"
-#~ msgstr "https://catchthemes.com/"
-
-#~ msgid "https://catchthemes.com/themes/clean-box"
-#~ msgstr "https://catchthemes.com/themes/clean-box"
-
-#~ msgid "Catch Themes"
-#~ msgstr "Catch Themes"

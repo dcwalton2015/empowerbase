@@ -4,7 +4,7 @@
  *
  * @package Catch Themes
  * @subpackage Clean Box
- * @since Clean Box 0.1 
+ * @since Clean Box 0.1
  */
 
 if ( ! defined( 'CLEAN_BOX_THEME_VERSION' ) ) {
@@ -18,7 +18,7 @@ if ( ! function_exists( 'clean_box_doctype' ) ) :
 	/**
 	 * Doctype Declaration
 	 *
-	 * @since Clean Box 0.1 
+	 * @since Clean Box 0.1
 	 *
 	 */
 	function clean_box_doctype() {
@@ -35,7 +35,7 @@ if ( ! function_exists( 'clean_box_head' ) ) :
 	/**
 	 * Header Codes
 	 *
-	 * @since Clean Box 0.1 
+	 * @since Clean Box 0.1
 	 *
 	 */
 	function clean_box_head() {
@@ -43,9 +43,6 @@ if ( ! function_exists( 'clean_box_head' ) ) :
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<link rel="profile" href="http://gmpg.org/xfn/11">
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-		<!--[if lt IE 9]>
-			<script src="<?php echo get_template_directory_uri(); ?>/js/html5.min.js"></script>
-		<![endif]-->
 		<?php
 	}
 endif;
@@ -56,7 +53,7 @@ if ( ! function_exists( 'clean_box_doctype_start' ) ) :
 	/**
 	 * Start div id #page
 	 *
-	 * @since Clean Box 0.1 
+	 * @since Clean Box 0.1
 	 *
 	 */
 	function clean_box_page_start() {
@@ -72,7 +69,7 @@ if ( ! function_exists( 'clean_box_page_end' ) ) :
 	/**
 	 * End div id #page
 	 *
-	 * @since Clean Box 0.1 
+	 * @since Clean Box 0.1
 	 *
 	 */
 	function clean_box_page_end() {
@@ -88,7 +85,7 @@ if ( ! function_exists( 'clean_box_header_start' ) ) :
 	/**
 	 * Start Header id #masthead and class .wrapper
 	 *
-	 * @since Clean Box 0.1 
+	 * @since Clean Box 0.1
 	 *
 	 */
 	function clean_box_header_start() {
@@ -105,7 +102,7 @@ if ( ! function_exists( 'clean_box_header_end' ) ) :
 	/**
 	 * End Header id #masthead and class .wrapper
 	 *
-	 * @since Clean Box 0.1 
+	 * @since Clean Box 0.1
 	 *
 	 */
 	function clean_box_header_end() {
@@ -122,7 +119,7 @@ if ( ! function_exists( 'clean_box_content_start' ) ) :
 	/**
 	 * Start div id #content and class .wrapper
 	 *
-	 * @since Clean Box 0.1 
+	 * @since Clean Box 0.1
 	 *
 	 */
 	function clean_box_content_start() {
@@ -138,7 +135,7 @@ if ( ! function_exists( 'clean_box_content_end' ) ) :
 	/**
 	 * End div id #content and class .wrapper
 	 *
-	 * @since Clean Box 0.1 
+	 * @since Clean Box 0.1
 	 */
 	function clean_box_content_end() {
 		?>
@@ -154,8 +151,8 @@ add_action( 'clean_box_after_content', 'clean_box_content_end', 30 );
 if ( ! function_exists( 'clean_box_sidebar_secondary' ) ) :
 	/**
 	 * Secondary Sidebar
-	 * 
-	 * @since Clean Box 0.1 
+	 *
+	 * @since Clean Box 0.1
 	 */
 	function clean_box_sidebar_secondary() {
 		get_sidebar( 'secondary' );
@@ -167,7 +164,7 @@ if ( ! function_exists( 'clean_box_footer_content_start' ) ) :
 /**
  * Start footer id #colophon
  *
- * @since Clean Box 0.1 
+ * @since Clean Box 0.1
  */
 function clean_box_footer_content_start() {
 	?>
@@ -182,7 +179,7 @@ if ( ! function_exists( 'clean_box_footer_sidebar' ) ) :
 /**
  * Footer Sidebar
  *
- * @since Clean Box 0.1 
+ * @since Clean Box 0.1
  */
 function clean_box_footer_sidebar() {
 	get_sidebar( 'footer' );
@@ -195,7 +192,7 @@ if ( ! function_exists( 'clean_box_footer_content_end' ) ) :
 /**
  * End footer id #colophon
  *
- * @since Clean Box 0.1 
+ * @since Clean Box 0.1
  */
 function clean_box_footer_content_end() {
 	?>

@@ -41,14 +41,8 @@ if ( ! defined( 'CLEAN_BOX_THEME_VERSION' ) ) {
 		'sanitize_callback'	=> 'clean_box_sanitize_select'
 	) );
 
-	$clean_box_featured_grid_content_options = clean_box_featured_grid_content_options();
-	$choices = array();
-	foreach ( $clean_box_featured_grid_content_options as $clean_box_featured_grid_content_option ) {
-		$choices[$clean_box_featured_grid_content_option['value']] = $clean_box_featured_grid_content_option['label'];
-	}
-
 	$wp_customize->add_control( 'clean_box_theme_options[featured_content_option]', array(
-		'choices'  	=> $choices,
+		'choices'  	=> clean_box_featured_grid_content_options(),
 		'label'    	=> __( 'Enable Featured Content on', 'clean-box' ),
 		'priority'	=> '1',
 		'section'  	=> 'clean_box_featured_content_settings',
@@ -62,15 +56,9 @@ if ( ! defined( 'CLEAN_BOX_THEME_VERSION' ) ) {
 		'sanitize_callback' => 'clean_box_sanitize_select',
 	) );
 
-	$clean_box_featured_content_layout_options = clean_box_featured_content_layout_options();
-	$choices = array();
-	foreach ( $clean_box_featured_content_layout_options as $clean_box_featured_content_layout_option ) {
-		$choices[$clean_box_featured_content_layout_option['value']] = $clean_box_featured_content_layout_option['label'];
-	}
-
 	$wp_customize->add_control( 'clean_box_theme_options[featured_content_layout]', array(
 		'active_callback'	=> 'clean_box_is_featured_content_active',
-		'choices'  	=> $choices,
+		'choices'  	=> clean_box_featured_content_layout_options(),
 		'label'    	=> __( 'Select Featured Content Layout', 'clean-box' ),
 		'priority'	=> '2',
 		'section'  	=> 'clean_box_featured_content_settings',
@@ -99,15 +87,9 @@ if ( ! defined( 'CLEAN_BOX_THEME_VERSION' ) ) {
 		'sanitize_callback'	=> 'clean_box_sanitize_select',
 	) );
 
-	$clean_box_featured_content_types = clean_box_featured_content_types();
-	$choices = array();
-	foreach ( $clean_box_featured_content_types as $clean_box_featured_content_type ) {
-		$choices[$clean_box_featured_content_type['value']] = $clean_box_featured_content_type['label'];
-	}
-
 	$wp_customize->add_control( 'clean_box_theme_options[featured_content_type]', array(
 		'active_callback'	=> 'clean_box_is_featured_content_active',
-		'choices'  	=> $choices,
+		'choices'  	=> clean_box_featured_content_types(),
 		'label'    	=> __( 'Select Content Type', 'clean-box' ),
 		'priority'	=> '3',
 		'section'  	=> 'clean_box_featured_content_settings',
@@ -178,15 +160,9 @@ if ( ! defined( 'CLEAN_BOX_THEME_VERSION' ) ) {
 		'sanitize_callback'	=> 'clean_box_sanitize_select',
 	) ); 
 
-	$clean_box_featured_content_show = clean_box_featured_content_show();
-	$choices = array();
-	foreach ( $clean_box_featured_content_show as $clean_box_featured_content_shows ) {
-		$choices[$clean_box_featured_content_shows['value']] = $clean_box_featured_content_shows['label'];
-	}
-
 	$wp_customize->add_control( 'clean_box_theme_options[featured_content_show]', array(
 		'active_callback'	=> 'clean_box_is_demo_featured_content_inactive',
-		'choices'  	=> $choices,
+		'choices'  	=> clean_box_featured_content_show(),
 		'label'    	=> __( 'Display Content', 'clean-box' ),
 		'priority'	=> '8',
 		'section'  	=> 'clean_box_featured_content_settings',
