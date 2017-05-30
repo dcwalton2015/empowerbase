@@ -21,6 +21,9 @@ function square_setup() {
 
 	//Support for woocommerce
 	add_theme_support( 'woocommerce' );
+	add_theme_support( 'wc-product-gallery-zoom' );
+    add_theme_support( 'wc-product-gallery-lightbox' );
+    add_theme_support( 'wc-product-gallery-slider' );
 
 	//Enable support for Post Thumbnails on posts and pages.
 	add_theme_support( 'post-thumbnails' );

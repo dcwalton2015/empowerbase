@@ -1,10 +1,10 @@
 /*
 Theme Name: Square
-Theme URI: http://hashthemes.com/wordpress-theme/square/
+Theme URI: https://hashthemes.com/wordpress-theme/square/
 Author: HashThemes
-Author URI: http://hashthemes.com
+Author URI: https://hashthemes.com
 Description: Square is a flexible responsive multipurpose theme compatible with all browsers and devices, fully mobile friendly, loaded with lots of features. It is a minimal theme based on WordPress Customizer that allows you to customize with live preview. The theme can be used for business, corporate, digital agency, personal, portfolio, photography, parallax, blogs and magazines. Square is eCommerce (WooCommerce) Compatible, Polylang Compatible, WPML, RTL, Retina Ready, SEO Friendly and Support bbPress and BuddyPress. More over it is a complete theme. For demo http://demo.hashthemes.com/square
-Version: 1.3.2
+Version: 1.3.5
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: square
@@ -2171,20 +2171,35 @@ object {
 	border-top: 2px solid #5bc2ce;
 }
 
+.woocommerce ul.products li.product .woocommerce-loop-category__title, 
+.woocommerce ul.products li.product .woocommerce-loop-product__title, 
 .woocommerce ul.products li.product h3{
 	font-size: 16px;
 	padding: 0;
 	margin: 0 0 6px;
 	font-weight: 400;
 	text-transform: uppercase;
+	border: 0;
 }
 
+.woocommerce ul.products li.product .woocommerce-loop-category__title a, 
+.woocommerce ul.products li.product .woocommerce-loop-product__title a, 
 .woocommerce ul.products li.product h3 a{
 	color: #333;
 }
 
+.woocommerce ul.products li.product .woocommerce-loop-category__title a:hover, 
+.woocommerce ul.products li.product .woocommerce-loop-product__title a:hover, 
 .woocommerce ul.products li.product h3 a:hover{
 	color: #5bc2ce;
+}
+
+.woocommerce div.product div.images .flex-control-thumbs{
+	margin: 5px -5px 0;
+}
+
+.woocommerce div.product div.images .flex-control-thumbs li{
+	padding: 5px;
 }
 
 .woocommerce ul.products li.product .price{

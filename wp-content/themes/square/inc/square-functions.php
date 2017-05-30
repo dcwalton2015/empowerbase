@@ -40,7 +40,7 @@ if( !function_exists( 'square_excerpt' ) ){
 	function square_excerpt( $content , $letter_count ){
 		$content = strip_shortcodes( $content );
 		$content = strip_tags( $content );
-		$content = substr( $content, 0 , $letter_count );
+		$content = mb_substr( $content, 0 , $letter_count );
 
 		if( strlen( $content ) == $letter_count ){
 			$content .= "...";

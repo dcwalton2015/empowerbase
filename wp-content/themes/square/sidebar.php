@@ -9,6 +9,9 @@ $sq_sidebar_layout = "right_sidebar";
 
 if( is_singular( array( 'post', 'page' )) ){
 	$sq_sidebar_layout = get_post_meta( $post->ID, 'sq_sidebar_layout', true );
+	if(!$sq_sidebar_layout){
+		$sq_sidebar_layout = "right_sidebar";
+	}
 }
 
 if ( $sq_sidebar_layout == "no_sidebar" || $sq_sidebar_layout == "no_sidebar_condensed" ) {

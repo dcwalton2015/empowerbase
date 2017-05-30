@@ -15,7 +15,6 @@ function square_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-	global $fontawesome_choices;
 	$square_page = '';
 	$square_page_array = get_pages();
 	if(is_array($square_page_array)){
@@ -23,9 +22,9 @@ function square_customize_register( $wp_customize ) {
 	}
 
 	$header_bg_choices = array(
-							'sq-white' => __( 'White', 'square'), 
-							'sq-black' => __( 'Black', 'square')  
-							);
+		'sq-white' => __( 'White', 'square'), 
+		'sq-black' => __( 'Black', 'square')  
+		);
 
 	/*============GENERAL SETTINGS PANEL============*/
 	$wp_customize->add_panel(
@@ -191,7 +190,7 @@ function square_customize_register( $wp_customize ) {
 	$wp_customize->add_panel(
 		'square_home_settings_panel',
 		array(
-			'title' 			=> __( 'Home Page Settings', 'square' ),
+			'title' 			=> __( 'Home Page Sections', 'square' ),
 			'priority'          => 10
 		)
 	);
@@ -374,9 +373,8 @@ function square_customize_register( $wp_customize ) {
 		array(
 			'settings'		=> 'square_featured_page_icon'.$i,
 			'section'		=> 'square_featured_page_sec',
-			'type'			=> 'select',
 			'label'			=> __( 'FontAwesome Icon', 'square' ),
-			'choices'       => $fontawesome_choices,
+			'type'			=> 'icon'
 		)
 		)
 	);
@@ -829,6 +827,53 @@ function square_customize_register( $wp_customize ) {
 			'label'			=> __( 'Instagram', 'square' )
 		)
 	);
+
+	/*============IMPORTANT LINKS============*/
+	$wp_customize->add_section(
+		'square_implink_section',
+		array(
+			'title' 			=> __( 'Important Links', 'square' ),
+			'priority'			=> 1
+		)
+	);
+
+	$wp_customize->add_setting(
+		'square_imp_links',
+		array(
+			'sanitize_callback' => 'square_sanitize_text'
+		)
+	);
+
+	$wp_customize->add_control(
+		new Square_Info_Text( 
+			$wp_customize,
+			'square_imp_links',
+			array(
+				'settings'		=> 'square_imp_links',
+				'section'		=> 'square_implink_section',
+				'description'	=> '<a class="ht-implink" href="https://hashthemes.com/documentation/square-documentation/" target="_blank">'.__('Documentation', 'square').'</a><a class="ht-implink" href="http://demo.hashthemes.com/square/" target="_blank">'.__('Live Demo', 'square').'</a><a class="ht-implink" href="https://hashthemes.com/support/" target="_blank">'.__('Support Forum', 'square').'</a><a class="ht-implink" href="https://www.facebook.com/hashtheme/" target="_blank">'.__('Like Us in Facebook', 'square').'</a>',
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'square_rate_us',
+		array(
+			'sanitize_callback' => 'square_sanitize_text'
+		)
+	);
+
+	$wp_customize->add_control(
+		new Square_Info_Text( 
+			$wp_customize,
+			'square_rate_us',
+			array(
+				'settings'		=> 'square_rate_us',
+				'section'		=> 'square_implink_section',
+				'description'	=> sprintf(__( 'Please do rate our theme if you liked it %s', 'square'), '<a class="ht-implink" href="https://wordpress.org/support/theme/square/reviews/?filter=5" target="_blank">Rate/Review</a>' ),
+			)
+		)
+	);
 }
 add_action( 'customize_register', 'square_customize_register' );
 
@@ -961,6 +1006,23 @@ class Square_Display_Gallery_Control extends WP_Customize_Control{
 	</label>
 	<?php
 	}
+}
+
+class Square_Info_Text extends WP_Customize_Control{
+
+    public function render_content(){
+    ?>
+	    <span class="customize-control-title">
+			<?php echo esc_html( $this->label ); ?>
+		</span>
+
+		<?php if($this->description){ ?>
+			<span class="description customize-control-description">
+			<?php echo wp_kses_post($this->description); ?>
+			</span>
+		<?php }
+    }
+
 }
 
 endif;

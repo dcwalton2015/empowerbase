@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Home Page
+ * Front Page
  *
  * @package square
  */

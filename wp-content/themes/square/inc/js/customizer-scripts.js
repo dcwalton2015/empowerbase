@@ -82,27 +82,10 @@ jQuery(document).ready(function($) {
             }
         );
         return false;
-    });
-
-    // Button insertion on customizer header
-    $('#customize-info .preview-notice').append(
-         '<div class="square-info">'+
-         '<a href="http://demo.hashthemes.com/square" target="_blank">Live Demo</a>'+
-         '<a href="http://hashthemes.com/support/" target="_blank">Support Forum</a>'+
-         '</div>'
-    ); 
-
-    $('#customize-footer-actions').append(
-         '<a href="https://www.facebook.com/hashtheme" class="square-like" target="_blank">'+
-         '<i class="fa fa-facebook"></i>Like Us'+
-         '</a>'
-    );  
+    }); 
 
     //Scroll to section
-    $('body').on('click', '#accordion-panel-square_home_settings_panel .control-subsection .accordion-section-title', function(event) {
-        if ( !$(this).parent('.control-subsection').hasClass('open') ) {
-         return false;
-        };
+    $('body').on('click', '#sub-accordion-panel-square_home_settings_panel .control-subsection .accordion-section-title', function(event) {
         var section_id = $(this).parent('.control-subsection').attr('id');
         scrollToSection( section_id );
     });

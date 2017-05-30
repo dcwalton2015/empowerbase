@@ -12,18 +12,36 @@
   width: 98%;
 }
 
-#customize-theme-controls .accordion-section-content{
-  background: #FFF;
+.square-accordion-section-title{
+    color: #0073aa;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+    padding: 10px 10px 11px 14px;
+    line-height: 21px;
+    background: #FFF;
+    margin: 0 -12px 0;
+    border-left: 4px solid #0073aa
 }
 
-.square-accordion-section-title{
-  color: #555;
-  border-bottom: 1px solid #eee;
-  border-top: 1px solid #eee;
-  padding: 10px 10px 11px 14px;
-  line-height: 21px;
-  background: #f5f5f5;
-  margin: 0 -12px 0;
+.customize-control-heading .customize-control-description{
+    margin: 5px 0 0;
+}
+
+.ht-implink{
+  background: #0073aa;
+  padding: 5px 10px;
+  color: #FFF !important;
+  text-align: center;
+  display: block;
+  margin-top: 5px;
+  line-height: 1.2;
+  box-shadow: none;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.ht-implink:hover{
+  background: #000;
 }
 
 /*GALLERY CONTROL*/
@@ -52,7 +70,6 @@
 }
 
 /*CHOSEN*/
-
 .chosen-container-single .chosen-single {
   border-radius: 0px;
   height: 28px;
@@ -90,6 +107,11 @@
   margin-right: 45px;
   cursor: pointer;
   font-size: 28px;
+}
+
+.square-selected-icon .fa{
+  display: block;
+  line-height: 45px;
 }
 
 .square-selected-icon span{
@@ -160,27 +182,34 @@
   background: #000;
 }
 
-.square-like{
-  position: fixed;
-  bottom: 8px;
-  left: 100px;
-  background: #4763B3;
-  padding: 4px 10px;
-  color: #FFF;
-  font-size: 12px;
-  border-radius: 3px;
+.customize-pane-parent .control-section .accordion-section-title:before{
+    font-family: dashicons;
+    content: "\f103";
+    font-size: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
 }
 
-.square-like:hover,
-.square-like:active,
-.square-like:focus{
-  color: #FFF;
+#accordion-panel-square_general_settings_panel .accordion-section-title:before{
+    content: "\f111";
 }
 
-.square-like .fa{
-  margin-right: 5px;
+#accordion-panel-square_home_settings_panel .accordion-section-title:before{
+    content: "\f102";
 }
 
-.wp-full-overlay.collapsed .square-like{
-  display: none;
+#accordion-panel-nav_menus .accordion-section-title:before{
+    content: "\f333";
+}
+
+#accordion-panel-widgets .accordion-section-title:before{
+    content: "\f116";
+}
+
+#accordion-panel-widgets .accordion-section-title:before{
+    content: "\f116";
+}
+
+#accordion-section-custom_css .accordion-section-title:before{
+    content: "\f499";
 }
