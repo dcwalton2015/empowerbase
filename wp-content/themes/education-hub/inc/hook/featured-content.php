@@ -135,12 +135,12 @@ if ( ! function_exists( 'education_hub_render_featured_content' ) ) :
 							<div>
 								<?php
 								$excerpt_content = wp_kses_post( $content['excerpt'] );
-								echo wpautop( $excerpt_content );
+								echo wp_kses_post( wpautop( $excerpt_content ) );
 								?>
 							</div>
 						</div>
 					</article>
-				<?php endforeach ?>
+				<?php endforeach; ?>
 				</div>
 			</div>
 		</div>

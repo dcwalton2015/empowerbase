@@ -4,11 +4,11 @@ Theme URI: http://wenthemes.com/item/wordpress-themes/education-hub/
 Author: WEN Themes
 Author URI: http://wenthemes.com/
 Description: Education Hub is a clean and elegant WordPress education theme with simplistic but unique look and feel. This theme is best suited for college, school, university and other educational websites. But this theme is not binded to be fit for educational websites only. This is also flexible enough to be used for business and corporate websites. Theme is highly customizable with layout settings and several other theme options which can be customized by using Theme Options panel based on powerful Customizer API. Education Hub helps you to easily and intuitively create professional and appealing educational websites. Official Support Forum: http://themepalace.com/support-forum/ Full Demo: http://wenthemes.com/theme-demos/?demo=education-hub
-Version: 1.9.2
+Version: 1.9.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: education-hub
-Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-menu, featured-images, full-width-template, post-formats, sticky-post, translation-ready, theme-options, threaded-comments, education, footer-widgets, blog, custom-logo, editor-style
+Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-menu, featured-images, full-width-template, post-formats, sticky-post, translation-ready, theme-options, threaded-comments, education, footer-widgets, blog, custom-logo, editor-style
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -3084,10 +3084,13 @@ input[type="url"] {
 		margin-bottom: 6px;
 	}
 
-	#featured-content .featured-content-column-3 article {
+	#featured-content .inner-wrapper article {
 		width: 50%;
 	}
-
+   #featured-content .inner-wrapper article:nth-child(2n+1) {
+        clear: both;
+    }
+ 
 	.recent-news,
 	.recent-events {
 		float: left;
@@ -3417,10 +3420,7 @@ input[type="url"] {
 		margin-bottom: 0;
 	}
 
-	#featured-content article,
-	#featured-content .featured-content-column-1 article,
-	#featured-content .featured-content-column-2 article,
-	#featured-content .featured-content-column-3 article,
+	#featured-content .inner-wrapper article,
 	.news-post {
 		width: 100%;
 	}

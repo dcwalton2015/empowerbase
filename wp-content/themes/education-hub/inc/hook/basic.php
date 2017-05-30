@@ -63,7 +63,7 @@ add_action( 'wp_head', 'education_hub_add_custom_css' );
 if ( ! function_exists( 'education_hub_implement_excerpt_length' ) ) :
 
 	/**
-	 * Implement excerpt length
+	 * Implement excerpt length.
 	 *
 	 * @since 1.0.0
 	 *
@@ -97,6 +97,7 @@ if ( ! function_exists( 'education_hub_implement_read_more' ) ) :
 	function education_hub_implement_read_more( $more ) {
 
 		$flag_apply_excerpt_read_more = apply_filters( 'education_hub_filter_excerpt_read_more', true );
+
 		if ( true !== $flag_apply_excerpt_read_more ) {
 			return $more;
 		}
@@ -104,7 +105,7 @@ if ( ! function_exists( 'education_hub_implement_read_more' ) ) :
 		$output = $more;
 		$read_more_text = education_hub_get_option( 'read_more_text' );
 		if ( ! empty( $read_more_text ) ) {
-			$output = ' <a href="'. esc_url( get_permalink() ) . '" class="read-more">' . sprintf( __( '%s', 'education-hub' ) , esc_html( $read_more_text ) ) . '</a>';
+			$output = ' <a href="' . esc_url( get_permalink() ) . '" class="read-more">' . sprintf( '%s' , esc_html( $read_more_text ) ) . '</a>';
 			$output = apply_filters( 'education_hub_filter_read_more_link' , $output );
 		}
 		return $output;
@@ -148,7 +149,7 @@ add_filter( 'the_content_more_link', 'education_hub_content_more_link', 10, 2 );
 
 if ( ! function_exists( 'education_hub_custom_body_class' ) ) :
 	/**
-	 * Custom body class
+	 * Custom body class.
 	 *
 	 * @since 1.0.0
 	 *
@@ -282,3 +283,40 @@ if ( ! function_exists( 'education_hub_customizer_reset_callback' ) ) :
 endif;
 
 add_action( 'customize_save_after', 'education_hub_customizer_reset_callback' );
+
+if ( ! function_exists( 'education_hub_import_custom_css' ) ) :
+
+	/**
+	 * Import Custom CSS.
+	 *
+	 * @since 1.0.5
+	 */
+	function education_hub_import_custom_css() {
+
+		// Bail if not WP 4.7.
+		if ( ! function_exists( 'wp_get_custom_css_post' ) ) {
+			return;
+		}
+
+		$custom_css = education_hub_get_option( 'custom_css' );
+
+		// Bail if there is no Custom CSS.
+		if ( empty( $custom_css ) ) {
+			return;
+		}
+
+		$core_css = wp_get_custom_css();
+		$return = wp_update_custom_css_post( $core_css . $custom_css );
+
+		if ( ! is_wp_error( $return ) ) {
+
+			// Remove from theme.
+			$options = education_hub_get_options();
+			$options['custom_css'] = '';
+			set_theme_mod( 'theme_options', $options );
+		}
+
+	}
+endif;
+
+add_action( 'after_setup_theme', 'education_hub_import_custom_css', 99 );

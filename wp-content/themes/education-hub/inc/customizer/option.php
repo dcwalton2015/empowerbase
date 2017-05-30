@@ -758,7 +758,7 @@ $wp_customize->add_setting( 'theme_options[breadcrumb_type]',
 $wp_customize->add_control( 'theme_options[breadcrumb_type]',
 	array(
 	'label'       => __( 'Breadcrumb Type', 'education-hub' ),
-	'description' => sprintf( __( 'Advanced: Requires %sBreadcrumb NavXT%s plugin', 'education-hub' ), '<a href="https://wordpress.org/plugins/breadcrumb-navxt/" target="_blank">','</a>' ),
+	'description' => sprintf( __( 'Advanced: Requires %1$sBreadcrumb NavXT%2$s plugin', 'education-hub' ), '<a href="https://wordpress.org/plugins/breadcrumb-navxt/" target="_blank">','</a>' ),
 	'section'     => 'section_breadcrumb',
 	'type'        => 'select',
 	'choices'     => education_hub_get_breadcrumb_type_options(),

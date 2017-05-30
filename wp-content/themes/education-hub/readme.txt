@@ -1,9 +1,9 @@
 === Education Hub ===
 
 Contributors: wenthemes
-Requires at least: 4.4
-Tested up to: 4.6.1
-Stable tag: 1.9.2
+Requires at least: 4.5
+Tested up to: 4.7
+Stable tag: 1.9.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,6 +20,16 @@ Education Hub is a clean and elegant WordPress education theme with simplistic b
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.9.4 - Dec 26 2016 =
+* Update Font Awesome
+* Fix featured content styling issue
+* Minor bug fixes
+
+= 1.9.3 - Dec 8 2016 =
+* Compatibility with WP 4.7
+* Custom CSS migration
+* Minor bug fixes
 
 = 1.9.2 - Oct 4 2016 =
 * Fix: Pagination in search results

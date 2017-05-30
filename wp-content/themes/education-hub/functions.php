@@ -156,10 +156,10 @@ add_action( 'widgets_init', 'education_hub_widgets_init' );
 function education_hub_scripts() {
 	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/third-party/font-awesome/css/font-awesome' . $min . '.css', '', '4.6.1' );
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/third-party/font-awesome/css/font-awesome' . $min . '.css', '', '4.7.0' );
 	wp_enqueue_style( 'education-hub-google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:600,400,400italic,300,100,700|Merriweather+Sans:400,700' );
 
-	wp_enqueue_style( 'education-hub-style', get_stylesheet_uri(), array(), '1.9.2' );
+	wp_enqueue_style( 'education-hub-style', get_stylesheet_uri(), array(), '1.9.4' );
 
 	if ( has_header_image() ) {
 		$custom_css = '#masthead{ background-image: url("' . esc_url( get_header_image() ) . '"); background-repeat: no-repeat; background-position: center center; }';

@@ -11,6 +11,7 @@ $wp_customize->add_section( 'section_reset_all_settings', array(
 	'description' => esc_html__( 'Caution: All theme settings will be reset to default. Refresh the page after save to view full effects.', 'education-hub' ),
 	'priority'    => 200,
 	'capability'  => 'edit_theme_options',
+	'panel'       => 'theme_option_panel',
 ) );
 
 $wp_customize->add_setting( 'theme_options[reset_all_settings]', array(

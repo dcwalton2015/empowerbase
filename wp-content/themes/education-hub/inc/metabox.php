@@ -113,8 +113,12 @@ if ( ! function_exists( 'education_hub_save_theme_settings_meta' ) ) :
 	function education_hub_save_theme_settings_meta( $post_id, $post ) {
 
 		// Verify nonce.
-		if ( ! isset( $_POST['education_hub_theme_settings_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['education_hub_theme_settings_meta_box_nonce'], basename( __FILE__ ) ) ) {
-			  return; }
+		if (
+			! ( isset( $_POST['education_hub_theme_settings_meta_box_nonce'] )
+			&& wp_verify_nonce( sanitize_key( $_POST['education_hub_theme_settings_meta_box_nonce'] ), basename( __FILE__ ) ) )
+		) {
+			return;
+		}
 
 		// Bail if auto save or revision.
 		if ( defined( 'DOING_AUTOSAVE' ) || is_int( wp_is_post_revision( $post ) ) || is_int( wp_is_post_autosave( $post ) ) ) {
@@ -122,19 +126,23 @@ if ( ! function_exists( 'education_hub_save_theme_settings_meta' ) ) :
 		}
 
 		// Check the post being saved == the $post_id to prevent triggering this call for other save_post events.
-		if ( empty( $_POST['post_ID'] ) || $_POST['post_ID'] != $post_id ) {
+		if ( empty( $_POST['post_ID'] ) || absint( $_POST['post_ID'] ) !== $post_id ) {
 			return;
 		}
+
 
 		// Check permission.
 		if ( 'page' === $_POST['post_type'] ) {
 			if ( ! current_user_can( 'edit_page', $post_id ) ) {
-				return; }
+				return;
+			}
 		} else if ( ! current_user_can( 'edit_post', $post_id ) ) {
 			return;
 		}
 
-		if ( ! array_filter( $_POST['theme_settings'] ) ) {
+		$raw_value = wp_unslash( $_POST['theme_settings'] );
+
+		if ( ! array_filter( $raw_value ) ) {
 
 			// No value.
 			delete_post_meta( $post_id, 'theme_settings' );
@@ -153,18 +161,19 @@ if ( ! function_exists( 'education_hub_save_theme_settings_meta' ) ) :
 				);
 
 			$sanitized_values = array();
-			foreach ( $_POST['theme_settings'] as $mk => $mv ) {
+
+			foreach ( $raw_value as $mk => $mv ) {
 
 				if ( isset( $meta_fields[ $mk ]['type'] ) ) {
 					switch ( $meta_fields[ $mk ]['type'] ) {
 						case 'select':
-							$sanitized_values[ $mk ] = esc_attr( $mv );
+							$sanitized_values[ $mk ] = sanitize_key( $mv );
 							break;
 						case 'checkbox':
 							$sanitized_values[ $mk ] = absint( $mv ) > 0 ? 1 : 0;
 							break;
 						default:
-							$sanitized_values[ $mk ] = esc_attr( $mv );
+							$sanitized_values[ $mk ] = sanitize_text_field( $mv );
 							break;
 					}
 				} // End if.
