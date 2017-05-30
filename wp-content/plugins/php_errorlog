@@ -1,0 +1,1 @@
+[28-May-2017 13:06:08 CST6CDT] PHP Fatal error:  Call to undefined function add_action() in /home/empowerbase/public_html/wp-content/plugins/hello.php on line 60
